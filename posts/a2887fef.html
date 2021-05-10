@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/32x32.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/32x32.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/16x16.ico">
+  <link rel="mask-icon" href="/images/32x32.ico" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"aysamu.space","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Dijkstra算法与Bellman-Ford算法两者都可以用来寻找加权图中最快的路径，区别在于：  Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。 Dijkstra无法处理存在负权边时的问题。 BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。  个人理解：  Dijkstr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dijkstra算法与Bellman-Ford算法">
+<meta property="og:url" content="http://aysamu.space/posts/a2887fef.html">
+<meta property="og:site_name" content="脱脑而出">
+<meta property="og:description" content="Dijkstra算法与Bellman-Ford算法两者都可以用来寻找加权图中最快的路径，区别在于：  Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。 Dijkstra无法处理存在负权边时的问题。 BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。  个人理解：  Dijkstr">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-16T18:01:00.000Z">
+<meta property="article:modified_time" content="2021-05-10T20:12:31.130Z">
+<meta property="article:author" content="Aysamu">
+<meta property="article:tag" content="Dijkstra">
+<meta property="article:tag" content="Bellman-Ford">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="加权图">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://aysamu.space/posts/a2887fef.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Dijkstra算法与Bellman-Ford算法 | 脱脑而出</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a0f1b063bfef83d8147f7c6f3c667f12";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">脱脑而出</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">乱七八糟的文字创作</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-guestbook">
+
+    <a href="/guestbook/" rel="section"><i class="comment fa-fw"></i>guestbook</a>
+
+  </li>
+        <li class="menu-item menu-item-friends">
+
+    <a href="/friends/" rel="section"><i class="hand-o-right fa-fw"></i>friends</a>
+
+  </li>
+        <li class="menu-item menu-item-comments">
+
+    <a href="http://i6mckw0gsdtj.leanapp.cn/" rel="noopener" target="_blank"><i class="key fa-fw"></i>comments</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://aysamu.space/posts/a2887fef.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Aysamu">
+      <meta itemprop="description" content="Aysamu会在这里分享自己的想法与写作作品">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="脱脑而出">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Dijkstra算法与Bellman-Ford算法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-11-17 02:01:00" itemprop="dateCreated datePublished" datetime="2019-11-17T02:01:00+08:00">2019-11-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-11 04:12:31" itemprop="dateModified" datetime="2021-05-11T04:12:31+08:00">2021-05-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/posts/a2887fef.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/posts/a2887fef.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Dijkstra算法与Bellman-Ford算法"><a href="#Dijkstra算法与Bellman-Ford算法" class="headerlink" title="Dijkstra算法与Bellman-Ford算法"></a>Dijkstra算法与Bellman-Ford算法</h2><p>两者都可以用来寻找加权图中最快的路径，区别在于：</p>
+<ul>
+<li>Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。</li>
+<li>Dijkstra无法处理存在负权边时的问题。</li>
+<li>BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。</li>
+</ul>
+<p>个人理解：</p>
+<ul>
+<li>Dijkstra算法是对每个节点遍历，对比大小并判断是否需要更新其邻居（即其指向的节点）的开销（起点到该节点的总权值）。记录各节点的父级节点，通过从终点依次寻找父级节点来得到一条最快路径。因为可能图中存在环，为避免死循环的发生，我们每处理一个节点都将其放入一个特定列表，仅处理列表外的节点。</li>
+<li>BF算法，起初我以为它是基于Dijkstra的，仔细理解之后我才体会到区别。BF所做的是一次有一次遍历所有的边，相较于Dijkstra而言实现更为简单，由于每遍历一次都至少能找出一条两点间的最短路径，而最短路径的深度不会超过（节点数-1）（即所有节点都在一条路径上的情况），所以遍历次数不会超过（节点数-1）。</li>
+</ul>
+<p>下面放上基于python对两种算法的实现：</p>
+<p>Dijkstra：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_lowest_cost_node</span>(<span class="params">costs</span>):</span></span><br><span class="line">    lowest_cost = inf</span><br><span class="line">    lowest_cost_node = <span class="literal">None</span></span><br><span class="line">    <span class="keyword">for</span> node <span class="keyword">in</span> costs:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        <span class="keyword">if</span> cost &lt; lowest_cost <span class="keyword">and</span> node <span class="keyword">not</span> <span class="keyword">in</span> processed:</span><br><span class="line">            lowest_cost = cost</span><br><span class="line">            lowest_cost_node = node</span><br><span class="line">    <span class="keyword">return</span> lowest_cost_node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dijkstra</span>():</span></span><br><span class="line">    node = find_lowest_cost_node(costs)</span><br><span class="line">    <span class="keyword">while</span> node <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        neighbors = graph[node]</span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> neighbors.keys():</span><br><span class="line">            new_cost = cost + neighbors[n]</span><br><span class="line">            <span class="keyword">if</span> new_cost &lt; costs[n]:</span><br><span class="line">                costs[n] = new_cost</span><br><span class="line">                parents[n] = node</span><br><span class="line">        processed.append(node)</span><br><span class="line">        node = find_lowest_cost_node(costs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_way</span>():</span></span><br><span class="line">    key = <span class="string">&#x27;fin&#x27;</span></span><br><span class="line">    way = []</span><br><span class="line">    <span class="keyword">while</span> parents[key] != <span class="string">&#x27;start&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> key == <span class="string">&#x27;fin&#x27;</span>:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(<span class="string">&#x27;start&#x27;</span>)</span><br><span class="line">    way.reverse()</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> way:</span><br><span class="line">        <span class="keyword">if</span> w == <span class="string">&#x27;start&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(w, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;--&gt;&#x27;</span> + w, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;This way cost &quot;</span> + <span class="built_in">str</span>(costs[<span class="string">&#x27;fin&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="comment"># 存储各节点的邻居，与其权重</span></span><br><span class="line">    graph = &#123;<span class="string">&#x27;start&#x27;</span>: &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">6</span>,</span><br><span class="line">                       <span class="string">&#x27;b&#x27;</span>: <span class="number">2</span>&#125;, <span class="string">&#x27;a&#x27;</span>: &#123;<span class="string">&#x27;fin&#x27;</span>: <span class="number">1</span>&#125;, <span class="string">&#x27;b&#x27;</span>: &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">3</span>,</span><br><span class="line">                                                       <span class="string">&#x27;fin&#x27;</span>: <span class="number">5</span>&#125;, <span class="string">&#x27;fin&#x27;</span>: &#123;&#125;&#125;</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    # 下为存在负权边时测试用数据，会发现fin对应的开销是35，而并非实际的33。</span></span><br><span class="line"><span class="string">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">    inf = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">    <span class="comment"># 存储各节点的开销</span></span><br><span class="line">    costs = &#123;<span class="string">&#x27;start&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>: inf, <span class="string">&#x27;b&#x27;</span>: inf, <span class="string">&#x27;fin&#x27;</span>: inf&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 存储到各节点最小开销时，其父节点名称</span></span><br><span class="line">    parents = &#123;<span class="string">&#x27;a&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;b&#x27;</span>: <span class="literal">None</span>, <span class="string">&#x27;fin&#x27;</span>: <span class="literal">None</span>&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 存储已经处理过的节点</span></span><br><span class="line">    processed = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算部分：</span></span><br><span class="line">    dijkstra()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
+
+<p>Bellman-Ford：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">def dic(j, k, l):</span><br><span class="line">    d = dict(j=j, k=k, l=l)</span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bellman_ford():</span><br><span class="line">    <span class="keyword">for</span> i in range(len(graph.keys()) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> e in edge:</span><br><span class="line">            # <span class="built_in">line</span>为包含该边起始点、终末点以及长度的字典</span><br><span class="line">            <span class="built_in">line</span> = edge[e]</span><br><span class="line">            j = <span class="built_in">line</span>[<span class="string">&#x27;j&#x27;</span>]</span><br><span class="line">            k = <span class="built_in">line</span>[<span class="string">&#x27;k&#x27;</span>]</span><br><span class="line">            l = <span class="built_in">line</span>[<span class="string">&#x27;l&#x27;</span>]</span><br><span class="line">            # cost为该边终末点的开销</span><br><span class="line">            cost = costs[k]</span><br><span class="line">            new_cost = l + costs[j]</span><br><span class="line">            <span class="keyword">if</span> cost &gt; new_cost:</span><br><span class="line">                costs[k] = new_cost</span><br><span class="line">                parents[k] = j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    <span class="built_in">key</span> = <span class="string">&#x27;fin&#x27;</span></span><br><span class="line">    way = []</span><br><span class="line">    <span class="keyword">while</span> parents[<span class="built_in">key</span>] != <span class="string">&#x27;start&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">key</span> == <span class="string">&#x27;fin&#x27;</span>:</span><br><span class="line">            way.<span class="built_in">append</span>(<span class="built_in">key</span>)</span><br><span class="line">            <span class="built_in">key</span> = parents[<span class="built_in">key</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            way.<span class="built_in">append</span>(<span class="built_in">key</span>)</span><br><span class="line">            <span class="built_in">key</span> = parents[<span class="built_in">key</span>]</span><br><span class="line">    way.<span class="built_in">append</span>(<span class="built_in">key</span>)</span><br><span class="line">    way.<span class="built_in">append</span>(<span class="string">&#x27;start&#x27;</span>)</span><br><span class="line">    way.<span class="built_in">reverse</span>()</span><br><span class="line">    <span class="keyword">for</span> w in way:</span><br><span class="line">        <span class="keyword">if</span> w == <span class="string">&#x27;start&#x27;</span>:</span><br><span class="line">            <span class="built_in">print</span>(w, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;--&gt;&#x27;</span> + w, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;This way cost &quot;</span> + <span class="built_in">str</span>(costs[<span class="string">&#x27;fin&#x27;</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    graph = &#123;<span class="string">&#x27;start&#x27;</span>: &#123;<span class="string">&#x27;a&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;b&#x27;</span>: <span class="number">0</span>&#125;, <span class="string">&#x27;a&#x27;</span>: &#123;<span class="string">&#x27;b&#x27;</span>: <span class="number">-7</span>&#125;, <span class="string">&#x27;b&#x27;</span>: &#123;<span class="string">&#x27;fin&#x27;</span>: <span class="number">35</span>&#125;, <span class="string">&#x27;fin&#x27;</span>: &#123;&#125;&#125;</span><br><span class="line">    inf = <span class="built_in">float</span>(<span class="string">&#x27;inf&#x27;</span>)</span><br><span class="line">    costs = &#123;<span class="string">&#x27;start&#x27;</span>: <span class="number">0</span>, <span class="string">&#x27;a&#x27;</span>: inf, <span class="string">&#x27;b&#x27;</span>: inf, <span class="string">&#x27;fin&#x27;</span>: inf&#125;</span><br><span class="line">    parents = &#123;<span class="string">&#x27;a&#x27;</span>: None, <span class="string">&#x27;b&#x27;</span>: None, <span class="string">&#x27;fin&#x27;</span>: None&#125;</span><br><span class="line">    way = []</span><br><span class="line">    edge = &#123;<span class="string">&#x27;sa&#x27;</span>: dic(<span class="string">&#x27;start&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="number">5</span>), <span class="string">&#x27;sb&#x27;</span>: dic(<span class="string">&#x27;start&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="number">0</span>), <span class="string">&#x27;ab&#x27;</span>: dic(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="number">-7</span>), <span class="string">&#x27;bf&#x27;</span>: dic(<span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;fin&#x27;</span>, <span class="number">35</span>)&#125;</span><br><span class="line">    bellman_ford()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>欢迎投喂，但你的支持就是对我最佳的回馈。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Aysamu 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Aysamu 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Dijkstra/" rel="tag"># Dijkstra</a>
+              <a href="/tags/Bellman-Ford/" rel="tag"># Bellman-Ford</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E5%8A%A0%E6%9D%83%E5%9B%BE/" rel="tag"># 加权图</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/posts/19ca4e7.html" rel="prev" title="快速排列">
+      <i class="fa fa-chevron-left"></i> 快速排列
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/posts/3466344d.html" rel="next" title="路灯">
+      路灯 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dijkstra%E7%AE%97%E6%B3%95%E4%B8%8EBellman-Ford%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Dijkstra算法与Bellman-Ford算法</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Aysamu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Aysamu</p>
+  <div class="site-description" itemprop="description">Aysamu会在这里分享自己的想法与写作作品</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Aysamu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Aysamu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:aysamu@foxmail.com" title="E-Mail → mailto:aysamu@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Aysamu</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'I6mCKW0ge0htkPyrwUN20nVk-gzGzoHsz',
+      appKey     : 'Vw2VT5OAzpX0I4b89GtAOjfv',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
