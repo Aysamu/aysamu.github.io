@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"aysamu.space","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Dijkstra算法与Bellman-Ford算法两者都可以用来寻找加权图中最快的路径，区别在于：  Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。 Dijkstra无法处理存在负权边时的问题。 BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。  个人理解：  Dijkstr">
+  <meta name="description" content="Dijkstra算法与Bellman-Ford算法两者都可以用来寻找加权图中最快的路径，区别在于：  Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。 Dijkstra无法处理存在负权边时的问题。 BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dijkstra算法与Bellman-Ford算法">
 <meta property="og:url" content="http://aysamu.space/posts/a2887fef.html">
 <meta property="og:site_name" content="脱脑而出">
-<meta property="og:description" content="Dijkstra算法与Bellman-Ford算法两者都可以用来寻找加权图中最快的路径，区别在于：  Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。 Dijkstra无法处理存在负权边时的问题。 BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。  个人理解：  Dijkstr">
+<meta property="og:description" content="Dijkstra算法与Bellman-Ford算法两者都可以用来寻找加权图中最快的路径，区别在于：  Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。 Dijkstra无法处理存在负权边时的问题。 BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-11-16T18:01:00.000Z">
-<meta property="article:modified_time" content="2021-05-10T20:12:31.130Z">
+<meta property="article:modified_time" content="2021-05-10T20:35:56.979Z">
 <meta property="article:author" content="Aysamu">
 <meta property="article:tag" content="Dijkstra">
 <meta property="article:tag" content="Bellman-Ford">
@@ -219,7 +219,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-11 04:12:31" itemprop="dateModified" datetime="2021-05-11T04:12:31+08:00">2021-05-11</time>
+                <time title="修改时间：2021-05-11 04:35:56" itemprop="dateModified" datetime="2021-05-11T04:35:56+08:00">2021-05-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -266,6 +266,8 @@
 <li>Dijkstra无法处理存在负权边时的问题。</li>
 <li>BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。</li>
 </ul>
+<span id="more"></span>
+
 <p>个人理解：</p>
 <ul>
 <li>Dijkstra算法是对每个节点遍历，对比大小并判断是否需要更新其邻居（即其指向的节点）的开销（起点到该节点的总权值）。记录各节点的父级节点，通过从终点依次寻找父级节点来得到一条最快路径。因为可能图中存在环，为避免死循环的发生，我们每处理一个节点都将其放入一个特定列表，仅处理列表外的节点。</li>
@@ -401,7 +403,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

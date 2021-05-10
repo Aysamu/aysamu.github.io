@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"aysamu.space","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在nginx上配置hexo（二）意料之外的错误&amp;nbsp;&amp;nbsp;开始写hexo配置相关（一）时，我本以为我的blog就可以这样正常进入beta阶段了━┳━　━┳━。没想到的是，在尝试引用图片为我的博客添色后，我发现我的图片仅仅能在运行hexo s时，通过4000端口访问。 挣扎历程&amp;nbsp;&amp;nbsp;我一开始觉得是引入方式的问题，翻阅官方文档后，我改用了标签方法进行引入，没有效果。然后重">
+  <meta name="description" content="在nginx上配置hexo（二）意料之外的错误&amp;nbsp;&amp;nbsp;开始写hexo配置相关（一）时，我本以为我的blog就可以这样正常进入beta阶段了━┳━　━┳━。没想到的是，在尝试引用图片为我的博客添色后，我发现我的图片仅仅能在运行hexo s时，通过4000端口访问。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于在nginx上配置hexo（二）">
 <meta property="og:url" content="http://aysamu.space/posts/8b906cb8.html">
 <meta property="og:site_name" content="脱脑而出">
-<meta property="og:description" content="在nginx上配置hexo（二）意料之外的错误&amp;nbsp;&amp;nbsp;开始写hexo配置相关（一）时，我本以为我的blog就可以这样正常进入beta阶段了━┳━　━┳━。没想到的是，在尝试引用图片为我的博客添色后，我发现我的图片仅仅能在运行hexo s时，通过4000端口访问。 挣扎历程&amp;nbsp;&amp;nbsp;我一开始觉得是引入方式的问题，翻阅官方文档后，我改用了标签方法进行引入，没有效果。然后重">
+<meta property="og:description" content="在nginx上配置hexo（二）意料之外的错误&amp;nbsp;&amp;nbsp;开始写hexo配置相关（一）时，我本以为我的blog就可以这样正常进入beta阶段了━┳━　━┳━。没想到的是，在尝试引用图片为我的博客添色后，我发现我的图片仅仅能在运行hexo s时，通过4000端口访问。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://aysamu.space/posts/8b906cb8/01.png">
 <meta property="article:published_time" content="2019-09-10T13:47:00.000Z">
-<meta property="article:modified_time" content="2021-05-10T20:12:29.764Z">
+<meta property="article:modified_time" content="2021-05-10T20:38:34.423Z">
 <meta property="article:author" content="Aysamu">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="网站配置">
@@ -219,7 +219,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-11 04:12:29" itemprop="dateModified" datetime="2021-05-11T04:12:29+08:00">2021-05-11</time>
+                <time title="修改时间：2021-05-11 04:38:34" itemprop="dateModified" datetime="2021-05-11T04:38:34+08:00">2021-05-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,6 +261,8 @@
 
       
         <h2 id="在nginx上配置hexo（二）"><a href="#在nginx上配置hexo（二）" class="headerlink" title="在nginx上配置hexo（二）"></a>在nginx上配置hexo（二）</h2><h4 id="意料之外的错误"><a href="#意料之外的错误" class="headerlink" title="意料之外的错误"></a>意料之外的错误</h4><p>&nbsp;&nbsp;开始写hexo配置相关（一）时，我本以为我的blog就可以这样正常进入beta阶段了━┳━　━┳━。没想到的是，在尝试引用图片为我的博客添色后，我发现我的图片仅仅能在运行hexo s时，通过4000端口访问。</p>
+<span id="more"></span>
+
 <h4 id="挣扎历程"><a href="#挣扎历程" class="headerlink" title="挣扎历程"></a>挣扎历程</h4><p>&nbsp;&nbsp;我一开始觉得是引入方式的问题，翻阅<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders"><font color=red>官方文档</font></a>后，我改用了标签方法进行引入，没有效果。然后重新在网络上搜索文档，看大佬的博客，始终没得到答案。后来在<a target="_blank" rel="noopener" href="http://blog.objectspace.cn/"><font color=gren><em>Object</em></font></a>的博客中看到了他的联系方式，在QQ上与他交流后我对hexo的实现过程才算有了清晰的认识，在这里贴上示意图。</p>
 <img src="/posts/8b906cb8/01.png" class="" title="Hexo结构图">
 
@@ -390,7 +392,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
