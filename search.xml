@@ -21,6 +21,27 @@
       </tags>
   </entry>
   <entry>
+    <title>2023-5-12</title>
+    <url>/posts/1eaa0e58.html</url>
+    <content><![CDATA[<h1>2023-5-12</h1>
+<p>  已有一月未落笔了，这一个月来倒也算得上丰富多彩。</p>
+<p>  上次提到了外卖员的行当，我确实去做了四五天，但收益太少，更不谈个人积累，我自觉空耗时间，再加之武汉的夏日阳光实在毒辣，在某一天里给我带上了黑手套，便索性去提了离职。</p>
+<p>  随后又去一家写字楼里做了两天数据分析的工作，可这个岗位和我想象中与代码相关的数据分析似乎有所不同，多是些从电商后台取数填表做幻灯片的任务，实在琐碎而无趣。我在试用第二天的午后，在手机上投了几家其他企业的实习，起身提包，和人事打了声招呼就离开了这家公司。</p>
+<p>  回家后我继续疯狂投递简历，连续线上面试了两天，有些筋疲力竭。面完便开始等待结果，也没有再继续投递，我察觉到自身能力欠缺，可能需要时间来沉淀。</p>
+<p>  这个念头却是点醒了我，起初本科期间我一度热衷于在网络上学习专业技术，后发现心仪的岗位有硕士学历要求后，才开始着手考研，如今上岸之后反而丢了本心，何不重拾学习的爱好呢。</p>
+<p>  找导师方面也有了着落，深感世事荒唐，我前几个月辛苦投递了不少老师，甚至线下去探访，只为了找个教学宽松或是大牛做导师，助力自己实习就业或是发刊深造。但每每不利，屡遭拒绝，而今天一位老师仅在几封邮件间便确认了我的去向，竟也正是我心仪的放养学生的导师，我现在都还觉得有点虚幻。</p>
+<p>  健身的行程正式开始了，已连续运动了一两个月，我明显感觉身体正在变好，很开心。</p>
+<p>  这几个月当真是我有生以来真正自由的美好时光，每天学习、健身、看书、玩游戏，时而出游，我很感激，也很满足，我想保持自律，尽力去沉浸地体验这段如梦的日子。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>《散笔随记》</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2023-4-11</title>
     <url>/posts/7af9fc0e.html</url>
     <content><![CDATA[<h1>2023-4-11</h1>
@@ -42,24 +63,36 @@
       </tags>
   </entry>
   <entry>
-    <title>2023-5-12</title>
-    <url>/posts/1eaa0e58.html</url>
-    <content><![CDATA[<h1>2023-5-12</h1>
-<p>  已有一月未落笔了，这一个月来倒也算得上丰富多彩。</p>
-<p>  上次提到了外卖员的行当，我确实去做了四五天，但收益太少，更不谈个人积累，我自觉空耗时间，再加之武汉的夏日阳光实在毒辣，在某一天里给我带上了黑手套，便索性去提了离职。</p>
-<p>  随后又去一家写字楼里做了两天数据分析的工作，可这个岗位和我想象中与代码相关的数据分析似乎有所不同，多是些从电商后台取数填表做幻灯片的任务，实在琐碎而无趣。我在试用第二天的午后，在手机上投了几家其他企业的实习，起身提包，和人事打了声招呼就离开了这家公司。</p>
-<p>  回家后我继续疯狂投递简历，连续线上面试了两天，有些筋疲力竭。面完便开始等待结果，也没有再继续投递，我察觉到自身能力欠缺，可能需要时间来沉淀。</p>
-<p>  这个念头却是点醒了我，起初本科期间我一度热衷于在网络上学习专业技术，后发现心仪的岗位有硕士学历要求后，才开始着手考研，如今上岸之后反而丢了本心，何不重拾学习的爱好呢。</p>
-<p>  找导师方面也有了着落，深感世事荒唐，我前几个月辛苦投递了不少老师，甚至线下去探访，只为了找个教学宽松或是大牛做导师，助力自己实习就业或是发刊深造。但每每不利，屡遭拒绝，而今天一位老师仅在几封邮件间便确认了我的去向，竟也正是我心仪的放养学生的导师，我现在都还觉得有点虚幻。</p>
-<p>  健身的行程正式开始了，已连续运动了一两个月，我明显感觉身体正在变好，很开心。</p>
-<p>  这几个月当真是我有生以来真正自由的美好时光，每天学习、健身、看书、玩游戏，时而出游，我很感激，也很满足，我想保持自律，尽力去沉浸地体验这段如梦的日子。</p>
+    <title>Dijkstra算法与Bellman-Ford算法</title>
+    <url>/posts/a2887fef.html</url>
+    <content><![CDATA[<h2 id="Dijkstra算法与Bellman-Ford算法">Dijkstra算法与Bellman-Ford算法</h2>
+<p>两者都可以用来寻找加权图中最快的路径，区别在于：</p>
+<ul>
+<li>Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。</li>
+<li>Dijkstra无法处理存在负权边时的问题。</li>
+<li>BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。</li>
+</ul>
+<span id="more"></span>
+<p>个人理解：</p>
+<ul>
+<li>Dijkstra算法是对每个节点遍历，对比大小并判断是否需要更新其邻居（即其指向的节点）的开销（起点到该节点的总权值）。记录各节点的父级节点，通过从终点依次寻找父级节点来得到一条最快路径。因为可能图中存在环，为避免死循环的发生，我们每处理一个节点都将其放入一个特定列表，仅处理列表外的节点。</li>
+<li>BF算法，起初我以为它是基于Dijkstra的，仔细理解之后我才体会到区别。BF所做的是一次有一次遍历所有的边，相较于Dijkstra而言实现更为简单，由于每遍历一次都至少能找出一条两点间的最短路径，而最短路径的深度不会超过（节点数-1）（即所有节点都在一条路径上的情况），所以遍历次数不会超过（节点数-1）。</li>
+</ul>
+<p>下面放上基于python对两种算法的实现：</p>
+<p>Dijkstra：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def find_lowest_cost_node(costs):</span><br><span class="line">    lowest_cost = inf</span><br><span class="line">    lowest_cost_node = None</span><br><span class="line">    for node in costs:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        if cost &lt; lowest_cost and node not in processed:</span><br><span class="line">            lowest_cost = cost</span><br><span class="line">            lowest_cost_node = node</span><br><span class="line">    return lowest_cost_node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def dijkstra():</span><br><span class="line">    node = find_lowest_cost_node(costs)</span><br><span class="line">    while node is not None:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        neighbors = graph[node]</span><br><span class="line">        for n in neighbors.keys():</span><br><span class="line">            new_cost = cost + neighbors[n]</span><br><span class="line">            if new_cost &lt; costs[n]:</span><br><span class="line">                costs[n] = new_cost</span><br><span class="line">                parents[n] = node</span><br><span class="line">        processed.append(node)</span><br><span class="line">        node = find_lowest_cost_node(costs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 存储各节点的邻居，与其权重</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 6,</span><br><span class="line">                       &#x27;b&#x27;: 2&#125;, &#x27;a&#x27;: &#123;&#x27;fin&#x27;: 1&#125;, &#x27;b&#x27;: &#123;&#x27;a&#x27;: 3,</span><br><span class="line">                                                       &#x27;fin&#x27;: 5&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    # 下为存在负权边时测试用数据，会发现fin对应的开销是35，而并非实际的33。</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    # 存储各节点的开销</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line"></span><br><span class="line">    # 存储到各节点最小开销时，其父节点名称</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line"></span><br><span class="line">    # 存储已经处理过的节点</span><br><span class="line">    processed = []</span><br><span class="line"></span><br><span class="line">    # 计算部分：</span><br><span class="line">    dijkstra()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
+<p>Bellman-Ford：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def dic(j, k, l):</span><br><span class="line">    d = dict(j=j, k=k, l=l)</span><br><span class="line">    return d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bellman_ford():</span><br><span class="line">    for i in range(len(graph.keys()) - 1):</span><br><span class="line">        for e in edge:</span><br><span class="line">            # line为包含该边起始点、终末点以及长度的字典</span><br><span class="line">            line = edge[e]</span><br><span class="line">            j = line[&#x27;j&#x27;]</span><br><span class="line">            k = line[&#x27;k&#x27;]</span><br><span class="line">            l = line[&#x27;l&#x27;]</span><br><span class="line">            # cost为该边终末点的开销</span><br><span class="line">            cost = costs[k]</span><br><span class="line">            new_cost = l + costs[j]</span><br><span class="line">            if cost &gt; new_cost:</span><br><span class="line">                costs[k] = new_cost</span><br><span class="line">                parents[k] = j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line">    way = []</span><br><span class="line">    edge = &#123;&#x27;sa&#x27;: dic(&#x27;start&#x27;, &#x27;a&#x27;, 5), &#x27;sb&#x27;: dic(&#x27;start&#x27;, &#x27;b&#x27;, 0), &#x27;ab&#x27;: dic(&#x27;a&#x27;, &#x27;b&#x27;, -7), &#x27;bf&#x27;: dic(&#x27;b&#x27;, &#x27;fin&#x27;, 35)&#125;</span><br><span class="line">    bellman_ford()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>写作</category>
-        <category>《散笔随记》</category>
+        <category>学习</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>写作</tag>
+        <tag>Dijkstra</tag>
+        <tag>Bellman-Ford</tag>
+        <tag>算法</tag>
+        <tag>加权图</tag>
       </tags>
   </entry>
   <entry>
@@ -211,39 +244,6 @@
       </categories>
       <tags>
         <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Dijkstra算法与Bellman-Ford算法</title>
-    <url>/posts/a2887fef.html</url>
-    <content><![CDATA[<h2 id="Dijkstra算法与Bellman-Ford算法">Dijkstra算法与Bellman-Ford算法</h2>
-<p>两者都可以用来寻找加权图中最快的路径，区别在于：</p>
-<ul>
-<li>Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。</li>
-<li>Dijkstra无法处理存在负权边时的问题。</li>
-<li>BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。</li>
-</ul>
-<span id="more"></span>
-<p>个人理解：</p>
-<ul>
-<li>Dijkstra算法是对每个节点遍历，对比大小并判断是否需要更新其邻居（即其指向的节点）的开销（起点到该节点的总权值）。记录各节点的父级节点，通过从终点依次寻找父级节点来得到一条最快路径。因为可能图中存在环，为避免死循环的发生，我们每处理一个节点都将其放入一个特定列表，仅处理列表外的节点。</li>
-<li>BF算法，起初我以为它是基于Dijkstra的，仔细理解之后我才体会到区别。BF所做的是一次有一次遍历所有的边，相较于Dijkstra而言实现更为简单，由于每遍历一次都至少能找出一条两点间的最短路径，而最短路径的深度不会超过（节点数-1）（即所有节点都在一条路径上的情况），所以遍历次数不会超过（节点数-1）。</li>
-</ul>
-<p>下面放上基于python对两种算法的实现：</p>
-<p>Dijkstra：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def find_lowest_cost_node(costs):</span><br><span class="line">    lowest_cost = inf</span><br><span class="line">    lowest_cost_node = None</span><br><span class="line">    for node in costs:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        if cost &lt; lowest_cost and node not in processed:</span><br><span class="line">            lowest_cost = cost</span><br><span class="line">            lowest_cost_node = node</span><br><span class="line">    return lowest_cost_node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def dijkstra():</span><br><span class="line">    node = find_lowest_cost_node(costs)</span><br><span class="line">    while node is not None:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        neighbors = graph[node]</span><br><span class="line">        for n in neighbors.keys():</span><br><span class="line">            new_cost = cost + neighbors[n]</span><br><span class="line">            if new_cost &lt; costs[n]:</span><br><span class="line">                costs[n] = new_cost</span><br><span class="line">                parents[n] = node</span><br><span class="line">        processed.append(node)</span><br><span class="line">        node = find_lowest_cost_node(costs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 存储各节点的邻居，与其权重</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 6,</span><br><span class="line">                       &#x27;b&#x27;: 2&#125;, &#x27;a&#x27;: &#123;&#x27;fin&#x27;: 1&#125;, &#x27;b&#x27;: &#123;&#x27;a&#x27;: 3,</span><br><span class="line">                                                       &#x27;fin&#x27;: 5&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    # 下为存在负权边时测试用数据，会发现fin对应的开销是35，而并非实际的33。</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    # 存储各节点的开销</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line"></span><br><span class="line">    # 存储到各节点最小开销时，其父节点名称</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line"></span><br><span class="line">    # 存储已经处理过的节点</span><br><span class="line">    processed = []</span><br><span class="line"></span><br><span class="line">    # 计算部分：</span><br><span class="line">    dijkstra()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
-<p>Bellman-Ford：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def dic(j, k, l):</span><br><span class="line">    d = dict(j=j, k=k, l=l)</span><br><span class="line">    return d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bellman_ford():</span><br><span class="line">    for i in range(len(graph.keys()) - 1):</span><br><span class="line">        for e in edge:</span><br><span class="line">            # line为包含该边起始点、终末点以及长度的字典</span><br><span class="line">            line = edge[e]</span><br><span class="line">            j = line[&#x27;j&#x27;]</span><br><span class="line">            k = line[&#x27;k&#x27;]</span><br><span class="line">            l = line[&#x27;l&#x27;]</span><br><span class="line">            # cost为该边终末点的开销</span><br><span class="line">            cost = costs[k]</span><br><span class="line">            new_cost = l + costs[j]</span><br><span class="line">            if cost &gt; new_cost:</span><br><span class="line">                costs[k] = new_cost</span><br><span class="line">                parents[k] = j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line">    way = []</span><br><span class="line">    edge = &#123;&#x27;sa&#x27;: dic(&#x27;start&#x27;, &#x27;a&#x27;, 5), &#x27;sb&#x27;: dic(&#x27;start&#x27;, &#x27;b&#x27;, 0), &#x27;ab&#x27;: dic(&#x27;a&#x27;, &#x27;b&#x27;, -7), &#x27;bf&#x27;: dic(&#x27;b&#x27;, &#x27;fin&#x27;, 35)&#125;</span><br><span class="line">    bellman_ford()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>Dijkstra</tag>
-        <tag>Bellman-Ford</tag>
-        <tag>算法</tag>
-        <tag>加权图</tag>
       </tags>
   </entry>
   <entry>
@@ -571,23 +571,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>递归二分法</title>
-    <url>/posts/649c2087.html</url>
-    <content><![CDATA[<h2 id="递归二分法">递归二分法</h2>
-<p>我学到的二分法可以分为常规二分法于递归二分法，后者为帮助自己理解递归做练习。在这里我给出自己写的递归二分法，考虑的数列的升降序，函数中给了参数，默认为升序。</p>
-<span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def binary_search(list, high, item, ascend=True, low=0):</span><br><span class="line">    if not list:</span><br><span class="line">        return None</span><br><span class="line">    mid = (low + high) // 2</span><br><span class="line">    if list[mid] == item:</span><br><span class="line">        return mid</span><br><span class="line">    elif list[mid] &lt; item:</span><br><span class="line">        if not ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        if ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line">    else:</span><br><span class="line">        if not ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        if ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    list1 = list(reversed(list(range(10))))</span><br><span class="line">    print(list1)</span><br><span class="line">    result = binary_search(list1, len(list1)-1, 4, False)</span><br><span class="line">    print(result)</span><br><span class="line">    list2 = list(range(10))</span><br><span class="line">    print(list2)</span><br><span class="line">    result = binary_search(list2, len(list2)-1, 7)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>二分法</tag>
-        <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VS上配置Anaconda来构建环境</title>
     <url>/posts/e49bf433.html</url>
     <content><![CDATA[<h1>VS上配置Anaconda来构建环境</h1>
@@ -629,6 +612,23 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>python</tag>
         <tag>anaconda</tag>
         <tag>vscode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>递归二分法</title>
+    <url>/posts/649c2087.html</url>
+    <content><![CDATA[<h2 id="递归二分法">递归二分法</h2>
+<p>我学到的二分法可以分为常规二分法于递归二分法，后者为帮助自己理解递归做练习。在这里我给出自己写的递归二分法，考虑的数列的升降序，函数中给了参数，默认为升序。</p>
+<span id="more"></span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def binary_search(list, high, item, ascend=True, low=0):</span><br><span class="line">    if not list:</span><br><span class="line">        return None</span><br><span class="line">    mid = (low + high) // 2</span><br><span class="line">    if list[mid] == item:</span><br><span class="line">        return mid</span><br><span class="line">    elif list[mid] &lt; item:</span><br><span class="line">        if not ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        if ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line">    else:</span><br><span class="line">        if not ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        if ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    list1 = list(reversed(list(range(10))))</span><br><span class="line">    print(list1)</span><br><span class="line">    result = binary_search(list1, len(list1)-1, 4, False)</span><br><span class="line">    print(result)</span><br><span class="line">    list2 = list(range(10))</span><br><span class="line">    print(list2)</span><br><span class="line">    result = binary_search(list2, len(list2)-1, 7)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>二分法</tag>
+        <tag>递归</tag>
       </tags>
   </entry>
   <entry>
@@ -674,70 +674,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>IDEA</tag>
         <tag>maven</tag>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于使用numba对python进行代码加速</title>
-    <url>/posts/16a14a08.html</url>
-    <content><![CDATA[<h1>关于使用numba对python进行代码加速</h1>
-<h2 id="前言">前言</h2>
-<p>在处理大量数据时，pandas与numpy对单一元素的处理明显速度过慢。近期在做一篇论文的复现时，面对十万的数据集，需要做五折交叉验证，我的机器在jupyter中运行了一晚上都没有完成一半的处理，让人十分苦恼。</p>
-<span id="more"></span>
-<p>于是我将目光转移到各类python代码的加速方法上，常见的有Pypy，cython，numba。经过一定的了解与比较之后，我认为numba的上手难度最低，使用方法最为简单，于是将numba库引入我的代码。</p>
-<p>现在对约50w条数据的处理用时只需8min多。<br>
-<img src="16a14a08/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png" alt="交叉验证"></p>
-<h2 id="正文">正文</h2>
-<p>虽然numba的各类文档中都提到了其使用方法很简单，调用装饰器即可，但实际使用过程中，将一篇已经完成的，使用了不少第三方库的python代码转换成经numba加速的形式，仍然会有许多困难。</p>
-<h3 id="函数参数的选择">函数参数的选择</h3>
-<ul>
-<li>numba是完全支持numpy的内容的，np.array可作为参数直接传入。</li>
-<li>尽量使用数字类型、numpy中的类实例作为参数，因为numba大概率不认识原生python中的数据类型（出于运算速度的考虑）。</li>
-<li>同上一点，list是不受支持的！（起初的原因是出于反射机制对性能的降低，但官方似乎已经在处理这个问题，相信在未来的numba版本中会得到改善）。</li>
-<li>pandas的df类型无法作为参数传入，但由于df中的series是等同于np.array的，可以提取series转化成np.array来传参。</li>
-</ul>
-<h3 id="使用范围的界定">使用范围的界定</h3>
-<p>出于参数选择上的种种限制，用numba来重写的函数主要应该处理数值工作，如果遇到符合类型，如基于Dataframe的数据处理，需要手动将运算函数拆分出来。同时，如果要将numba运用到类成员函数上，需要参考官方文档对类进行声明，否则无法识别。</p>
-<h3 id="装饰器参数">装饰器参数</h3>
-<p>@jit常用的参数有nopython，nogil，parallel，均为布尔类型。</p>
-<ul>
-<li>nopython为True时，等同于@njit，numba会检查函数是否为非python的函数，即是否可以用c来完全重写。</li>
-<li>nogil，去除GIL锁。诚然，python的低效率原因中，GIL的存在占了很大分量，numba可以让函数脱离GIL，实现真正的多线程。</li>
-<li>parallel，自动并行化，此选项对矩阵运算提速有明显效果，虽然离numpy的ufunc方法仍有差距，但已经有相当的改善，同时，numba中采取vectorize装饰器写出的运算函数也可以让矩阵运算提速，但仍不及ufunc。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>numba</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>numba</tag>
-        <tag>代码提速</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于在nginx上配置hexo（一）</title>
-    <url>/posts/bb868060.html</url>
-    <content><![CDATA[<h2 id="在Nginx上配置Hexo（一）">在Nginx上配置Hexo（一）</h2>
-<p>因为在git上放blog时对速度不满意，我改将其放在我的学生服务器上（<font color="red"><em>阿里云轻量应用级</em></font>(●’◡’●)）……具体参考了CSDN上的一篇博客，链接我放在了首篇博文里，在那篇文章中我也提到了我做出了些细节上的改变，也就是我遇到了一些问题，下面给大家分享一下：</p>
-<span id="more"></span>
-<p>  1、由于我的nginx是此前就已经配置好了并使用过的……在跟着blog走到最后时才发现访问hostname进不到hexo的初始页面里去，就网上搜了一下hexo配置相关，有了一些理解：<br>
-<br><br>
-<s>  我们创建了三个文件夹，分别在/Documents/myHexo （这个是工程目录），/usr/local/blogRepo （网页配置文件，），/usr/local/hexo（网页文件）。当我登录域名时，总是进入到hexo下的index.html，尽管在hooks里创建了钩子，却感觉完全没有起作用**（<font color="blue">如果有朋友知道是什么原因的话，恳请邮件告诉我，我的联系方式在首篇博文里</font>）**。我的解决方法是将nginx配置文件中server{}里root /<br>
-修改为了/Documents/myHexo下的public目录，然后再进行访问就能看到hexo页面了( •̀ ω •́ )✧。</s><strong>（<font color="red">后注：</font>关于这一段，我的讲述有一些问题，我在（二）中有进行重新理解，大家可以去看看。）</strong></p>
-<p>  2、如果在从git上克隆theme的过程中遇到这样的问题：“Please make sure you have the correct access rights and the repository exists.”，我给出这样的参考，<a href="https://blog.csdn.net/jingtingfengguo/article/details/51892864"><span style="color: green; font-style: none;">博文在这</span></a>。</p>
-<p>  3、还有一些易察觉的错误，我参考了这篇博客，<a href="https://www.jianshu.com/p/8681ab76da08"><font color="green">一样放上链接</font></a>。<br>
-<img src="bb868060/view.png" alt="This is an example image"></p>
-<p>  4、还有一些拓展功能时遇到的问题，对应的网页我已经遗失了（╮（╯＿╰）╭）……但不出意外的话在网上都能搜索到。最后感叹一下，hexo真好用！ψ(｀∇´)ψ</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>网站配置</tag>
       </tags>
   </entry>
   <entry>
@@ -831,6 +767,70 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>关于使用numba对python进行代码加速</title>
+    <url>/posts/16a14a08.html</url>
+    <content><![CDATA[<h1>关于使用numba对python进行代码加速</h1>
+<h2 id="前言">前言</h2>
+<p>在处理大量数据时，pandas与numpy对单一元素的处理明显速度过慢。近期在做一篇论文的复现时，面对十万的数据集，需要做五折交叉验证，我的机器在jupyter中运行了一晚上都没有完成一半的处理，让人十分苦恼。</p>
+<span id="more"></span>
+<p>于是我将目光转移到各类python代码的加速方法上，常见的有Pypy，cython，numba。经过一定的了解与比较之后，我认为numba的上手难度最低，使用方法最为简单，于是将numba库引入我的代码。</p>
+<p>现在对约50w条数据的处理用时只需8min多。<br>
+<img src="16a14a08/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png" alt="交叉验证"></p>
+<h2 id="正文">正文</h2>
+<p>虽然numba的各类文档中都提到了其使用方法很简单，调用装饰器即可，但实际使用过程中，将一篇已经完成的，使用了不少第三方库的python代码转换成经numba加速的形式，仍然会有许多困难。</p>
+<h3 id="函数参数的选择">函数参数的选择</h3>
+<ul>
+<li>numba是完全支持numpy的内容的，np.array可作为参数直接传入。</li>
+<li>尽量使用数字类型、numpy中的类实例作为参数，因为numba大概率不认识原生python中的数据类型（出于运算速度的考虑）。</li>
+<li>同上一点，list是不受支持的！（起初的原因是出于反射机制对性能的降低，但官方似乎已经在处理这个问题，相信在未来的numba版本中会得到改善）。</li>
+<li>pandas的df类型无法作为参数传入，但由于df中的series是等同于np.array的，可以提取series转化成np.array来传参。</li>
+</ul>
+<h3 id="使用范围的界定">使用范围的界定</h3>
+<p>出于参数选择上的种种限制，用numba来重写的函数主要应该处理数值工作，如果遇到符合类型，如基于Dataframe的数据处理，需要手动将运算函数拆分出来。同时，如果要将numba运用到类成员函数上，需要参考官方文档对类进行声明，否则无法识别。</p>
+<h3 id="装饰器参数">装饰器参数</h3>
+<p>@jit常用的参数有nopython，nogil，parallel，均为布尔类型。</p>
+<ul>
+<li>nopython为True时，等同于@njit，numba会检查函数是否为非python的函数，即是否可以用c来完全重写。</li>
+<li>nogil，去除GIL锁。诚然，python的低效率原因中，GIL的存在占了很大分量，numba可以让函数脱离GIL，实现真正的多线程。</li>
+<li>parallel，自动并行化，此选项对矩阵运算提速有明显效果，虽然离numpy的ufunc方法仍有差距，但已经有相当的改善，同时，numba中采取vectorize装饰器写出的运算函数也可以让矩阵运算提速，但仍不及ufunc。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>python</category>
+        <category>numba</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>numba</tag>
+        <tag>代码提速</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于在nginx上配置hexo（一）</title>
+    <url>/posts/bb868060.html</url>
+    <content><![CDATA[<h2 id="在Nginx上配置Hexo（一）">在Nginx上配置Hexo（一）</h2>
+<p>因为在git上放blog时对速度不满意，我改将其放在我的学生服务器上（<font color="red"><em>阿里云轻量应用级</em></font>(●’◡’●)）……具体参考了CSDN上的一篇博客，链接我放在了首篇博文里，在那篇文章中我也提到了我做出了些细节上的改变，也就是我遇到了一些问题，下面给大家分享一下：</p>
+<span id="more"></span>
+<p>  1、由于我的nginx是此前就已经配置好了并使用过的……在跟着blog走到最后时才发现访问hostname进不到hexo的初始页面里去，就网上搜了一下hexo配置相关，有了一些理解：<br>
+<br><br>
+<s>  我们创建了三个文件夹，分别在/Documents/myHexo （这个是工程目录），/usr/local/blogRepo （网页配置文件，），/usr/local/hexo（网页文件）。当我登录域名时，总是进入到hexo下的index.html，尽管在hooks里创建了钩子，却感觉完全没有起作用**（<font color="blue">如果有朋友知道是什么原因的话，恳请邮件告诉我，我的联系方式在首篇博文里</font>）**。我的解决方法是将nginx配置文件中server{}里root /<br>
+修改为了/Documents/myHexo下的public目录，然后再进行访问就能看到hexo页面了( •̀ ω •́ )✧。</s><strong>（<font color="red">后注：</font>关于这一段，我的讲述有一些问题，我在（二）中有进行重新理解，大家可以去看看。）</strong></p>
+<p>  2、如果在从git上克隆theme的过程中遇到这样的问题：“Please make sure you have the correct access rights and the repository exists.”，我给出这样的参考，<a href="https://blog.csdn.net/jingtingfengguo/article/details/51892864"><span style="color: green; font-style: none;">博文在这</span></a>。</p>
+<p>  3、还有一些易察觉的错误，我参考了这篇博客，<a href="https://www.jianshu.com/p/8681ab76da08"><font color="green">一样放上链接</font></a>。<br>
+<img src="bb868060/view.png" alt="This is an example image"></p>
+<p>  4、还有一些拓展功能时遇到的问题，对应的网页我已经遗失了（╮（╯＿╰）╭）……但不出意外的话在网上都能搜索到。最后感叹一下，hexo真好用！ψ(｀∇´)ψ</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>网站配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于在nginx上配置hexo（二）</title>
     <url>/posts/8b906cb8.html</url>
     <content><![CDATA[<h2 id="在nginx上配置hexo（二）">在nginx上配置hexo（二）</h2>
@@ -896,6 +896,23 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>快速排列</title>
+    <url>/posts/19ca4e7.html</url>
+    <content><![CDATA[<h2 id="快速排列">快速排列</h2>
+<p>在书中看到的快速排列算法，给的例子是从索引0开始直接快排，在极端情况下（即数组有序），运行时间会极慢，我把其改成从数组中间开始排序……不知道能不能增加其适用性。</p>
+<span id="more"></span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from numpy.random import randint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def quicksort(array):</span><br><span class="line">    try:</span><br><span class="line">        if len(array) &lt; 2:</span><br><span class="line">            return array</span><br><span class="line">        else:</span><br><span class="line">            n = len(array) // 2</span><br><span class="line">            pivot = array[n]</span><br><span class="line">            array2 = array[:n] + array[n+1:]</span><br><span class="line">            less = [i for i in array2 if i &lt;= pivot]</span><br><span class="line">            greater = [i for i in array2 if i &gt; pivot]</span><br><span class="line">            return quicksort(less) + [pivot] + quicksort(greater)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    l1 = list(randint(0, 100, 30))</span><br><span class="line">    print(l1)</span><br><span class="line">    print(quicksort(l1))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>递归</tag>
+        <tag>快速排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇hexo博客</title>
     <url>/posts/de39a815.html</url>
     <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
@@ -913,23 +930,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>试验体</tag>
         <tag>联系我</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>快速排列</title>
-    <url>/posts/19ca4e7.html</url>
-    <content><![CDATA[<h2 id="快速排列">快速排列</h2>
-<p>在书中看到的快速排列算法，给的例子是从索引0开始直接快排，在极端情况下（即数组有序），运行时间会极慢，我把其改成从数组中间开始排序……不知道能不能增加其适用性。</p>
-<span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from numpy.random import randint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def quicksort(array):</span><br><span class="line">    try:</span><br><span class="line">        if len(array) &lt; 2:</span><br><span class="line">            return array</span><br><span class="line">        else:</span><br><span class="line">            n = len(array) // 2</span><br><span class="line">            pivot = array[n]</span><br><span class="line">            array2 = array[:n] + array[n+1:]</span><br><span class="line">            less = [i for i in array2 if i &lt;= pivot]</span><br><span class="line">            greater = [i for i in array2 if i &gt; pivot]</span><br><span class="line">            return quicksort(less) + [pivot] + quicksort(greater)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    l1 = list(randint(0, 100, 30))</span><br><span class="line">    print(l1)</span><br><span class="line">    print(quicksort(l1))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>递归</tag>
-        <tag>快速排序</tag>
       </tags>
   </entry>
   <entry>
@@ -1030,78 +1030,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>短篇故事</tag>
         <tag>文学</tag>
         <tag>恐怖</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>通过pyhdfs访问hdfs所遇到的相关问题</title>
-    <url>/posts/1872f332.html</url>
-    <content><![CDATA[<h2 id="通过pyhdfs访问hdfs所遇到的相关问题">通过pyhdfs访问hdfs所遇到的相关问题</h2>
-<p>最近学习使用java API访问hdfs时，十分渴望用python访问，就在pycharm里import了pyhdfs，尝试访问hdfs。</p>
-<span id="more"></span>
-<h4 id="一、本地虚拟机体验">一、本地虚拟机体验</h4>
-<p>vm打开，虚拟机跑起来：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">Res = client.open(&#x27;/data/1.txt&#x27;)</span><br><span class="line">for lines in Res:</span><br><span class="line">    print(lines)</span><br></pre></td></tr></table></figure>
-<p>失败，显示了主机名称和端口号，但无法连接上。</p>
-<p>在网上搜了下，这里需要将各主机名与ip的映射加在本地机器的hosts里，例如我使用的时win10，就在<code> C:\Windows\System32\drivers\etc</code>下修改hosts。</p>
-<p>改完后成功print出文本内容，试试copy到本地：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">res = client.copy_to_local(&#x27;/data/1.txt&#x27;, &#x27;C:/Users/Aysamu/Desktop/1.txt&#x27;)</span><br></pre></td></tr></table></figure>
-<p>在桌面看到1.txt，成功！</p>
-<h4 id="二、云端访问">二、云端访问</h4>
-<p>这里尝试访问阿里上的hdfs时，我发现半年前我搭建的hadoop环境并不完整😥，理所当然的无法通过pyhdfs访问，如mapreduce之类的测试都跑不通，就顺便修缮了一下，下面我给出修改后的配置。</p>
-<p><em><strong><font color="red">（注意，这里各主机的hosts内映射需按照“本机对应内网ip，他机对应公网ip”来填写，在本地机器中，直接填各主机的公网ip即可。）</font></strong></em></p>
-<p>core-site.xml:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://aysamu:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!-- 指定 hadoop 运行时产生文件的存储路径 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/root/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<p>yarn-site.xml</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">&lt;value&gt;aysamu&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;description&gt;YARN 集群为 MapReduce 程序提供的 shuffle 服务&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8032&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8030&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8031&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8033&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8088&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-<p>mapred-site.xml.template：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line"> &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>记得<code>cp mapred-site.xml.template mapred-site.xml</code>，我在8088端口看不到进程就是忘记了它（＞人＜；）</strong></p>
-<p><em><strong><font style="color:yellow;font-size:35px">还有十分重要的一点！！！</font></strong></em></p>
-<p><strong>在各节点的hosts中，将这一行注释掉！</strong></p>
-<p><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</code></p>
-<p><em>最后说一句，我爱python</em></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>hadoop</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyhdfs</tag>
-        <tag>hadoop</tag>
-        <tag>hdfs</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>路灯</title>
-    <url>/posts/3466344d.html</url>
-    <content><![CDATA[<h2 id="路灯">路灯</h2>
-<p>指尖划着深棕的楼梯扶手走下，教学楼大厅的挂灯衔接着正在施工的泥泞道路，让我有一种身处列车站台的感觉。<br>
-站台下是轨道，站台上是一方天地，轨道的延伸处，又是一方天地。<br>
-才过小雪，街边的风缩紧路人的衣领。我从拼接成马路牙子的砖块中挑拣出规整的部分来走，偶有学生蹬着单车掠过我身旁。</p>
-<span id="more"></span>
-<p>结束自习回到寝室的这段路，走过时，总能感到切实的放松，这最近也激起了我对“走路究竟能不能解压”的好奇。<br>
-突然想起有个人说晚上要值班，破坏了他这周回家的计划。吸进一口冬意，我拿出手机拨通了他的号码。<br>
-“喂？”<br>
-“你那边弄完没有？”<br>
-“还没有…你要干嘛？”<br>
-“不是八点半就该结束了吗？那你今天应该真的回不去了啊。”<br>
-“我迟到了…所以拖晚了，干嘛？”<br>
-“没什么，就问问。”<br>
-触碰了红色的电话图标，我将手机揣回卫衣口袋，向前没走两步，一团橙黄的光拦住了我。<br>
-是一盏路灯，它有着格外粗的灯杆，和四颗灯泡。<br>
-过于明亮了，以至于我会愣在路灯旁，抬头直勾勾的盯着那四顶大灯。压抑、刺眼、呆滞，甚至是肃穆、庄严，纷纷闪烁在我的前额，我一时不知如何去换气。<br>
-这路灯，真是既突兀又合适。<br>
-我又往前走了两步，抬头，那一系列微妙的情绪依旧干扰着认知。我径直走到了它背后，不再那么刺目的光，让我竟有些失落。<br>
-旁边走过一对爷孙，小孩子骑在老人的肩膀上，喜意盎然，我夹在光与光之间，略显疲态。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>散文</tag>
       </tags>
   </entry>
   <entry>
@@ -1685,23 +1613,75 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>鹅</title>
-    <url>/posts/f1a75063.html</url>
-    <content><![CDATA[<h2 id="鹅"><em><strong>鹅</strong></em></h2>
-<p><em>耳边接连传来外婆的哀唱，</em></p>
+    <title>路灯</title>
+    <url>/posts/3466344d.html</url>
+    <content><![CDATA[<h2 id="路灯">路灯</h2>
+<p>指尖划着深棕的楼梯扶手走下，教学楼大厅的挂灯衔接着正在施工的泥泞道路，让我有一种身处列车站台的感觉。<br>
+站台下是轨道，站台上是一方天地，轨道的延伸处，又是一方天地。<br>
+才过小雪，街边的风缩紧路人的衣领。我从拼接成马路牙子的砖块中挑拣出规整的部分来走，偶有学生蹬着单车掠过我身旁。</p>
 <span id="more"></span>
-<p><em>身旁陆续走过上前焚烧纸钱的宾客，</em></p>
-<p><em>可我双目紧盯着老宅旁的破棚无从分心，</em></p>
-<p><em>那三只鹅以二三一的顺序伸头嘎嘎，</em></p>
-<p><em>让人很是好奇。</em></p>
+<p>结束自习回到寝室的这段路，走过时，总能感到切实的放松，这最近也激起了我对“走路究竟能不能解压”的好奇。<br>
+突然想起有个人说晚上要值班，破坏了他这周回家的计划。吸进一口冬意，我拿出手机拨通了他的号码。<br>
+“喂？”<br>
+“你那边弄完没有？”<br>
+“还没有…你要干嘛？”<br>
+“不是八点半就该结束了吗？那你今天应该真的回不去了啊。”<br>
+“我迟到了…所以拖晚了，干嘛？”<br>
+“没什么，就问问。”<br>
+触碰了红色的电话图标，我将手机揣回卫衣口袋，向前没走两步，一团橙黄的光拦住了我。<br>
+是一盏路灯，它有着格外粗的灯杆，和四颗灯泡。<br>
+过于明亮了，以至于我会愣在路灯旁，抬头直勾勾的盯着那四顶大灯。压抑、刺眼、呆滞，甚至是肃穆、庄严，纷纷闪烁在我的前额，我一时不知如何去换气。<br>
+这路灯，真是既突兀又合适。<br>
+我又往前走了两步，抬头，那一系列微妙的情绪依旧干扰着认知。我径直走到了它背后，不再那么刺目的光，让我竟有些失落。<br>
+旁边走过一对爷孙，小孩子骑在老人的肩膀上，喜意盎然，我夹在光与光之间，略显疲态。</p>
 ]]></content>
       <categories>
         <category>写作</category>
-        <category>诗</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>诗</tag>
-        <tag>葬礼</tag>
+        <tag>随笔</tag>
+        <tag>散文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过pyhdfs访问hdfs所遇到的相关问题</title>
+    <url>/posts/1872f332.html</url>
+    <content><![CDATA[<h2 id="通过pyhdfs访问hdfs所遇到的相关问题">通过pyhdfs访问hdfs所遇到的相关问题</h2>
+<p>最近学习使用java API访问hdfs时，十分渴望用python访问，就在pycharm里import了pyhdfs，尝试访问hdfs。</p>
+<span id="more"></span>
+<h4 id="一、本地虚拟机体验">一、本地虚拟机体验</h4>
+<p>vm打开，虚拟机跑起来：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">Res = client.open(&#x27;/data/1.txt&#x27;)</span><br><span class="line">for lines in Res:</span><br><span class="line">    print(lines)</span><br></pre></td></tr></table></figure>
+<p>失败，显示了主机名称和端口号，但无法连接上。</p>
+<p>在网上搜了下，这里需要将各主机名与ip的映射加在本地机器的hosts里，例如我使用的时win10，就在<code> C:\Windows\System32\drivers\etc</code>下修改hosts。</p>
+<p>改完后成功print出文本内容，试试copy到本地：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">res = client.copy_to_local(&#x27;/data/1.txt&#x27;, &#x27;C:/Users/Aysamu/Desktop/1.txt&#x27;)</span><br></pre></td></tr></table></figure>
+<p>在桌面看到1.txt，成功！</p>
+<h4 id="二、云端访问">二、云端访问</h4>
+<p>这里尝试访问阿里上的hdfs时，我发现半年前我搭建的hadoop环境并不完整😥，理所当然的无法通过pyhdfs访问，如mapreduce之类的测试都跑不通，就顺便修缮了一下，下面我给出修改后的配置。</p>
+<p><em><strong><font color="red">（注意，这里各主机的hosts内映射需按照“本机对应内网ip，他机对应公网ip”来填写，在本地机器中，直接填各主机的公网ip即可。）</font></strong></em></p>
+<p>core-site.xml:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://aysamu:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!-- 指定 hadoop 运行时产生文件的存储路径 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/root/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>yarn-site.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">&lt;value&gt;aysamu&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;description&gt;YARN 集群为 MapReduce 程序提供的 shuffle 服务&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8032&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8030&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8031&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8033&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8088&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>mapred-site.xml.template：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line"> &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>记得<code>cp mapred-site.xml.template mapred-site.xml</code>，我在8088端口看不到进程就是忘记了它（＞人＜；）</strong></p>
+<p><em><strong><font style="color:yellow;font-size:35px">还有十分重要的一点！！！</font></strong></em></p>
+<p><strong>在各节点的hosts中，将这一行注释掉！</strong></p>
+<p><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</code></p>
+<p><em>最后说一句，我爱python</em></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>hadoop</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyhdfs</tag>
+        <tag>hadoop</tag>
+        <tag>hdfs</tag>
       </tags>
   </entry>
   <entry>
@@ -1723,6 +1703,26 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>hexo</tag>
         <tag>反向代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>鹅</title>
+    <url>/posts/f1a75063.html</url>
+    <content><![CDATA[<h2 id="鹅"><em><strong>鹅</strong></em></h2>
+<p><em>耳边接连传来外婆的哀唱，</em></p>
+<span id="more"></span>
+<p><em>身旁陆续走过上前焚烧纸钱的宾客，</em></p>
+<p><em>可我双目紧盯着老宅旁的破棚无从分心，</em></p>
+<p><em>那三只鹅以二三一的顺序伸头嘎嘎，</em></p>
+<p><em>让人很是好奇。</em></p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>诗</category>
+      </categories>
+      <tags>
+        <tag>诗</tag>
+        <tag>葬礼</tag>
       </tags>
   </entry>
 </search>
