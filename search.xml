@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>2023-4-10</title>
-    <url>/posts/dfecc98.html</url>
-    <content><![CDATA[<h1>2023-4-10</h1>
-<p>  考研复试成绩出来已经近半个月了，这期间我尝试提前联系导师，但没有一个明确给我名额的，作罢。</p>
-<p>  也试过去找专业相关的实习，去年毕业的时候我没参与过招聘会，也没自己找过实习，对目前的就业形势只有耳闻而不知详况，这几天才知道何其困难。</p>
-<p>  最后还是在家附近找了个接听电话的活计，脱产一整年，就算有出去游玩的打算也得先挣点钱呀。<br>
-​<br>
-  说起旅行，此前我也与朋友提过，朋友在江苏，我记起一句“姑苏城外寒山寺”，便言，不若此行终点便定在寒山寺吧。又闻“兰亭临帖，行书如行云流水”，似乎兰亭所在也与那处不远，沿途也走这兰亭一遭。</p>
-<p>  在地图上标好了两处目的地，发现从武汉出发，恰经黄山，又顺手将其加入了行程。这样一来，我的旅行计划算是有了雏形，现在差的恐怕也就属钱最费时了。</p>
-<p>  此行本没考虑过旅伴，但若真的孤身出行，恐怕难免还会有些不便或寂寞？亦或又是别有一番滋味在其中？</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>《散笔随记》</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2023-4-11</title>
     <url>/posts/7af9fc0e.html</url>
     <content><![CDATA[<h1>2023-4-11</h1>
@@ -32,6 +12,26 @@
 <p>  但今天突然发现备忘录里自一五年起的记录一直都有被好好保存，即便中途已经更换了不知多少苹果系手机，但这些有意义的文字还能再次被我看到，莫名有些感动。</p>
 <p>  忽地想起了我在QQ空间也有许多记录未删除，可惜的是一八年以前的全都删掉了，看得出来那年高考失利，去了一所双非本科对我的打击真的很大。</p>
 <p>  也许对那时的我来说，我的前十八年在高考成绩出来那一刻就已经死掉了罢。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>《散笔随记》</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023-4-10</title>
+    <url>/posts/dfecc98.html</url>
+    <content><![CDATA[<h1>2023-4-10</h1>
+<p>  考研复试成绩出来已经近半个月了，这期间我尝试提前联系导师，但没有一个明确给我名额的，作罢。</p>
+<p>  也试过去找专业相关的实习，去年毕业的时候我没参与过招聘会，也没自己找过实习，对目前的就业形势只有耳闻而不知详况，这几天才知道何其困难。</p>
+<p>  最后还是在家附近找了个接听电话的活计，脱产一整年，就算有出去游玩的打算也得先挣点钱呀。<br>
+​<br>
+  说起旅行，此前我也与朋友提过，朋友在江苏，我记起一句“姑苏城外寒山寺”，便言，不若此行终点便定在寒山寺吧。又闻“兰亭临帖，行书如行云流水”，似乎兰亭所在也与那处不远，沿途也走这兰亭一遭。</p>
+<p>  在地图上标好了两处目的地，发现从武汉出发，恰经黄山，又顺手将其加入了行程。这样一来，我的旅行计划算是有了雏形，现在差的恐怕也就属钱最费时了。</p>
+<p>  此行本没考虑过旅伴，但若真的孤身出行，恐怕难免还会有些不便或寂寞？亦或又是别有一番滋味在其中？</p>
 ]]></content>
       <categories>
         <category>写作</category>
@@ -191,62 +191,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Next主题优化汇总</title>
-    <url>/posts/acdcd664.html</url>
-    <content><![CDATA[<h2 id="Next主题优化汇总">Next主题优化汇总</h2>
-<h3 id="主题优化">主题优化</h3>
-<p><strong><font color="brown">由于hexo的主题优化相关已经有很多前辈分享过经验，如果有我觉得很完善的汇总博文，我会在下面直接贴出链接</font></strong></p>
-<span id="more"></span>
-<h4 id="界面美化">界面美化</h4>
-<p><a href="https://segmentfault.com/a/1190000014676320"><font color="brown">关于Hexo6.0搭建个人博客(进阶篇)</font></a>  这篇博客包括了</p>
-<ul>
-<li>配置博客基本信息</li>
-<li>配置主题</li>
-<li>优化主题</li>
-</ul>
-<ul>
-<li>上传头像,并设置头像旋转效果</li>
-<li>设置个人社交图标链接</li>
-<li>设置RSS</li>
-<li>设置酷炫动态背景</li>
-<li>设置主题语言</li>
-<li>设置网站logo</li>
-<li>设置左上角或者右上角的fork me on github效果</li>
-<li>设置顶部滚动加载条</li>
-<li>自定义博客底部显示效果</li>
-<li>为首页文章添加阴影边框效果</li>
-<li>为首页添加自定义菜单栏标签</li>
-</ul>
-<h4 id="功能优化">功能优化</h4>
-<h5 id="大多数功能拓展">大多数功能拓展</h5>
-<p>在做收尾工作时，我惊喜的发现<a href="https://albenw.github.io/categories/hexo/"><font color="gren"><em>alben.wong</em></font></a>的博客里已经收录了大多数的功能拓展，相当感谢，这样也免去大家像我一样东拼西凑的麻烦。</p>
-<ul>
-<li>如果在安装了hexo-admin和valine后，同时启动两者后台时，报错如下：<a href="https://ywandy.github.io/%E8%A7%A3%E5%86%B3linux%E4%B8%8Bnodejs%E4%B8%ADwatch%E6%96%87%E4%BB%B6%E6%9C%80%E5%A4%A7%E6%95%B0%E5%BC%82%E5%B8%B8.html"><font color="red">ENOSPC: System limit for number of file watchers reached</font></a>。可直接进入链接查看方案。</li>
-</ul>
-<h5 id="完善外链跳转">完善外链跳转</h5>
-<p>我遇到过关于站内跳转外链时无法正常跳转的问题，例如在“aysamu.space”下点开一个名为为“url”链接，结果进入的是“aysamu.space/url”，而不是我们希望进入的“url”。对此，我搜索到了下面的方案：<a href="https://cloud.tencent.com/developer/article/1068470"><font color="red">对网页内跳转外链代码的改善</font></a>。</p>
-<h5 id="valine评论框中设置必填项">valine评论框中设置必填项</h5>
-<p>刚开始我使用valine评论系统时，因其可匿名发布，使得评论区全都是匿名用户，看得头疼。我在一个大佬的博客里看到了他的valine中，昵称和邮箱是必填<br>
-项！像这样：<br>
-<img src="acdcd664/valine.png" alt="必填项"><br>
-然后我就去问大佬，可惜他配置已经太久，忘了流程，把配置文件发给了我让我自个儿研究。但是，我拿着配置文件倒腾半天，没效果╯︿╰。于是，我，又双叒叕去问网友！群里的老哥很快就给了我回复！<br>
-<img src="acdcd664/reply.png" alt="群里的回复"></p>
-<p><a href="https://deserts.io/diy-a-comment-system/"><font color="gren"><em>DesertP</em></font></a>的博客我之前看到过，可我比较懒，就选择使用volantis。然鹅，一进入conf我就麻了( ╯□╰ )。我的conf里并没有给出valine的引入配置，经询问后，得知我使用的5.1.4版本过低。<br>
-升级到Next6之后，又遇到了许多奇奇怪怪的问题……最终我决定还是回到已经大部分配置好的5.1.4，<strong>解决方案</strong>在下面。</p>
-<ul>
-<li>轻车熟路，我找到了theme/next/layout/_third-party/comments/valine.swig，将引用valine.js/valine.min.js的src改成了由*<font color="gren">BurgerTown@tk</font>*分享的<code>https://blog-1253475808.file.myqcloud.com/custom_js/volantis.min.js</code>volantis引用。成功搞定。</li>
-</ul>
-<h3 id="感想">感想</h3>
-<p>在搭建hexo的过程中，我一次又一次的感受到来自陌生人的纯粹的善意。也许最初这只是我一次随意的尝试，但在与大家分享，交流后，我真切的喜欢上这样的氛围。这样的体验给我对所选择的专业的想法，对我希望进入的领域的想法，带来了相当的改变，我相信hexo的圈子只是一个缩影，为此，再一次感谢前方的开拓者们。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Numpy学习笔记</title>
     <url>/posts/6e7d4b9f.html</url>
     <content><![CDATA[<h2 id="Numpy笔记">Numpy笔记</h2>
@@ -328,98 +272,59 @@
       </tags>
   </entry>
   <entry>
-    <title>matplotlib学习笔记</title>
-    <url>/posts/643c4929.html</url>
-    <content><![CDATA[<h2 id="matplotlib学习笔记">matplotlib学习笔记</h2>
-<ol>
-<li>
-<p>引入</p>
-<p><code> from matplotlib import pyplot as plt</code></p>
-</li>
-<li>
-<p>设置图形大小</p>
-<p><code>plt.figure(figsize=(20, 10), dpi=80)</code> <em>大小、清晰度</em></p>
+    <title>Next主题优化汇总</title>
+    <url>/posts/acdcd664.html</url>
+    <content><![CDATA[<h2 id="Next主题优化汇总">Next主题优化汇总</h2>
+<h3 id="主题优化">主题优化</h3>
+<p><strong><font color="brown">由于hexo的主题优化相关已经有很多前辈分享过经验，如果有我觉得很完善的汇总博文，我会在下面直接贴出链接</font></strong></p>
 <span id="more"></span>
-</li>
-<li>
-<p>绘图</p>
-<p><code>plt.plot(x, y)</code> <em>折线图</em></p>
-<p><code>plt.scatter</code> <em>散点图</em></p>
-<p><code>plt.bar</code> <em>条形图（竖式）</em>  <code>plt.barh</code><em>条形图（横式）</em></p>
-<p><code>plt.hist </code> <em>直方图</em></p>
-<p>更多样式可参照<a href="https://matplotlib.org/gallery/index.html"><font color="red">官网</font></a>(可能需要梯子)</p>
-</li>
-<li>
-<p>调整x、y轴刻度</p>
-<p><code>plt.xticks()</code> | <code> plt.yticks()</code></p>
+<h4 id="界面美化">界面美化</h4>
+<p><a href="https://segmentfault.com/a/1190000014676320"><font color="brown">关于Hexo6.0搭建个人博客(进阶篇)</font></a>  这篇博客包括了</p>
 <ul>
-<li>
-<p>传入一个参数（数字列表），步长合适即可。</p>
-</li>
-<li>
-<p>传入两个参数，分别是数字列表和字符串列表，两者一一对应，只显示字符串。</p>
-<blockquote>
-<p>先确定坐标，再引入文字。</p>
-</blockquote>
-</li>
+<li>配置博客基本信息</li>
+<li>配置主题</li>
+<li>优化主题</li>
 </ul>
-</li>
-<li>
-<p>展示图片</p>
-<p><code>plt.show()</code></p>
-</li>
-<li>
-<p>保存</p>
-<p><code>plt.savefig(&quot;file_path&quot;)</code></p>
-</li>
-<li>
-<p>显示中文</p>
 <ul>
-<li>
-<p><code>matplolib.rc(&quot;font&quot;, family=&quot;MicroSoft YaHei&quot;, weight=&quot;bold&quot;, size=16)</code></p>
-</li>
-<li>
-<pre><code>from matplolib import font_manager
-my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
-</code></pre>
-<p>在要使用中文处添加<code>fontproperties=my_font</code></p>
-<p>图例中使用<code> prop=my_font</code></p>
-<p>linux下使用<code>fc-list</code>查看可用字体</p>
-</li>
+<li>上传头像,并设置头像旋转效果</li>
+<li>设置个人社交图标链接</li>
+<li>设置RSS</li>
+<li>设置酷炫动态背景</li>
+<li>设置主题语言</li>
+<li>设置网站logo</li>
+<li>设置左上角或者右上角的fork me on github效果</li>
+<li>设置顶部滚动加载条</li>
+<li>自定义博客底部显示效果</li>
+<li>为首页文章添加阴影边框效果</li>
+<li>为首页添加自定义菜单栏标签</li>
 </ul>
-</li>
-<li>
-<p>图例</p>
-<p>给当前图形添加注释以供区别</p>
-<p><code>plot(label=&quot;自己&quot;)</code></p>
-<p><code>plot.legent(loc, prop)</code> loc表示图例位置</p>
-</li>
-<li>
-<p>图形样式</p>
-<p>color、linestyle、linewidth、alpha（透明度）。</p>
-</li>
-<li>
-<p>图形描述</p>
-<p><code>plt.xlabel()</code> <em>x轴</em></p>
-<p><code>plt.ylabel()</code> <em>y轴</em></p>
-<p><code>plt.title()</code> <em>标题</em></p>
-</li>
-<li>
-<p>网格设置</p>
-<p><code>plt.grid(alpha=0.4, linestyle=solid)</code></p>
-</li>
-</ol>
+<h4 id="功能优化">功能优化</h4>
+<h5 id="大多数功能拓展">大多数功能拓展</h5>
+<p>在做收尾工作时，我惊喜的发现<a href="https://albenw.github.io/categories/hexo/"><font color="gren"><em>alben.wong</em></font></a>的博客里已经收录了大多数的功能拓展，相当感谢，这样也免去大家像我一样东拼西凑的麻烦。</p>
+<ul>
+<li>如果在安装了hexo-admin和valine后，同时启动两者后台时，报错如下：<a href="https://ywandy.github.io/%E8%A7%A3%E5%86%B3linux%E4%B8%8Bnodejs%E4%B8%ADwatch%E6%96%87%E4%BB%B6%E6%9C%80%E5%A4%A7%E6%95%B0%E5%BC%82%E5%B8%B8.html"><font color="red">ENOSPC: System limit for number of file watchers reached</font></a>。可直接进入链接查看方案。</li>
+</ul>
+<h5 id="完善外链跳转">完善外链跳转</h5>
+<p>我遇到过关于站内跳转外链时无法正常跳转的问题，例如在“aysamu.space”下点开一个名为为“url”链接，结果进入的是“aysamu.space/url”，而不是我们希望进入的“url”。对此，我搜索到了下面的方案：<a href="https://cloud.tencent.com/developer/article/1068470"><font color="red">对网页内跳转外链代码的改善</font></a>。</p>
+<h5 id="valine评论框中设置必填项">valine评论框中设置必填项</h5>
+<p>刚开始我使用valine评论系统时，因其可匿名发布，使得评论区全都是匿名用户，看得头疼。我在一个大佬的博客里看到了他的valine中，昵称和邮箱是必填<br>
+项！像这样：<br>
+<img src="acdcd664/valine.png" alt="必填项"><br>
+然后我就去问大佬，可惜他配置已经太久，忘了流程，把配置文件发给了我让我自个儿研究。但是，我拿着配置文件倒腾半天，没效果╯︿╰。于是，我，又双叒叕去问网友！群里的老哥很快就给了我回复！<br>
+<img src="acdcd664/reply.png" alt="群里的回复"></p>
+<p><a href="https://deserts.io/diy-a-comment-system/"><font color="gren"><em>DesertP</em></font></a>的博客我之前看到过，可我比较懒，就选择使用volantis。然鹅，一进入conf我就麻了( ╯□╰ )。我的conf里并没有给出valine的引入配置，经询问后，得知我使用的5.1.4版本过低。<br>
+升级到Next6之后，又遇到了许多奇奇怪怪的问题……最终我决定还是回到已经大部分配置好的5.1.4，<strong>解决方案</strong>在下面。</p>
+<ul>
+<li>轻车熟路，我找到了theme/next/layout/_third-party/comments/valine.swig，将引用valine.js/valine.min.js的src改成了由*<font color="gren">BurgerTown@tk</font>*分享的<code>https://blog-1253475808.file.myqcloud.com/custom_js/volantis.min.js</code>volantis引用。成功搞定。</li>
+</ul>
+<h3 id="感想">感想</h3>
+<p>在搭建hexo的过程中，我一次又一次的感受到来自陌生人的纯粹的善意。也许最初这只是我一次随意的尝试，但在与大家分享，交流后，我真切的喜欢上这样的氛围。这样的体验给我对所选择的专业的想法，对我希望进入的领域的想法，带来了相当的改变，我相信hexo的圈子只是一个缩影，为此，再一次感谢前方的开拓者们。</p>
 ]]></content>
       <categories>
         <category>学习</category>
-        <category>python</category>
-        <category>数据分析</category>
-        <category>matplotlib</category>
       </categories>
       <tags>
-        <tag>python</tag>
-        <tag>数据分析</tag>
-        <tag>matplotlib</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -564,6 +469,101 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>matplotlib学习笔记</title>
+    <url>/posts/643c4929.html</url>
+    <content><![CDATA[<h2 id="matplotlib学习笔记">matplotlib学习笔记</h2>
+<ol>
+<li>
+<p>引入</p>
+<p><code> from matplotlib import pyplot as plt</code></p>
+</li>
+<li>
+<p>设置图形大小</p>
+<p><code>plt.figure(figsize=(20, 10), dpi=80)</code> <em>大小、清晰度</em></p>
+<span id="more"></span>
+</li>
+<li>
+<p>绘图</p>
+<p><code>plt.plot(x, y)</code> <em>折线图</em></p>
+<p><code>plt.scatter</code> <em>散点图</em></p>
+<p><code>plt.bar</code> <em>条形图（竖式）</em>  <code>plt.barh</code><em>条形图（横式）</em></p>
+<p><code>plt.hist </code> <em>直方图</em></p>
+<p>更多样式可参照<a href="https://matplotlib.org/gallery/index.html"><font color="red">官网</font></a>(可能需要梯子)</p>
+</li>
+<li>
+<p>调整x、y轴刻度</p>
+<p><code>plt.xticks()</code> | <code> plt.yticks()</code></p>
+<ul>
+<li>
+<p>传入一个参数（数字列表），步长合适即可。</p>
+</li>
+<li>
+<p>传入两个参数，分别是数字列表和字符串列表，两者一一对应，只显示字符串。</p>
+<blockquote>
+<p>先确定坐标，再引入文字。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>
+<p>展示图片</p>
+<p><code>plt.show()</code></p>
+</li>
+<li>
+<p>保存</p>
+<p><code>plt.savefig(&quot;file_path&quot;)</code></p>
+</li>
+<li>
+<p>显示中文</p>
+<ul>
+<li>
+<p><code>matplolib.rc(&quot;font&quot;, family=&quot;MicroSoft YaHei&quot;, weight=&quot;bold&quot;, size=16)</code></p>
+</li>
+<li>
+<pre><code>from matplolib import font_manager
+my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
+</code></pre>
+<p>在要使用中文处添加<code>fontproperties=my_font</code></p>
+<p>图例中使用<code> prop=my_font</code></p>
+<p>linux下使用<code>fc-list</code>查看可用字体</p>
+</li>
+</ul>
+</li>
+<li>
+<p>图例</p>
+<p>给当前图形添加注释以供区别</p>
+<p><code>plot(label=&quot;自己&quot;)</code></p>
+<p><code>plot.legent(loc, prop)</code> loc表示图例位置</p>
+</li>
+<li>
+<p>图形样式</p>
+<p>color、linestyle、linewidth、alpha（透明度）。</p>
+</li>
+<li>
+<p>图形描述</p>
+<p><code>plt.xlabel()</code> <em>x轴</em></p>
+<p><code>plt.ylabel()</code> <em>y轴</em></p>
+<p><code>plt.title()</code> <em>标题</em></p>
+</li>
+<li>
+<p>网格设置</p>
+<p><code>plt.grid(alpha=0.4, linestyle=solid)</code></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>python</category>
+        <category>数据分析</category>
+        <category>matplotlib</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>数据分析</tag>
+        <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python实现基于MapReduce的K-means聚类算法</title>
     <url>/posts/ab49b85e.html</url>
     <content><![CDATA[<h1><strong>python实现基于MapReduce的K-means聚类算法</strong></h1>
@@ -610,9 +610,9 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>python</tag>
         <tag>数据分析</tag>
-        <tag>matplotlib</tag>
         <tag>爬虫</tag>
         <tag>pandas</tag>
+        <tag>matplotlib</tag>
       </tags>
   </entry>
   <entry>
@@ -660,28 +660,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>云服务器上hdfs集群关于节点间通讯问题</title>
-    <url>/posts/9718eb07.html</url>
-    <content><![CDATA[<h1><strong>云服务器上hdfs集群关于节点间通讯问题</strong></h1>
-<p>在跑MR时，突然发现有的节点间相互call对方的内网ip，持续call不通，导致任务失败。仔细排查一下，发现可能是/etc/hosts的配置有问题。</p>
-<span id="more"></span>
-<p>由于在云服务器上，通讯间靠公网ip，所以和网上绝大多数查到的配置不同，我给出以下代码：</p>
-<p>Master节点：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># inner</span><br><span class="line">内网IP Master</span><br><span class="line"># outer</span><br><span class="line">公网IP Slave1</span><br><span class="line">公网IP Slave2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>Slave节点：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># inner</span><br><span class="line">内网IP localhost</span><br><span class="line"># outer</span><br><span class="line">公网IP Master</span><br><span class="line">公网IP Slave1</span><br><span class="line">公网IP Slave2</span><br></pre></td></tr></table></figure>
-<p>具体应该怎样处理内网IP还看项目需求，可以按照自己的需要更改。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>hadoop</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>大数据</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>递归二分法</title>
     <url>/posts/649c2087.html</url>
     <content><![CDATA[<h2 id="递归二分法">递归二分法</h2>
@@ -719,6 +697,28 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>IDEA</tag>
         <tag>maven</tag>
         <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>云服务器上hdfs集群关于节点间通讯问题</title>
+    <url>/posts/9718eb07.html</url>
+    <content><![CDATA[<h1><strong>云服务器上hdfs集群关于节点间通讯问题</strong></h1>
+<p>在跑MR时，突然发现有的节点间相互call对方的内网ip，持续call不通，导致任务失败。仔细排查一下，发现可能是/etc/hosts的配置有问题。</p>
+<span id="more"></span>
+<p>由于在云服务器上，通讯间靠公网ip，所以和网上绝大多数查到的配置不同，我给出以下代码：</p>
+<p>Master节点：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># inner</span><br><span class="line">内网IP Master</span><br><span class="line"># outer</span><br><span class="line">公网IP Slave1</span><br><span class="line">公网IP Slave2</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>Slave节点：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># inner</span><br><span class="line">内网IP localhost</span><br><span class="line"># outer</span><br><span class="line">公网IP Master</span><br><span class="line">公网IP Slave1</span><br><span class="line">公网IP Slave2</span><br></pre></td></tr></table></figure>
+<p>具体应该怎样处理内网IP还看项目需求，可以按照自己的需要更改。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>hadoop</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>大数据</tag>
       </tags>
   </entry>
   <entry>
@@ -812,6 +812,30 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>关于在nginx上配置hexo（一）</title>
+    <url>/posts/bb868060.html</url>
+    <content><![CDATA[<h2 id="在Nginx上配置Hexo（一）">在Nginx上配置Hexo（一）</h2>
+<p>因为在git上放blog时对速度不满意，我改将其放在我的学生服务器上（<font color="red"><em>阿里云轻量应用级</em></font>(●’◡’●)）……具体参考了CSDN上的一篇博客，链接我放在了首篇博文里，在那篇文章中我也提到了我做出了些细节上的改变，也就是我遇到了一些问题，下面给大家分享一下：</p>
+<span id="more"></span>
+<p>  1、由于我的nginx是此前就已经配置好了并使用过的……在跟着blog走到最后时才发现访问hostname进不到hexo的初始页面里去，就网上搜了一下hexo配置相关，有了一些理解：<br>
+<br><br>
+<s>  我们创建了三个文件夹，分别在/Documents/myHexo （这个是工程目录），/usr/local/blogRepo （网页配置文件，），/usr/local/hexo（网页文件）。当我登录域名时，总是进入到hexo下的index.html，尽管在hooks里创建了钩子，却感觉完全没有起作用**（<font color="blue">如果有朋友知道是什么原因的话，恳请邮件告诉我，我的联系方式在首篇博文里</font>）**。我的解决方法是将nginx配置文件中server{}里root /<br>
+修改为了/Documents/myHexo下的public目录，然后再进行访问就能看到hexo页面了( •̀ ω •́ )✧。</s><strong>（<font color="red">后注：</font>关于这一段，我的讲述有一些问题，我在（二）中有进行重新理解，大家可以去看看。）</strong></p>
+<p>  2、如果在从git上克隆theme的过程中遇到这样的问题：“Please make sure you have the correct access rights and the repository exists.”，我给出这样的参考，<a href="https://blog.csdn.net/jingtingfengguo/article/details/51892864"><span style="color: green; font-style: none;">博文在这</span></a>。</p>
+<p>  3、还有一些易察觉的错误，我参考了这篇博客，<a href="https://www.jianshu.com/p/8681ab76da08"><font color="green">一样放上链接</font></a>。<br>
+<img src="bb868060/view.png" alt="This is an example image"></p>
+<p>  4、还有一些拓展功能时遇到的问题，对应的网页我已经遗失了（╮（╯＿╰）╭）……但不出意外的话在网上都能搜索到。最后感叹一下，hexo真好用！ψ(｀∇´)ψ</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>网站配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于使用numba对python进行代码加速</title>
     <url>/posts/16a14a08.html</url>
     <content><![CDATA[<h1>关于使用numba对python进行代码加速</h1>
@@ -849,30 +873,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>python</tag>
         <tag>numba</tag>
         <tag>代码提速</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于在nginx上配置hexo（一）</title>
-    <url>/posts/bb868060.html</url>
-    <content><![CDATA[<h2 id="在Nginx上配置Hexo（一）">在Nginx上配置Hexo（一）</h2>
-<p>因为在git上放blog时对速度不满意，我改将其放在我的学生服务器上（<font color="red"><em>阿里云轻量应用级</em></font>(●’◡’●)）……具体参考了CSDN上的一篇博客，链接我放在了首篇博文里，在那篇文章中我也提到了我做出了些细节上的改变，也就是我遇到了一些问题，下面给大家分享一下：</p>
-<span id="more"></span>
-<p>  1、由于我的nginx是此前就已经配置好了并使用过的……在跟着blog走到最后时才发现访问hostname进不到hexo的初始页面里去，就网上搜了一下hexo配置相关，有了一些理解：<br>
-<br><br>
-<s>  我们创建了三个文件夹，分别在/Documents/myHexo （这个是工程目录），/usr/local/blogRepo （网页配置文件，），/usr/local/hexo（网页文件）。当我登录域名时，总是进入到hexo下的index.html，尽管在hooks里创建了钩子，却感觉完全没有起作用**（<font color="blue">如果有朋友知道是什么原因的话，恳请邮件告诉我，我的联系方式在首篇博文里</font>）**。我的解决方法是将nginx配置文件中server{}里root /<br>
-修改为了/Documents/myHexo下的public目录，然后再进行访问就能看到hexo页面了( •̀ ω •́ )✧。</s><strong>（<font color="red">后注：</font>关于这一段，我的讲述有一些问题，我在（二）中有进行重新理解，大家可以去看看。）</strong></p>
-<p>  2、如果在从git上克隆theme的过程中遇到这样的问题：“Please make sure you have the correct access rights and the repository exists.”，我给出这样的参考，<a href="https://blog.csdn.net/jingtingfengguo/article/details/51892864"><span style="color: green; font-style: none;">博文在这</span></a>。</p>
-<p>  3、还有一些易察觉的错误，我参考了这篇博客，<a href="https://www.jianshu.com/p/8681ab76da08"><font color="green">一样放上链接</font></a>。<br>
-<img src="bb868060/view.png" alt="This is an example image"></p>
-<p>  4、还有一些拓展功能时遇到的问题，对应的网页我已经遗失了（╮（╯＿╰）╭）……但不出意外的话在网上都能搜索到。最后感叹一下，hexo真好用！ψ(｀∇´)ψ</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>网站配置</tag>
       </tags>
   </entry>
   <entry>
@@ -927,20 +927,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>序</title>
-    <url>/posts/334513da.html</url>
-    <content><![CDATA[<h1>序</h1>
-<p>  本栏目用于记录笔者生活中的一些有感而发，也会掺杂同友人聊天时的有趣片段。图片能唤起我的记忆，但我希望用文字把这些乐趣留在世上。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>《散笔随记》</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>快速排列</title>
     <url>/posts/19ca4e7.html</url>
     <content><![CDATA[<h2 id="快速排列">快速排列</h2>
@@ -958,23 +944,17 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>我的第一篇hexo博客</title>
-    <url>/posts/de39a815.html</url>
-    <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
-<p>本来想手写个人网站博客的，结果写完静态页面之后突然想到后台和维护工作太繁复了，就改而使用hexo搭建（<s>人家的东西就是好</s>），同时也能学习markdown相关，一举两得了(●′ω`●)</p>
-<span id="more"></span>
-<h2 id="博客规划">博客规划</h2>
-<p>关于这个网站，我想用来写一些blog、吐槽，以及自己写的乱七八糟的东西，因为这些东西全发表在QQ空间里就会很~（你懂得），再加上最近买了个域名，本着不浪费的原则，就利用一下（=′∇`=）</p>
-<h2 id="建站参考">建站参考</h2>
-<p>有关nginx配置相关的我就不提了，用hexo搭建博客时，我主要借鉴了<a href="https://blog.csdn.net/bskfnvjtlyzmv867/article/details/79063816">这篇文章</a>，其中可能有一些细节出入，碰到问题的朋友可以邮件联络我（aysamu@foxmail.com）</p>
+    <title>序</title>
+    <url>/posts/334513da.html</url>
+    <content><![CDATA[<h1>序</h1>
+<p>  本栏目用于记录笔者生活中的一些有感而发，也会掺杂同友人聊天时的有趣片段。图片能唤起我的记忆，但我希望用文字把这些乐趣留在世上。</p>
 ]]></content>
       <categories>
         <category>写作</category>
-        <category>测试</category>
+        <category>《散笔随记》</category>
       </categories>
       <tags>
-        <tag>试验体</tag>
-        <tag>联系我</tag>
+        <tag>写作</tag>
       </tags>
   </entry>
   <entry>
@@ -1010,6 +990,50 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>狗</tag>
         <tag>九筒</tag>
         <tag>自由</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>看过希腊神话后的胡思乱想</title>
+    <url>/posts/ced1af00.html</url>
+    <content><![CDATA[<h2 id="看过希腊神话后的胡思乱想"><em><strong>看过希腊神话后的胡思乱想</strong></em></h2>
+<p>最近在英语课本上读到了希腊神话中的世界起源，虽然此前已经对其混乱有所耳闻，但完整看过后还是相当震惊ಠ_ಠ。</p>
+<span id="more"></span>
+<p><strong>以下内容纯属个人瞎想，未经考据，如有雷人的错误，还请告知我！</strong></p>
+<p>刚开始看的时候，我纯粹抱着猎奇的心态去看盖亚<br>
+那一大家子乱七八糟的事，直到看到雅典娜的介绍：</p>
+<blockquote>
+<p>智慧女神，也是雅典的守护者。</p>
+</blockquote>
+<p>这才意识到这段神话可能并非为创作而生，而是与政治颇有渊源。不由得想到中国古代的君权神授，可如果是为了政治，为什么主导传播的人没有将其修改为更加符合社会认知的版本？这个疑问也许出于我所接受的文化与西方存在差异，转念一想，西方文学中弑亲，复仇，近亲结姻的故事层出不穷，也许真的是文化差异才使我产生诧异的情绪？</p>
+<p>出于对希腊神话的了解甚少，这里也就不继续胡说了，待我有了新的看法和认识，会在此文改正。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>吐槽</tag>
+        <tag>希腊神话</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇hexo博客</title>
+    <url>/posts/de39a815.html</url>
+    <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
+<p>本来想手写个人网站博客的，结果写完静态页面之后突然想到后台和维护工作太繁复了，就改而使用hexo搭建（<s>人家的东西就是好</s>），同时也能学习markdown相关，一举两得了(●′ω`●)</p>
+<span id="more"></span>
+<h2 id="博客规划">博客规划</h2>
+<p>关于这个网站，我想用来写一些blog、吐槽，以及自己写的乱七八糟的东西，因为这些东西全发表在QQ空间里就会很~（你懂得），再加上最近买了个域名，本着不浪费的原则，就利用一下（=′∇`=）</p>
+<h2 id="建站参考">建站参考</h2>
+<p>有关nginx配置相关的我就不提了，用hexo搭建博客时，我主要借鉴了<a href="https://blog.csdn.net/bskfnvjtlyzmv867/article/details/79063816">这篇文章</a>，其中可能有一些细节出入，碰到问题的朋友可以邮件联络我（aysamu@foxmail.com）</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>试验体</tag>
+        <tag>联系我</tag>
       </tags>
   </entry>
   <entry>
@@ -1054,30 +1078,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>看过希腊神话后的胡思乱想</title>
-    <url>/posts/ced1af00.html</url>
-    <content><![CDATA[<h2 id="看过希腊神话后的胡思乱想"><em><strong>看过希腊神话后的胡思乱想</strong></em></h2>
-<p>最近在英语课本上读到了希腊神话中的世界起源，虽然此前已经对其混乱有所耳闻，但完整看过后还是相当震惊ಠ_ಠ。</p>
-<span id="more"></span>
-<p><strong>以下内容纯属个人瞎想，未经考据，如有雷人的错误，还请告知我！</strong></p>
-<p>刚开始看的时候，我纯粹抱着猎奇的心态去看盖亚<br>
-那一大家子乱七八糟的事，直到看到雅典娜的介绍：</p>
-<blockquote>
-<p>智慧女神，也是雅典的守护者。</p>
-</blockquote>
-<p>这才意识到这段神话可能并非为创作而生，而是与政治颇有渊源。不由得想到中国古代的君权神授，可如果是为了政治，为什么主导传播的人没有将其修改为更加符合社会认知的版本？这个疑问也许出于我所接受的文化与西方存在差异，转念一想，西方文学中弑亲，复仇，近亲结姻的故事层出不穷，也许真的是文化差异才使我产生诧异的情绪？</p>
-<p>出于对希腊神话的了解甚少，这里也就不继续胡说了，待我有了新的看法和认识，会在此文改正。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>吐槽</tag>
-        <tag>希腊神话</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>路灯</title>
     <url>/posts/3466344d.html</url>
     <content><![CDATA[<h2 id="路灯">路灯</h2>
@@ -1110,24 +1110,43 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>避免网站被恶意反向代理</title>
-    <url>/posts/1313d302.html</url>
-    <content><![CDATA[<h2 id="关于如何避免网站被恶意反向代理">关于如何避免网站被恶意反向代理</h2>
-<p>前几天向百度提交了链接，早上在百度里尝试搜索自己网页内容时，发现了几个内容与我完全相同，但域名完全不认识的网站。在站长平台查询这几个域名后，果然是陌生的。经过提问和思考后，得知我的网站被人反向代理了。</p>
+    <title>通过pyhdfs访问hdfs所遇到的相关问题</title>
+    <url>/posts/1872f332.html</url>
+    <content><![CDATA[<h2 id="通过pyhdfs访问hdfs所遇到的相关问题">通过pyhdfs访问hdfs所遇到的相关问题</h2>
+<p>最近学习使用java API访问hdfs时，十分渴望用python访问，就在pycharm里import了pyhdfs，尝试访问hdfs。</p>
 <span id="more"></span>
-<h4 id="反向代理原理">反向代理原理</h4>
-<p>正如我将域名映射到ip某端口下一样，有人将域名映射到了我的域名上。</p>
-<h4 id="解决">解决</h4>
-<p>确定了原因，那就好整了，我想起来之前弃用的“禁止ip访问”方案，主要是为了我自己方便，没有进行如此设置。</p>
-<p>直接在nginx的配置文件里加入就可以了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">listen       80;</span><br><span class="line">server_name  aysamu.space;</span><br><span class="line">if ($host != &#x27;aysamu.space&#x27;)&#123;</span><br><span class="line">   return 403;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<h4 id="一、本地虚拟机体验">一、本地虚拟机体验</h4>
+<p>vm打开，虚拟机跑起来：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">Res = client.open(&#x27;/data/1.txt&#x27;)</span><br><span class="line">for lines in Res:</span><br><span class="line">    print(lines)</span><br></pre></td></tr></table></figure>
+<p>失败，显示了主机名称和端口号，但无法连接上。</p>
+<p>在网上搜了下，这里需要将各主机名与ip的映射加在本地机器的hosts里，例如我使用的时win10，就在<code> C:\Windows\System32\drivers\etc</code>下修改hosts。</p>
+<p>改完后成功print出文本内容，试试copy到本地：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">res = client.copy_to_local(&#x27;/data/1.txt&#x27;, &#x27;C:/Users/Aysamu/Desktop/1.txt&#x27;)</span><br></pre></td></tr></table></figure>
+<p>在桌面看到1.txt，成功！</p>
+<h4 id="二、云端访问">二、云端访问</h4>
+<p>这里尝试访问阿里上的hdfs时，我发现半年前我搭建的hadoop环境并不完整😥，理所当然的无法通过pyhdfs访问，如mapreduce之类的测试都跑不通，就顺便修缮了一下，下面我给出修改后的配置。</p>
+<p><em><strong><font color="red">（注意，这里各主机的hosts内映射需按照“本机对应内网ip，他机对应公网ip”来填写，在本地机器中，直接填各主机的公网ip即可。）</font></strong></em></p>
+<p>core-site.xml:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://aysamu:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!-- 指定 hadoop 运行时产生文件的存储路径 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/root/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>yarn-site.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">&lt;value&gt;aysamu&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;description&gt;YARN 集群为 MapReduce 程序提供的 shuffle 服务&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8032&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8030&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8031&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8033&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8088&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>mapred-site.xml.template：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line"> &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>记得<code>cp mapred-site.xml.template mapred-site.xml</code>，我在8088端口看不到进程就是忘记了它（＞人＜；）</strong></p>
+<p><em><strong><font style="color:yellow;font-size:35px">还有十分重要的一点！！！</font></strong></em></p>
+<p><strong>在各节点的hosts中，将这一行注释掉！</strong></p>
+<p><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</code></p>
+<p><em>最后说一句，我爱python</em></p>
+]]></content>
       <categories>
         <category>学习</category>
-        <category>网站安全</category>
+        <category>hadoop</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>反向代理</tag>
+        <tag>python</tag>
+        <tag>pyhdfs</tag>
+        <tag>hadoop</tag>
+        <tag>hdfs</tag>
       </tags>
   </entry>
   <entry>
@@ -1711,46 +1730,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>通过pyhdfs访问hdfs所遇到的相关问题</title>
-    <url>/posts/1872f332.html</url>
-    <content><![CDATA[<h2 id="通过pyhdfs访问hdfs所遇到的相关问题">通过pyhdfs访问hdfs所遇到的相关问题</h2>
-<p>最近学习使用java API访问hdfs时，十分渴望用python访问，就在pycharm里import了pyhdfs，尝试访问hdfs。</p>
-<span id="more"></span>
-<h4 id="一、本地虚拟机体验">一、本地虚拟机体验</h4>
-<p>vm打开，虚拟机跑起来：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">Res = client.open(&#x27;/data/1.txt&#x27;)</span><br><span class="line">for lines in Res:</span><br><span class="line">    print(lines)</span><br></pre></td></tr></table></figure>
-<p>失败，显示了主机名称和端口号，但无法连接上。</p>
-<p>在网上搜了下，这里需要将各主机名与ip的映射加在本地机器的hosts里，例如我使用的时win10，就在<code> C:\Windows\System32\drivers\etc</code>下修改hosts。</p>
-<p>改完后成功print出文本内容，试试copy到本地：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">res = client.copy_to_local(&#x27;/data/1.txt&#x27;, &#x27;C:/Users/Aysamu/Desktop/1.txt&#x27;)</span><br></pre></td></tr></table></figure>
-<p>在桌面看到1.txt，成功！</p>
-<h4 id="二、云端访问">二、云端访问</h4>
-<p>这里尝试访问阿里上的hdfs时，我发现半年前我搭建的hadoop环境并不完整😥，理所当然的无法通过pyhdfs访问，如mapreduce之类的测试都跑不通，就顺便修缮了一下，下面我给出修改后的配置。</p>
-<p><em><strong><font color="red">（注意，这里各主机的hosts内映射需按照“本机对应内网ip，他机对应公网ip”来填写，在本地机器中，直接填各主机的公网ip即可。）</font></strong></em></p>
-<p>core-site.xml:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://aysamu:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!-- 指定 hadoop 运行时产生文件的存储路径 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/root/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<p>yarn-site.xml</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">&lt;value&gt;aysamu&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;description&gt;YARN 集群为 MapReduce 程序提供的 shuffle 服务&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8032&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8030&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8031&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8033&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8088&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-<p>mapred-site.xml.template：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line"> &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>记得<code>cp mapred-site.xml.template mapred-site.xml</code>，我在8088端口看不到进程就是忘记了它（＞人＜；）</strong></p>
-<p><em><strong><font style="color:yellow;font-size:35px">还有十分重要的一点！！！</font></strong></em></p>
-<p><strong>在各节点的hosts中，将这一行注释掉！</strong></p>
-<p><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</code></p>
-<p><em>最后说一句，我爱python</em></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>hadoop</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyhdfs</tag>
-        <tag>hadoop</tag>
-        <tag>hdfs</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>鹅</title>
     <url>/posts/f1a75063.html</url>
     <content><![CDATA[<h2 id="鹅"><em><strong>鹅</strong></em></h2>
@@ -1768,6 +1747,27 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>诗</tag>
         <tag>葬礼</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>避免网站被恶意反向代理</title>
+    <url>/posts/1313d302.html</url>
+    <content><![CDATA[<h2 id="关于如何避免网站被恶意反向代理">关于如何避免网站被恶意反向代理</h2>
+<p>前几天向百度提交了链接，早上在百度里尝试搜索自己网页内容时，发现了几个内容与我完全相同，但域名完全不认识的网站。在站长平台查询这几个域名后，果然是陌生的。经过提问和思考后，得知我的网站被人反向代理了。</p>
+<span id="more"></span>
+<h4 id="反向代理原理">反向代理原理</h4>
+<p>正如我将域名映射到ip某端口下一样，有人将域名映射到了我的域名上。</p>
+<h4 id="解决">解决</h4>
+<p>确定了原因，那就好整了，我想起来之前弃用的“禁止ip访问”方案，主要是为了我自己方便，没有进行如此设置。</p>
+<p>直接在nginx的配置文件里加入就可以了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">listen       80;</span><br><span class="line">server_name  aysamu.space;</span><br><span class="line">if ($host != &#x27;aysamu.space&#x27;)&#123;</span><br><span class="line">   return 403;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>网站安全</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>反向代理</tag>
       </tags>
   </entry>
 </search>
