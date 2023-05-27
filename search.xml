@@ -247,87 +247,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Numpy学习笔记</title>
-    <url>/posts/6e7d4b9f.html</url>
-    <content><![CDATA[<h2 id="Numpy笔记">Numpy笔记</h2>
-<h4 id="数组形状">数组形状</h4>
-<ol>
-<li><code> array.shape</code> 返回数组的形状（行列）。</li>
-<li><code>array.reshape()</code>以某格式返回数组，如(3, 2)三行二列。</li>
-<li><code>array.flatten</code>将数组还原成一维数组。</li>
-</ol>
-<span id="more"></span>
-<h4 id="切片和索引">切片和索引</h4>
-<ol>
-<li>
-<p>选择行</p>
-<p><code>t[2]</code></p>
-<p><code>t[3:, :]</code></p>
-</li>
-<li>
-<p>选择列</p>
-<p><code>t[:, 4:]</code></p>
-</li>
-<li>
-<p>选择行列</p>
-<p>连续的多行 <code>t[2:, :3]</code></p>
-<p>不连续 <code>t[[1, 3], [2, 4]]</code> 选择的是(1, 2)，(3, 4)两个位置的值</p>
-</li>
-<li>
-<p>索引</p>
-<p><code>[2, 3]</code></p>
-</li>
-</ol>
-<h4 id="赋值">赋值</h4>
-<p><code>t[2:, 3]=3</code></p>
-<h4 id="布尔索引">布尔索引</h4>
-<p><code>t[t&gt;10]=10</code></p>
-<h4 id="三元运算符">三元运算符</h4>
-<p><code>np.where(t&gt;10, 20, 0)</code> 把t中大于10的替换为20，其他的替换为0</p>
-<h4 id="裁剪">裁剪</h4>
-<p><code>t.clip(10, 20)</code>把小于10的替换为10， 大于20的替换为20</p>
-<h4 id="转置">转置</h4>
-<ol>
-<li><code>t.T</code></li>
-<li><code>t.transpose()</code></li>
-<li><code>t.swapaxes(1, 0)</code></li>
-</ol>
-<h4 id="读取本地文件">读取本地文件</h4>
-<p><code>np.loadtxt(file_path, delimiter, dtype)</code></p>
-<h4 id="nan和inf">nan和inf</h4>
-<h5 id="inf">inf</h5>
-<p>表示无穷</p>
-<h5 id="nan">nan</h5>
-<ol>
-<li>不是一个数字，属于浮点类型。</li>
-<li><code>np.nan!=np.nan</code> 为真</li>
-<li><code>np.count_nonzero(np.nan!=np.nan)</code> 统计nan个数</li>
-<li><code>np.isnan(ti)</code> 效果和2相同</li>
-</ol>
-<h4 id="常用统计函数">常用统计函数</h4>
-<ol>
-<li><code>t.sum(axis=0)</code> 求某一反向上的和（axis为none时统计整个矩阵）</li>
-<li><code>np.median(t, axis=0)</code> 求中位数</li>
-<li><code>t.mean(axis=0)</code> 求均值</li>
-<li><code>t.max()</code> 最大值</li>
-<li><code>t.min()</code> 最小值</li>
-<li><code>np.ptp</code> 计算极差（最大减最小）</li>
-<li><code>t.std</code> 标准差</li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>数据分析</category>
-        <category>Numpy</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>Numpy</tag>
-        <tag>数据分析</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>matplotlib学习笔记</title>
     <url>/posts/643c4929.html</url>
     <content><![CDATA[<h2 id="matplotlib学习笔记">matplotlib学习笔记</h2>
@@ -418,8 +337,89 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>数据分析</tag>
         <tag>matplotlib</tag>
+        <tag>数据分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Numpy学习笔记</title>
+    <url>/posts/6e7d4b9f.html</url>
+    <content><![CDATA[<h2 id="Numpy笔记">Numpy笔记</h2>
+<h4 id="数组形状">数组形状</h4>
+<ol>
+<li><code> array.shape</code> 返回数组的形状（行列）。</li>
+<li><code>array.reshape()</code>以某格式返回数组，如(3, 2)三行二列。</li>
+<li><code>array.flatten</code>将数组还原成一维数组。</li>
+</ol>
+<span id="more"></span>
+<h4 id="切片和索引">切片和索引</h4>
+<ol>
+<li>
+<p>选择行</p>
+<p><code>t[2]</code></p>
+<p><code>t[3:, :]</code></p>
+</li>
+<li>
+<p>选择列</p>
+<p><code>t[:, 4:]</code></p>
+</li>
+<li>
+<p>选择行列</p>
+<p>连续的多行 <code>t[2:, :3]</code></p>
+<p>不连续 <code>t[[1, 3], [2, 4]]</code> 选择的是(1, 2)，(3, 4)两个位置的值</p>
+</li>
+<li>
+<p>索引</p>
+<p><code>[2, 3]</code></p>
+</li>
+</ol>
+<h4 id="赋值">赋值</h4>
+<p><code>t[2:, 3]=3</code></p>
+<h4 id="布尔索引">布尔索引</h4>
+<p><code>t[t&gt;10]=10</code></p>
+<h4 id="三元运算符">三元运算符</h4>
+<p><code>np.where(t&gt;10, 20, 0)</code> 把t中大于10的替换为20，其他的替换为0</p>
+<h4 id="裁剪">裁剪</h4>
+<p><code>t.clip(10, 20)</code>把小于10的替换为10， 大于20的替换为20</p>
+<h4 id="转置">转置</h4>
+<ol>
+<li><code>t.T</code></li>
+<li><code>t.transpose()</code></li>
+<li><code>t.swapaxes(1, 0)</code></li>
+</ol>
+<h4 id="读取本地文件">读取本地文件</h4>
+<p><code>np.loadtxt(file_path, delimiter, dtype)</code></p>
+<h4 id="nan和inf">nan和inf</h4>
+<h5 id="inf">inf</h5>
+<p>表示无穷</p>
+<h5 id="nan">nan</h5>
+<ol>
+<li>不是一个数字，属于浮点类型。</li>
+<li><code>np.nan!=np.nan</code> 为真</li>
+<li><code>np.count_nonzero(np.nan!=np.nan)</code> 统计nan个数</li>
+<li><code>np.isnan(ti)</code> 效果和2相同</li>
+</ol>
+<h4 id="常用统计函数">常用统计函数</h4>
+<ol>
+<li><code>t.sum(axis=0)</code> 求某一反向上的和（axis为none时统计整个矩阵）</li>
+<li><code>np.median(t, axis=0)</code> 求中位数</li>
+<li><code>t.mean(axis=0)</code> 求均值</li>
+<li><code>t.max()</code> 最大值</li>
+<li><code>t.min()</code> 最小值</li>
+<li><code>np.ptp</code> 计算极差（最大减最小）</li>
+<li><code>t.std</code> 标准差</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>python</category>
+        <category>数据分析</category>
+        <category>Numpy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>数据分析</tag>
+        <tag>Numpy</tag>
       </tags>
   </entry>
   <entry>
@@ -564,8 +564,8 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>数据分析</tag>
         <tag>matplotlib</tag>
+        <tag>数据分析</tag>
         <tag>pandas</tag>
         <tag>爬虫</tag>
       </tags>
@@ -896,6 +896,23 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>快速排列</title>
+    <url>/posts/19ca4e7.html</url>
+    <content><![CDATA[<h2 id="快速排列">快速排列</h2>
+<p>在书中看到的快速排列算法，给的例子是从索引0开始直接快排，在极端情况下（即数组有序），运行时间会极慢，我把其改成从数组中间开始排序……不知道能不能增加其适用性。</p>
+<span id="more"></span>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from numpy.random import randint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def quicksort(array):</span><br><span class="line">    try:</span><br><span class="line">        if len(array) &lt; 2:</span><br><span class="line">            return array</span><br><span class="line">        else:</span><br><span class="line">            n = len(array) // 2</span><br><span class="line">            pivot = array[n]</span><br><span class="line">            array2 = array[:n] + array[n+1:]</span><br><span class="line">            less = [i for i in array2 if i &lt;= pivot]</span><br><span class="line">            greater = [i for i in array2 if i &gt; pivot]</span><br><span class="line">            return quicksort(less) + [pivot] + quicksort(greater)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    l1 = list(randint(0, 100, 30))</span><br><span class="line">    print(l1)</span><br><span class="line">    print(quicksort(l1))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>递归</tag>
+        <tag>快速排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的第一篇hexo博客</title>
     <url>/posts/de39a815.html</url>
     <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
@@ -913,23 +930,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>试验体</tag>
         <tag>联系我</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>快速排列</title>
-    <url>/posts/19ca4e7.html</url>
-    <content><![CDATA[<h2 id="快速排列">快速排列</h2>
-<p>在书中看到的快速排列算法，给的例子是从索引0开始直接快排，在极端情况下（即数组有序），运行时间会极慢，我把其改成从数组中间开始排序……不知道能不能增加其适用性。</p>
-<span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from numpy.random import randint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def quicksort(array):</span><br><span class="line">    try:</span><br><span class="line">        if len(array) &lt; 2:</span><br><span class="line">            return array</span><br><span class="line">        else:</span><br><span class="line">            n = len(array) // 2</span><br><span class="line">            pivot = array[n]</span><br><span class="line">            array2 = array[:n] + array[n+1:]</span><br><span class="line">            less = [i for i in array2 if i &lt;= pivot]</span><br><span class="line">            greater = [i for i in array2 if i &gt; pivot]</span><br><span class="line">            return quicksort(less) + [pivot] + quicksort(greater)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    l1 = list(randint(0, 100, 30))</span><br><span class="line">    print(l1)</span><br><span class="line">    print(quicksort(l1))</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>学习</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>递归</tag>
-        <tag>快速排序</tag>
       </tags>
   </entry>
   <entry>
@@ -965,111 +965,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>狗</tag>
         <tag>九筒</tag>
         <tag>自由</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>看过希腊神话后的胡思乱想</title>
-    <url>/posts/ced1af00.html</url>
-    <content><![CDATA[<h2 id="看过希腊神话后的胡思乱想"><em><strong>看过希腊神话后的胡思乱想</strong></em></h2>
-<p>最近在英语课本上读到了希腊神话中的世界起源，虽然此前已经对其混乱有所耳闻，但完整看过后还是相当震惊ಠ_ಠ。</p>
-<span id="more"></span>
-<p><strong>以下内容纯属个人瞎想，未经考据，如有雷人的错误，还请告知我！</strong></p>
-<p>刚开始看的时候，我纯粹抱着猎奇的心态去看盖亚<br>
-那一大家子乱七八糟的事，直到看到雅典娜的介绍：</p>
-<blockquote>
-<p>智慧女神，也是雅典的守护者。</p>
-</blockquote>
-<p>这才意识到这段神话可能并非为创作而生，而是与政治颇有渊源。不由得想到中国古代的君权神授，可如果是为了政治，为什么主导传播的人没有将其修改为更加符合社会认知的版本？这个疑问也许出于我所接受的文化与西方存在差异，转念一想，西方文学中弑亲，复仇，近亲结姻的故事层出不穷，也许真的是文化差异才使我产生诧异的情绪？</p>
-<p>出于对希腊神话的了解甚少，这里也就不继续胡说了，待我有了新的看法和认识，会在此文改正。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>吐槽</tag>
-        <tag>希腊神话</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>苹果眼</title>
-    <url>/posts/366867c4.html</url>
-    <content><![CDATA[<h2 id="苹果眼">苹果眼</h2>
-<hr>
-<h2 id="那些被你苦苦执着的东西，往往会对你进行重复的折磨，难以停息。"><em>那些被你苦苦执着的东西，往往会对你进行重复的折磨，难以停息。</em></h2>
-<span id="more"></span>
-<p>李的苹果从桌边滚落，他伸手去接，却抓了个空。<br>
-苹果啪在了地板上，又被捡起，摆回到桌子一角。</p>
-<p>他的手指一屈伸，李的苹果再次落下，他伸手，没够着，“啪。”</p>
-<p>青嫩的苹果皮上多了两块淤青，想必也会越来越多。</p>
-<p>他又一次伸出手，指尖就快挨到苹果身子，轻轻一碰，那颗苹果绕着手指划了个六十度，与地面来了个亲密接触。</p>
-<p>苹果做好了降落准备，或许还没做好？</p>
-<p>两条手臂探出，和娃娃机里的夹子一样，夹向了苹果。他猛地用力，右手指甲扎进了左手指头根部，可怜的苹果已然看不出伤势程度。</p>
-<p>老兵苹果尽管伤痕累累，依旧被毅然决然地推出。</p>
-<p>他早把椅子挪开，双脚后蹬，向前扑出。虽然怀中落空，额头倒是有了着落。鼻翼有一股热流淌过，他手撑着地坐起，那将死的苹果正躺在一旁。</p>
-<p>李是想吃那颗苹果的，是青嫩无损的那颗。</p>
-<p>但从第一道棕黑烙印在苹果上起，他就自觉难以回头了。</p>
-<p>“这既是我的选择，也是它的选择。”李觉得。</p>
-<p>他认为自己还是太莽撞了，李开始试着假设自己是这颗苹果，该用什么样的方法才能捉住自己。</p>
-<p>他试着将心态放空，盯着身前的空白，弹指，眼前的景象开始上移。蓄势已久的手刺出，他看见手掌向自己快速靠近，中指略向自己脑后，食指、无名指，小拇指紧紧跟上。</p>
-<p>“很好，就差最后一步了。”他脑中闪过。</p>
-<p>大拇指挨近苹果，用力，抓住。</p>
-<p>指腹传来柔软触感。</p>
-<p>“很好，成功了！”</p>
-<p>顺势指尖也抠进苹果皮里。</p>
-<p>他眼前仅剩漆黑，温热、异物感与刺痛逐渐向大脑反馈。</p>
-<p>李下意识去捂住眼睛，却发现手并未作出想象中的回缩，掌心传来冰凉的触感，他松开一只手，迎来的面孔鼻翼两侧一片光滑，直到外耳，什么也没有。</p>
-<p>“这人长得真是渗人。”李心想。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>短篇故事</category>
-      </categories>
-      <tags>
-        <tag>写作</tag>
-        <tag>短篇故事</tag>
-        <tag>文学</tag>
-        <tag>恐怖</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>通过pyhdfs访问hdfs所遇到的相关问题</title>
-    <url>/posts/1872f332.html</url>
-    <content><![CDATA[<h2 id="通过pyhdfs访问hdfs所遇到的相关问题">通过pyhdfs访问hdfs所遇到的相关问题</h2>
-<p>最近学习使用java API访问hdfs时，十分渴望用python访问，就在pycharm里import了pyhdfs，尝试访问hdfs。</p>
-<span id="more"></span>
-<h4 id="一、本地虚拟机体验">一、本地虚拟机体验</h4>
-<p>vm打开，虚拟机跑起来：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">Res = client.open(&#x27;/data/1.txt&#x27;)</span><br><span class="line">for lines in Res:</span><br><span class="line">    print(lines)</span><br></pre></td></tr></table></figure>
-<p>失败，显示了主机名称和端口号，但无法连接上。</p>
-<p>在网上搜了下，这里需要将各主机名与ip的映射加在本地机器的hosts里，例如我使用的时win10，就在<code> C:\Windows\System32\drivers\etc</code>下修改hosts。</p>
-<p>改完后成功print出文本内容，试试copy到本地：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">res = client.copy_to_local(&#x27;/data/1.txt&#x27;, &#x27;C:/Users/Aysamu/Desktop/1.txt&#x27;)</span><br></pre></td></tr></table></figure>
-<p>在桌面看到1.txt，成功！</p>
-<h4 id="二、云端访问">二、云端访问</h4>
-<p>这里尝试访问阿里上的hdfs时，我发现半年前我搭建的hadoop环境并不完整😥，理所当然的无法通过pyhdfs访问，如mapreduce之类的测试都跑不通，就顺便修缮了一下，下面我给出修改后的配置。</p>
-<p><em><strong><font color="red">（注意，这里各主机的hosts内映射需按照“本机对应内网ip，他机对应公网ip”来填写，在本地机器中，直接填各主机的公网ip即可。）</font></strong></em></p>
-<p>core-site.xml:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://aysamu:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!-- 指定 hadoop 运行时产生文件的存储路径 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/root/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<p>yarn-site.xml</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">&lt;value&gt;aysamu&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;description&gt;YARN 集群为 MapReduce 程序提供的 shuffle 服务&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8032&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8030&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8031&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8033&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8088&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
-<p>mapred-site.xml.template：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line"> &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
-<p><strong>记得<code>cp mapred-site.xml.template mapred-site.xml</code>，我在8088端口看不到进程就是忘记了它（＞人＜；）</strong></p>
-<p><em><strong><font style="color:yellow;font-size:35px">还有十分重要的一点！！！</font></strong></em></p>
-<p><strong>在各节点的hosts中，将这一行注释掉！</strong></p>
-<p><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</code></p>
-<p><em>最后说一句，我爱python</em></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>hadoop</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>pyhdfs</tag>
-        <tag>hadoop</tag>
-        <tag>hdfs</tag>
       </tags>
   </entry>
   <entry>
@@ -1653,6 +1548,71 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>看过希腊神话后的胡思乱想</title>
+    <url>/posts/ced1af00.html</url>
+    <content><![CDATA[<h2 id="看过希腊神话后的胡思乱想"><em><strong>看过希腊神话后的胡思乱想</strong></em></h2>
+<p>最近在英语课本上读到了希腊神话中的世界起源，虽然此前已经对其混乱有所耳闻，但完整看过后还是相当震惊ಠ_ಠ。</p>
+<span id="more"></span>
+<p><strong>以下内容纯属个人瞎想，未经考据，如有雷人的错误，还请告知我！</strong></p>
+<p>刚开始看的时候，我纯粹抱着猎奇的心态去看盖亚<br>
+那一大家子乱七八糟的事，直到看到雅典娜的介绍：</p>
+<blockquote>
+<p>智慧女神，也是雅典的守护者。</p>
+</blockquote>
+<p>这才意识到这段神话可能并非为创作而生，而是与政治颇有渊源。不由得想到中国古代的君权神授，可如果是为了政治，为什么主导传播的人没有将其修改为更加符合社会认知的版本？这个疑问也许出于我所接受的文化与西方存在差异，转念一想，西方文学中弑亲，复仇，近亲结姻的故事层出不穷，也许真的是文化差异才使我产生诧异的情绪？</p>
+<p>出于对希腊神话的了解甚少，这里也就不继续胡说了，待我有了新的看法和认识，会在此文改正。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>吐槽</tag>
+        <tag>希腊神话</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>苹果眼</title>
+    <url>/posts/366867c4.html</url>
+    <content><![CDATA[<h2 id="苹果眼">苹果眼</h2>
+<hr>
+<h2 id="那些被你苦苦执着的东西，往往会对你进行重复的折磨，难以停息。"><em>那些被你苦苦执着的东西，往往会对你进行重复的折磨，难以停息。</em></h2>
+<span id="more"></span>
+<p>李的苹果从桌边滚落，他伸手去接，却抓了个空。<br>
+苹果啪在了地板上，又被捡起，摆回到桌子一角。</p>
+<p>他的手指一屈伸，李的苹果再次落下，他伸手，没够着，“啪。”</p>
+<p>青嫩的苹果皮上多了两块淤青，想必也会越来越多。</p>
+<p>他又一次伸出手，指尖就快挨到苹果身子，轻轻一碰，那颗苹果绕着手指划了个六十度，与地面来了个亲密接触。</p>
+<p>苹果做好了降落准备，或许还没做好？</p>
+<p>两条手臂探出，和娃娃机里的夹子一样，夹向了苹果。他猛地用力，右手指甲扎进了左手指头根部，可怜的苹果已然看不出伤势程度。</p>
+<p>老兵苹果尽管伤痕累累，依旧被毅然决然地推出。</p>
+<p>他早把椅子挪开，双脚后蹬，向前扑出。虽然怀中落空，额头倒是有了着落。鼻翼有一股热流淌过，他手撑着地坐起，那将死的苹果正躺在一旁。</p>
+<p>李是想吃那颗苹果的，是青嫩无损的那颗。</p>
+<p>但从第一道棕黑烙印在苹果上起，他就自觉难以回头了。</p>
+<p>“这既是我的选择，也是它的选择。”李觉得。</p>
+<p>他认为自己还是太莽撞了，李开始试着假设自己是这颗苹果，该用什么样的方法才能捉住自己。</p>
+<p>他试着将心态放空，盯着身前的空白，弹指，眼前的景象开始上移。蓄势已久的手刺出，他看见手掌向自己快速靠近，中指略向自己脑后，食指、无名指，小拇指紧紧跟上。</p>
+<p>“很好，就差最后一步了。”他脑中闪过。</p>
+<p>大拇指挨近苹果，用力，抓住。</p>
+<p>指腹传来柔软触感。</p>
+<p>“很好，成功了！”</p>
+<p>顺势指尖也抠进苹果皮里。</p>
+<p>他眼前仅剩漆黑，温热、异物感与刺痛逐渐向大脑反馈。</p>
+<p>李下意识去捂住眼睛，却发现手并未作出想象中的回缩，掌心传来冰凉的触感，他松开一只手，迎来的面孔鼻翼两侧一片光滑，直到外耳，什么也没有。</p>
+<p>“这人长得真是渗人。”李心想。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>短篇故事</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+        <tag>短篇故事</tag>
+        <tag>文学</tag>
+        <tag>恐怖</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>路灯</title>
     <url>/posts/3466344d.html</url>
     <content><![CDATA[<h2 id="路灯">路灯</h2>
@@ -1703,6 +1663,46 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>hexo</tag>
         <tag>反向代理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>通过pyhdfs访问hdfs所遇到的相关问题</title>
+    <url>/posts/1872f332.html</url>
+    <content><![CDATA[<h2 id="通过pyhdfs访问hdfs所遇到的相关问题">通过pyhdfs访问hdfs所遇到的相关问题</h2>
+<p>最近学习使用java API访问hdfs时，十分渴望用python访问，就在pycharm里import了pyhdfs，尝试访问hdfs。</p>
+<span id="more"></span>
+<h4 id="一、本地虚拟机体验">一、本地虚拟机体验</h4>
+<p>vm打开，虚拟机跑起来：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">Res = client.open(&#x27;/data/1.txt&#x27;)</span><br><span class="line">for lines in Res:</span><br><span class="line">    print(lines)</span><br></pre></td></tr></table></figure>
+<p>失败，显示了主机名称和端口号，但无法连接上。</p>
+<p>在网上搜了下，这里需要将各主机名与ip的映射加在本地机器的hosts里，例如我使用的时win10，就在<code> C:\Windows\System32\drivers\etc</code>下修改hosts。</p>
+<p>改完后成功print出文本内容，试试copy到本地：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pyhdfs import HdfsClient</span><br><span class="line">client = HdfsClient(hosts=&#x27;IP:50070&#x27;)</span><br><span class="line">res = client.copy_to_local(&#x27;/data/1.txt&#x27;, &#x27;C:/Users/Aysamu/Desktop/1.txt&#x27;)</span><br></pre></td></tr></table></figure>
+<p>在桌面看到1.txt，成功！</p>
+<h4 id="二、云端访问">二、云端访问</h4>
+<p>这里尝试访问阿里上的hdfs时，我发现半年前我搭建的hadoop环境并不完整😥，理所当然的无法通过pyhdfs访问，如mapreduce之类的测试都跑不通，就顺便修缮了一下，下面我给出修改后的配置。</p>
+<p><em><strong><font color="red">（注意，这里各主机的hosts内映射需按照“本机对应内网ip，他机对应公网ip”来填写，在本地机器中，直接填各主机的公网ip即可。）</font></strong></em></p>
+<p>core-site.xml:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;fs.default.name&lt;/name&gt;</span><br><span class="line">&lt;value&gt;hdfs://aysamu:9000&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;!-- 指定 hadoop 运行时产生文件的存储路径 --&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;hadoop.tmp.dir&lt;/name&gt;</span><br><span class="line">&lt;value&gt;/root/tmp&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p>yarn-site.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;</span><br><span class="line">&lt;value&gt;aysamu&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">&lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;</span><br><span class="line">&lt;value&gt;mapreduce_shuffle&lt;/value&gt;</span><br><span class="line">&lt;description&gt;YARN 集群为 MapReduce 程序提供的 shuffle 服务&lt;/description&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8032&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8030&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8031&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8033&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;aysamu:8088&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.pmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.vmem-check-enabled&lt;/name&gt;</span><br><span class="line">    &lt;value&gt;false&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br></pre></td></tr></table></figure>
+<p>mapred-site.xml.template：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;configuration&gt;</span><br><span class="line">&lt;property&gt;</span><br><span class="line"> &lt;name&gt;mapreduce.framework.name&lt;/name&gt;</span><br><span class="line"> &lt;value&gt;yarn&lt;/value&gt;</span><br><span class="line">&lt;/property&gt;</span><br><span class="line">&lt;/configuration&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>记得<code>cp mapred-site.xml.template mapred-site.xml</code>，我在8088端口看不到进程就是忘记了它（＞人＜；）</strong></p>
+<p><em><strong><font style="color:yellow;font-size:35px">还有十分重要的一点！！！</font></strong></em></p>
+<p><strong>在各节点的hosts中，将这一行注释掉！</strong></p>
+<p><code>127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4</code></p>
+<p><em>最后说一句，我爱python</em></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>hadoop</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>pyhdfs</tag>
+        <tag>hadoop</tag>
+        <tag>hdfs</tag>
       </tags>
   </entry>
   <entry>
