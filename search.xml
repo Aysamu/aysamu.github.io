@@ -63,6 +63,25 @@
       </tags>
   </entry>
   <entry>
+    <title>2023-6-18</title>
+    <url>/posts/ecca48a8.html</url>
+    <content><![CDATA[<h1>2023-6-18</h1>
+<p>  这段时间经历可谓跌宕起伏，此前提到过意料之外地找到了一位导师，但近期学院名额确定下来后，老师竟只有一个名额，不得已将我与另一位苦难兄弟放了鸽子。当时我正和朋友在公园骑车，没带手机，骑完车老师就没了，那滋味真是一言难尽。</p>
+<p>  我寻思这时重新找导师也未免太晚，已经没抱多大希望，零零散散又给几位之前联络过的老师发了邮件，询问是否还有空余名额。当晚不出意料地得到了否定的回复，只剩两位还没有给明确答复，其中一个老师说会仔细看我简历，另一位尚未回信。</p>
+<p>  不过我已经有了心理准备，似乎等学院随机分配导师也无伤大雅，第二天照常和朋友结伴出游。下午在电影院的时候手机接到来电，以为是骚扰电话，出于近期接到类似的来电比较多，也不想耽误看电影，就没有搭理。但后来手机的振动没有停息，我重新看了一眼，是此前没回复我的那位老师发来了邮件，意识到是导师来电后，这才赶紧离开座位，回拨了电话。</p>
+<p>  这位老师来电倒是清晰明了，直言晚上开个会议为我介绍一下项目内容，准备进组参与项目。虽然可能要同这段时间的慵懒假日说声再见，但能找到心仪的导师已经相当满足，知足常乐，知足常乐。</p>
+<p>  不过倒是有一点真正让我头疼，此前每天也没闲着，一直在坚持啃西瓜书，想补足之前机器学习基础理论方面的短板。但老师安排的项目似乎比较急，需要我赶快熟悉实践环境，这与我此前的学习在时间上略有冲突，但也着实是个挑战。</p>
+<p>  顺带一提，在健身方面似乎找到了些诀窍，虽然之前碳水的摄入也一直在控制，但油脂在不知不觉中摄入可能略多，而且我是个不爱吃蔬菜的人，这一点想必极大影响了我的脂肪代谢，不过我这几周已经做出了调整，期待未来一段时间的成果。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>《散笔随记》</category>
+      </categories>
+      <tags>
+        <tag>写作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Dijkstra算法与Bellman-Ford算法</title>
     <url>/posts/a2887fef.html</url>
     <content><![CDATA[<h2 id="Dijkstra算法与Bellman-Ford算法">Dijkstra算法与Bellman-Ford算法</h2>
@@ -292,87 +311,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Numpy学习笔记</title>
-    <url>/posts/6e7d4b9f.html</url>
-    <content><![CDATA[<h2 id="Numpy笔记">Numpy笔记</h2>
-<h4 id="数组形状">数组形状</h4>
-<ol>
-<li><code> array.shape</code> 返回数组的形状（行列）。</li>
-<li><code>array.reshape()</code>以某格式返回数组，如(3, 2)三行二列。</li>
-<li><code>array.flatten</code>将数组还原成一维数组。</li>
-</ol>
-<span id="more"></span>
-<h4 id="切片和索引">切片和索引</h4>
-<ol>
-<li>
-<p>选择行</p>
-<p><code>t[2]</code></p>
-<p><code>t[3:, :]</code></p>
-</li>
-<li>
-<p>选择列</p>
-<p><code>t[:, 4:]</code></p>
-</li>
-<li>
-<p>选择行列</p>
-<p>连续的多行 <code>t[2:, :3]</code></p>
-<p>不连续 <code>t[[1, 3], [2, 4]]</code> 选择的是(1, 2)，(3, 4)两个位置的值</p>
-</li>
-<li>
-<p>索引</p>
-<p><code>[2, 3]</code></p>
-</li>
-</ol>
-<h4 id="赋值">赋值</h4>
-<p><code>t[2:, 3]=3</code></p>
-<h4 id="布尔索引">布尔索引</h4>
-<p><code>t[t&gt;10]=10</code></p>
-<h4 id="三元运算符">三元运算符</h4>
-<p><code>np.where(t&gt;10, 20, 0)</code> 把t中大于10的替换为20，其他的替换为0</p>
-<h4 id="裁剪">裁剪</h4>
-<p><code>t.clip(10, 20)</code>把小于10的替换为10， 大于20的替换为20</p>
-<h4 id="转置">转置</h4>
-<ol>
-<li><code>t.T</code></li>
-<li><code>t.transpose()</code></li>
-<li><code>t.swapaxes(1, 0)</code></li>
-</ol>
-<h4 id="读取本地文件">读取本地文件</h4>
-<p><code>np.loadtxt(file_path, delimiter, dtype)</code></p>
-<h4 id="nan和inf">nan和inf</h4>
-<h5 id="inf">inf</h5>
-<p>表示无穷</p>
-<h5 id="nan">nan</h5>
-<ol>
-<li>不是一个数字，属于浮点类型。</li>
-<li><code>np.nan!=np.nan</code> 为真</li>
-<li><code>np.count_nonzero(np.nan!=np.nan)</code> 统计nan个数</li>
-<li><code>np.isnan(ti)</code> 效果和2相同</li>
-</ol>
-<h4 id="常用统计函数">常用统计函数</h4>
-<ol>
-<li><code>t.sum(axis=0)</code> 求某一反向上的和（axis为none时统计整个矩阵）</li>
-<li><code>np.median(t, axis=0)</code> 求中位数</li>
-<li><code>t.mean(axis=0)</code> 求均值</li>
-<li><code>t.max()</code> 最大值</li>
-<li><code>t.min()</code> 最小值</li>
-<li><code>np.ptp</code> 计算极差（最大减最小）</li>
-<li><code>t.std</code> 标准差</li>
-</ol>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>数据分析</category>
-        <category>Numpy</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>Numpy</tag>
-        <tag>数据分析</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>matplotlib学习笔记</title>
     <url>/posts/643c4929.html</url>
     <content><![CDATA[<h2 id="matplotlib学习笔记">matplotlib学习笔记</h2>
@@ -463,8 +401,8 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>数据分析</tag>
         <tag>matplotlib</tag>
+        <tag>数据分析</tag>
       </tags>
   </entry>
   <entry>
@@ -564,6 +502,87 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>Numpy学习笔记</title>
+    <url>/posts/6e7d4b9f.html</url>
+    <content><![CDATA[<h2 id="Numpy笔记">Numpy笔记</h2>
+<h4 id="数组形状">数组形状</h4>
+<ol>
+<li><code> array.shape</code> 返回数组的形状（行列）。</li>
+<li><code>array.reshape()</code>以某格式返回数组，如(3, 2)三行二列。</li>
+<li><code>array.flatten</code>将数组还原成一维数组。</li>
+</ol>
+<span id="more"></span>
+<h4 id="切片和索引">切片和索引</h4>
+<ol>
+<li>
+<p>选择行</p>
+<p><code>t[2]</code></p>
+<p><code>t[3:, :]</code></p>
+</li>
+<li>
+<p>选择列</p>
+<p><code>t[:, 4:]</code></p>
+</li>
+<li>
+<p>选择行列</p>
+<p>连续的多行 <code>t[2:, :3]</code></p>
+<p>不连续 <code>t[[1, 3], [2, 4]]</code> 选择的是(1, 2)，(3, 4)两个位置的值</p>
+</li>
+<li>
+<p>索引</p>
+<p><code>[2, 3]</code></p>
+</li>
+</ol>
+<h4 id="赋值">赋值</h4>
+<p><code>t[2:, 3]=3</code></p>
+<h4 id="布尔索引">布尔索引</h4>
+<p><code>t[t&gt;10]=10</code></p>
+<h4 id="三元运算符">三元运算符</h4>
+<p><code>np.where(t&gt;10, 20, 0)</code> 把t中大于10的替换为20，其他的替换为0</p>
+<h4 id="裁剪">裁剪</h4>
+<p><code>t.clip(10, 20)</code>把小于10的替换为10， 大于20的替换为20</p>
+<h4 id="转置">转置</h4>
+<ol>
+<li><code>t.T</code></li>
+<li><code>t.transpose()</code></li>
+<li><code>t.swapaxes(1, 0)</code></li>
+</ol>
+<h4 id="读取本地文件">读取本地文件</h4>
+<p><code>np.loadtxt(file_path, delimiter, dtype)</code></p>
+<h4 id="nan和inf">nan和inf</h4>
+<h5 id="inf">inf</h5>
+<p>表示无穷</p>
+<h5 id="nan">nan</h5>
+<ol>
+<li>不是一个数字，属于浮点类型。</li>
+<li><code>np.nan!=np.nan</code> 为真</li>
+<li><code>np.count_nonzero(np.nan!=np.nan)</code> 统计nan个数</li>
+<li><code>np.isnan(ti)</code> 效果和2相同</li>
+</ol>
+<h4 id="常用统计函数">常用统计函数</h4>
+<ol>
+<li><code>t.sum(axis=0)</code> 求某一反向上的和（axis为none时统计整个矩阵）</li>
+<li><code>np.median(t, axis=0)</code> 求中位数</li>
+<li><code>t.mean(axis=0)</code> 求均值</li>
+<li><code>t.max()</code> 最大值</li>
+<li><code>t.min()</code> 最小值</li>
+<li><code>np.ptp</code> 计算极差（最大减最小）</li>
+<li><code>t.std</code> 标准差</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>python</category>
+        <category>数据分析</category>
+        <category>Numpy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>数据分析</tag>
+        <tag>Numpy</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>python实现基于MapReduce的K-means聚类算法</title>
     <url>/posts/ab49b85e.html</url>
     <content><![CDATA[<h1><strong>python实现基于MapReduce的K-means聚类算法</strong></h1>
@@ -610,8 +629,8 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>爬虫</tag>
         <tag>python</tag>
-        <tag>数据分析</tag>
         <tag>matplotlib</tag>
+        <tag>数据分析</tag>
         <tag>pandas</tag>
       </tags>
   </entry>
@@ -660,20 +679,26 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>递归二分法</title>
-    <url>/posts/649c2087.html</url>
-    <content><![CDATA[<h2 id="递归二分法">递归二分法</h2>
-<p>我学到的二分法可以分为常规二分法于递归二分法，后者为帮助自己理解递归做练习。在这里我给出自己写的递归二分法，考虑的数列的升降序，函数中给了参数，默认为升序。</p>
+    <title>使用IDEA打jar包后出现“无法找到主类”的错误</title>
+    <url>/posts/883aa23a.html</url>
+    <content><![CDATA[<h2 id="使用IDEA打jar包后出现“无法找到主类”的错误">使用IDEA打jar包后出现“无法找到主类”的错误</h2>
+<p>我在分别尝试使用Eclipse和IDEA编写mapreduce程序时，相同的环境与代码，IDEA打出的jar包会报“无法找到主类”的错误。网上找了下，别人说要加上一段指定主类的代码，可是我的原代码中已经写过了，对比了两边的pom文件，我怀疑是放置代码的位置有问题。</p>
 <span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def binary_search(list, high, item, ascend=True, low=0):</span><br><span class="line">    if not list:</span><br><span class="line">        return None</span><br><span class="line">    mid = (low + high) // 2</span><br><span class="line">    if list[mid] == item:</span><br><span class="line">        return mid</span><br><span class="line">    elif list[mid] &lt; item:</span><br><span class="line">        if not ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        if ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line">    else:</span><br><span class="line">        if not ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        if ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    list1 = list(reversed(list(range(10))))</span><br><span class="line">    print(list1)</span><br><span class="line">    result = binary_search(list1, len(list1)-1, 4, False)</span><br><span class="line">    print(result)</span><br><span class="line">    list2 = list(range(10))</span><br><span class="line">    print(list2)</span><br><span class="line">    result = binary_search(list2, len(list2)-1, 7)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<p>IDEA自动生成的pom中build是这样写的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">		&lt;plaugin&gt;</span><br><span class="line">		&lt;/plaugin&gt;</span><br><span class="line">		...</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line"> &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<p>而Eclipse中没有<code>&lt;pluginManagement&gt;&lt;/pluginMagagement&gt;</code>这对标签，我原本是将代码放在<code>&lt;plugins&gt;&lt;/plugins&gt;</code>内部，但考虑到IDEA没有识别这一段代码，我做了修改如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">		&lt;plugins&gt;</span><br><span class="line">			&lt;plaugin&gt;</span><br><span class="line">			&lt;/plaugin&gt;</span><br><span class="line">			...</span><br><span class="line">			&lt;/plugins&gt;</span><br><span class="line">	&lt;/pluginManagement&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">		&lt;plugin&gt;</span><br><span class="line">		（新增代码）</span><br><span class="line">		&lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<p>最后放上bulid内完整代码以供参考</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;pluginManagement&gt;&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">        &lt;!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.8.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.22.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.5.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.8.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-site-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.7.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-project-info-reports-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.4.3&lt;/version&gt;</span><br><span class="line">      &lt;executions&gt;</span><br><span class="line">        &lt;execution&gt;</span><br><span class="line">          &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">          &lt;goals&gt;</span><br><span class="line">            &lt;goal&gt;shade&lt;/goal&gt;</span><br><span class="line">          &lt;/goals&gt;</span><br><span class="line">          &lt;configuration&gt;</span><br><span class="line">            &lt;transformers&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;</span><br><span class="line">                &lt;manifestEntries&gt;</span><br><span class="line">                  &lt;Main-Class&gt;</span><br><span class="line">                    com.hadoop.mapreduce.WordCountMain</span><br><span class="line">                  &lt;/Main-Class&gt;</span><br><span class="line">                &lt;/manifestEntries&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.handlers&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.schemas&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">            &lt;/transformers&gt;</span><br><span class="line">          &lt;/configuration&gt;</span><br><span class="line">        &lt;/execution&gt;</span><br><span class="line">      &lt;/executions&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>学习</category>
-        <category>算法</category>
+        <category>maven</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>二分法</tag>
-        <tag>递归</tag>
+        <tag>IDEA</tag>
+        <tag>maven</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -699,26 +724,20 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>使用IDEA打jar包后出现“无法找到主类”的错误</title>
-    <url>/posts/883aa23a.html</url>
-    <content><![CDATA[<h2 id="使用IDEA打jar包后出现“无法找到主类”的错误">使用IDEA打jar包后出现“无法找到主类”的错误</h2>
-<p>我在分别尝试使用Eclipse和IDEA编写mapreduce程序时，相同的环境与代码，IDEA打出的jar包会报“无法找到主类”的错误。网上找了下，别人说要加上一段指定主类的代码，可是我的原代码中已经写过了，对比了两边的pom文件，我怀疑是放置代码的位置有问题。</p>
+    <title>递归二分法</title>
+    <url>/posts/649c2087.html</url>
+    <content><![CDATA[<h2 id="递归二分法">递归二分法</h2>
+<p>我学到的二分法可以分为常规二分法于递归二分法，后者为帮助自己理解递归做练习。在这里我给出自己写的递归二分法，考虑的数列的升降序，函数中给了参数，默认为升序。</p>
 <span id="more"></span>
-<p>IDEA自动生成的pom中build是这样写的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">		&lt;plaugin&gt;</span><br><span class="line">		&lt;/plaugin&gt;</span><br><span class="line">		...</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line"> &lt;/build&gt;</span><br></pre></td></tr></table></figure>
-<p>而Eclipse中没有<code>&lt;pluginManagement&gt;&lt;/pluginMagagement&gt;</code>这对标签，我原本是将代码放在<code>&lt;plugins&gt;&lt;/plugins&gt;</code>内部，但考虑到IDEA没有识别这一段代码，我做了修改如下。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">		&lt;plugins&gt;</span><br><span class="line">			&lt;plaugin&gt;</span><br><span class="line">			&lt;/plaugin&gt;</span><br><span class="line">			...</span><br><span class="line">			&lt;/plugins&gt;</span><br><span class="line">	&lt;/pluginManagement&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">		&lt;plugin&gt;</span><br><span class="line">		（新增代码）</span><br><span class="line">		&lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
-<p>最后放上bulid内完整代码以供参考</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;pluginManagement&gt;&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">        &lt;!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.8.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.22.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.5.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.8.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-site-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.7.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-project-info-reports-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.4.3&lt;/version&gt;</span><br><span class="line">      &lt;executions&gt;</span><br><span class="line">        &lt;execution&gt;</span><br><span class="line">          &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">          &lt;goals&gt;</span><br><span class="line">            &lt;goal&gt;shade&lt;/goal&gt;</span><br><span class="line">          &lt;/goals&gt;</span><br><span class="line">          &lt;configuration&gt;</span><br><span class="line">            &lt;transformers&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;</span><br><span class="line">                &lt;manifestEntries&gt;</span><br><span class="line">                  &lt;Main-Class&gt;</span><br><span class="line">                    com.hadoop.mapreduce.WordCountMain</span><br><span class="line">                  &lt;/Main-Class&gt;</span><br><span class="line">                &lt;/manifestEntries&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.handlers&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.schemas&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">            &lt;/transformers&gt;</span><br><span class="line">          &lt;/configuration&gt;</span><br><span class="line">        &lt;/execution&gt;</span><br><span class="line">      &lt;/executions&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def binary_search(list, high, item, ascend=True, low=0):</span><br><span class="line">    if not list:</span><br><span class="line">        return None</span><br><span class="line">    mid = (low + high) // 2</span><br><span class="line">    if list[mid] == item:</span><br><span class="line">        return mid</span><br><span class="line">    elif list[mid] &lt; item:</span><br><span class="line">        if not ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        if ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line">    else:</span><br><span class="line">        if not ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        if ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    list1 = list(reversed(list(range(10))))</span><br><span class="line">    print(list1)</span><br><span class="line">    result = binary_search(list1, len(list1)-1, 4, False)</span><br><span class="line">    print(result)</span><br><span class="line">    list2 = list(range(10))</span><br><span class="line">    print(list2)</span><br><span class="line">    result = binary_search(list2, len(list2)-1, 7)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>学习</category>
-        <category>maven</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>IDEA</tag>
-        <tag>maven</tag>
-        <tag>java</tag>
+        <tag>算法</tag>
+        <tag>二分法</tag>
+        <tag>递归</tag>
       </tags>
   </entry>
   <entry>
@@ -812,46 +831,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>关于使用numba对python进行代码加速</title>
-    <url>/posts/16a14a08.html</url>
-    <content><![CDATA[<h1>关于使用numba对python进行代码加速</h1>
-<h2 id="前言">前言</h2>
-<p>在处理大量数据时，pandas与numpy对单一元素的处理明显速度过慢。近期在做一篇论文的复现时，面对十万的数据集，需要做五折交叉验证，我的机器在jupyter中运行了一晚上都没有完成一半的处理，让人十分苦恼。</p>
-<span id="more"></span>
-<p>于是我将目光转移到各类python代码的加速方法上，常见的有Pypy，cython，numba。经过一定的了解与比较之后，我认为numba的上手难度最低，使用方法最为简单，于是将numba库引入我的代码。</p>
-<p>现在对约50w条数据的处理用时只需8min多。<br>
-<img src="16a14a08/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png" alt="交叉验证"></p>
-<h2 id="正文">正文</h2>
-<p>虽然numba的各类文档中都提到了其使用方法很简单，调用装饰器即可，但实际使用过程中，将一篇已经完成的，使用了不少第三方库的python代码转换成经numba加速的形式，仍然会有许多困难。</p>
-<h3 id="函数参数的选择">函数参数的选择</h3>
-<ul>
-<li>numba是完全支持numpy的内容的，np.array可作为参数直接传入。</li>
-<li>尽量使用数字类型、numpy中的类实例作为参数，因为numba大概率不认识原生python中的数据类型（出于运算速度的考虑）。</li>
-<li>同上一点，list是不受支持的！（起初的原因是出于反射机制对性能的降低，但官方似乎已经在处理这个问题，相信在未来的numba版本中会得到改善）。</li>
-<li>pandas的df类型无法作为参数传入，但由于df中的series是等同于np.array的，可以提取series转化成np.array来传参。</li>
-</ul>
-<h3 id="使用范围的界定">使用范围的界定</h3>
-<p>出于参数选择上的种种限制，用numba来重写的函数主要应该处理数值工作，如果遇到符合类型，如基于Dataframe的数据处理，需要手动将运算函数拆分出来。同时，如果要将numba运用到类成员函数上，需要参考官方文档对类进行声明，否则无法识别。</p>
-<h3 id="装饰器参数">装饰器参数</h3>
-<p>@jit常用的参数有nopython，nogil，parallel，均为布尔类型。</p>
-<ul>
-<li>nopython为True时，等同于@njit，numba会检查函数是否为非python的函数，即是否可以用c来完全重写。</li>
-<li>nogil，去除GIL锁。诚然，python的低效率原因中，GIL的存在占了很大分量，numba可以让函数脱离GIL，实现真正的多线程。</li>
-<li>parallel，自动并行化，此选项对矩阵运算提速有明显效果，虽然离numpy的ufunc方法仍有差距，但已经有相当的改善，同时，numba中采取vectorize装饰器写出的运算函数也可以让矩阵运算提速，但仍不及ufunc。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>numba</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>numba</tag>
-        <tag>代码提速</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于在nginx上配置hexo（一）</title>
     <url>/posts/bb868060.html</url>
     <content><![CDATA[<h2 id="在Nginx上配置Hexo（一）">在Nginx上配置Hexo（一）</h2>
@@ -902,6 +881,46 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>关于使用numba对python进行代码加速</title>
+    <url>/posts/16a14a08.html</url>
+    <content><![CDATA[<h1>关于使用numba对python进行代码加速</h1>
+<h2 id="前言">前言</h2>
+<p>在处理大量数据时，pandas与numpy对单一元素的处理明显速度过慢。近期在做一篇论文的复现时，面对十万的数据集，需要做五折交叉验证，我的机器在jupyter中运行了一晚上都没有完成一半的处理，让人十分苦恼。</p>
+<span id="more"></span>
+<p>于是我将目光转移到各类python代码的加速方法上，常见的有Pypy，cython，numba。经过一定的了解与比较之后，我认为numba的上手难度最低，使用方法最为简单，于是将numba库引入我的代码。</p>
+<p>现在对约50w条数据的处理用时只需8min多。<br>
+<img src="16a14a08/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png" alt="交叉验证"></p>
+<h2 id="正文">正文</h2>
+<p>虽然numba的各类文档中都提到了其使用方法很简单，调用装饰器即可，但实际使用过程中，将一篇已经完成的，使用了不少第三方库的python代码转换成经numba加速的形式，仍然会有许多困难。</p>
+<h3 id="函数参数的选择">函数参数的选择</h3>
+<ul>
+<li>numba是完全支持numpy的内容的，np.array可作为参数直接传入。</li>
+<li>尽量使用数字类型、numpy中的类实例作为参数，因为numba大概率不认识原生python中的数据类型（出于运算速度的考虑）。</li>
+<li>同上一点，list是不受支持的！（起初的原因是出于反射机制对性能的降低，但官方似乎已经在处理这个问题，相信在未来的numba版本中会得到改善）。</li>
+<li>pandas的df类型无法作为参数传入，但由于df中的series是等同于np.array的，可以提取series转化成np.array来传参。</li>
+</ul>
+<h3 id="使用范围的界定">使用范围的界定</h3>
+<p>出于参数选择上的种种限制，用numba来重写的函数主要应该处理数值工作，如果遇到符合类型，如基于Dataframe的数据处理，需要手动将运算函数拆分出来。同时，如果要将numba运用到类成员函数上，需要参考官方文档对类进行声明，否则无法识别。</p>
+<h3 id="装饰器参数">装饰器参数</h3>
+<p>@jit常用的参数有nopython，nogil，parallel，均为布尔类型。</p>
+<ul>
+<li>nopython为True时，等同于@njit，numba会检查函数是否为非python的函数，即是否可以用c来完全重写。</li>
+<li>nogil，去除GIL锁。诚然，python的低效率原因中，GIL的存在占了很大分量，numba可以让函数脱离GIL，实现真正的多线程。</li>
+<li>parallel，自动并行化，此选项对矩阵运算提速有明显效果，虽然离numpy的ufunc方法仍有差距，但已经有相当的改善，同时，numba中采取vectorize装饰器写出的运算函数也可以让矩阵运算提速，但仍不及ufunc。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>python</category>
+        <category>numba</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>numba</tag>
+        <tag>代码提速</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于糟糕的宿舍</title>
     <url>/posts/e486a907.html</url>
     <content><![CDATA[<h2 id="font-color-00008b-三期-font"><em><strong><font color="#00008b">三期</font></strong></em></h2>
@@ -924,6 +943,26 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>吐槽</tag>
         <tag>三期宿舍</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇hexo博客</title>
+    <url>/posts/de39a815.html</url>
+    <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
+<p>本来想手写个人网站博客的，结果写完静态页面之后突然想到后台和维护工作太繁复了，就改而使用hexo搭建（<s>人家的东西就是好</s>），同时也能学习markdown相关，一举两得了(●′ω`●)</p>
+<span id="more"></span>
+<h2 id="博客规划">博客规划</h2>
+<p>关于这个网站，我想用来写一些blog、吐槽，以及自己写的乱七八糟的东西，因为这些东西全发表在QQ空间里就会很~（你懂得），再加上最近买了个域名，本着不浪费的原则，就利用一下（=′∇`=）</p>
+<h2 id="建站参考">建站参考</h2>
+<p>有关nginx配置相关的我就不提了，用hexo搭建博客时，我主要借鉴了<a href="https://blog.csdn.net/bskfnvjtlyzmv867/article/details/79063816">这篇文章</a>，其中可能有一些细节出入，碰到问题的朋友可以邮件联络我（aysamu@foxmail.com）</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>试验体</tag>
+        <tag>联系我</tag>
       </tags>
   </entry>
   <entry>
@@ -955,50 +994,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>算法</tag>
         <tag>递归</tag>
         <tag>快速排序</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇hexo博客</title>
-    <url>/posts/de39a815.html</url>
-    <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
-<p>本来想手写个人网站博客的，结果写完静态页面之后突然想到后台和维护工作太繁复了，就改而使用hexo搭建（<s>人家的东西就是好</s>），同时也能学习markdown相关，一举两得了(●′ω`●)</p>
-<span id="more"></span>
-<h2 id="博客规划">博客规划</h2>
-<p>关于这个网站，我想用来写一些blog、吐槽，以及自己写的乱七八糟的东西，因为这些东西全发表在QQ空间里就会很~（你懂得），再加上最近买了个域名，本着不浪费的原则，就利用一下（=′∇`=）</p>
-<h2 id="建站参考">建站参考</h2>
-<p>有关nginx配置相关的我就不提了，用hexo搭建博客时，我主要借鉴了<a href="https://blog.csdn.net/bskfnvjtlyzmv867/article/details/79063816">这篇文章</a>，其中可能有一些细节出入，碰到问题的朋友可以邮件联络我（aysamu@foxmail.com）</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>试验体</tag>
-        <tag>联系我</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>看过希腊神话后的胡思乱想</title>
-    <url>/posts/ced1af00.html</url>
-    <content><![CDATA[<h2 id="看过希腊神话后的胡思乱想"><em><strong>看过希腊神话后的胡思乱想</strong></em></h2>
-<p>最近在英语课本上读到了希腊神话中的世界起源，虽然此前已经对其混乱有所耳闻，但完整看过后还是相当震惊ಠ_ಠ。</p>
-<span id="more"></span>
-<p><strong>以下内容纯属个人瞎想，未经考据，如有雷人的错误，还请告知我！</strong></p>
-<p>刚开始看的时候，我纯粹抱着猎奇的心态去看盖亚<br>
-那一大家子乱七八糟的事，直到看到雅典娜的介绍：</p>
-<blockquote>
-<p>智慧女神，也是雅典的守护者。</p>
-</blockquote>
-<p>这才意识到这段神话可能并非为创作而生，而是与政治颇有渊源。不由得想到中国古代的君权神授，可如果是为了政治，为什么主导传播的人没有将其修改为更加符合社会认知的版本？这个疑问也许出于我所接受的文化与西方存在差异，转念一想，西方文学中弑亲，复仇，近亲结姻的故事层出不穷，也许真的是文化差异才使我产生诧异的情绪？</p>
-<p>出于对希腊神话的了解甚少，这里也就不继续胡说了，待我有了新的看法和认识，会在此文改正。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>读后感</category>
-      </categories>
-      <tags>
-        <tag>吐槽</tag>
-        <tag>希腊神话</tag>
       </tags>
   </entry>
   <entry>
@@ -1617,6 +1612,30 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>看过希腊神话后的胡思乱想</title>
+    <url>/posts/ced1af00.html</url>
+    <content><![CDATA[<h2 id="看过希腊神话后的胡思乱想"><em><strong>看过希腊神话后的胡思乱想</strong></em></h2>
+<p>最近在英语课本上读到了希腊神话中的世界起源，虽然此前已经对其混乱有所耳闻，但完整看过后还是相当震惊ಠ_ಠ。</p>
+<span id="more"></span>
+<p><strong>以下内容纯属个人瞎想，未经考据，如有雷人的错误，还请告知我！</strong></p>
+<p>刚开始看的时候，我纯粹抱着猎奇的心态去看盖亚<br>
+那一大家子乱七八糟的事，直到看到雅典娜的介绍：</p>
+<blockquote>
+<p>智慧女神，也是雅典的守护者。</p>
+</blockquote>
+<p>这才意识到这段神话可能并非为创作而生，而是与政治颇有渊源。不由得想到中国古代的君权神授，可如果是为了政治，为什么主导传播的人没有将其修改为更加符合社会认知的版本？这个疑问也许出于我所接受的文化与西方存在差异，转念一想，西方文学中弑亲，复仇，近亲结姻的故事层出不穷，也许真的是文化差异才使我产生诧异的情绪？</p>
+<p>出于对希腊神话的了解甚少，这里也就不继续胡说了，待我有了新的看法和认识，会在此文改正。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>读后感</category>
+      </categories>
+      <tags>
+        <tag>吐槽</tag>
+        <tag>希腊神话</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>苹果眼</title>
     <url>/posts/366867c4.html</url>
     <content><![CDATA[<h2 id="苹果眼">苹果眼</h2>
@@ -1658,24 +1677,35 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>避免网站被恶意反向代理</title>
-    <url>/posts/1313d302.html</url>
-    <content><![CDATA[<h2 id="关于如何避免网站被恶意反向代理">关于如何避免网站被恶意反向代理</h2>
-<p>前几天向百度提交了链接，早上在百度里尝试搜索自己网页内容时，发现了几个内容与我完全相同，但域名完全不认识的网站。在站长平台查询这几个域名后，果然是陌生的。经过提问和思考后，得知我的网站被人反向代理了。</p>
+    <title>路灯</title>
+    <url>/posts/3466344d.html</url>
+    <content><![CDATA[<h2 id="路灯">路灯</h2>
+<p>指尖划着深棕的楼梯扶手走下，教学楼大厅的挂灯衔接着正在施工的泥泞道路，让我有一种身处列车站台的感觉。<br>
+站台下是轨道，站台上是一方天地，轨道的延伸处，又是一方天地。<br>
+才过小雪，街边的风缩紧路人的衣领。我从拼接成马路牙子的砖块中挑拣出规整的部分来走，偶有学生蹬着单车掠过我身旁。</p>
 <span id="more"></span>
-<h4 id="反向代理原理">反向代理原理</h4>
-<p>正如我将域名映射到ip某端口下一样，有人将域名映射到了我的域名上。</p>
-<h4 id="解决">解决</h4>
-<p>确定了原因，那就好整了，我想起来之前弃用的“禁止ip访问”方案，主要是为了我自己方便，没有进行如此设置。</p>
-<p>直接在nginx的配置文件里加入就可以了：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">listen       80;</span><br><span class="line">server_name  aysamu.space;</span><br><span class="line">if ($host != &#x27;aysamu.space&#x27;)&#123;</span><br><span class="line">   return 403;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+<p>结束自习回到寝室的这段路，走过时，总能感到切实的放松，这最近也激起了我对“走路究竟能不能解压”的好奇。<br>
+突然想起有个人说晚上要值班，破坏了他这周回家的计划。吸进一口冬意，我拿出手机拨通了他的号码。<br>
+“喂？”<br>
+“你那边弄完没有？”<br>
+“还没有…你要干嘛？”<br>
+“不是八点半就该结束了吗？那你今天应该真的回不去了啊。”<br>
+“我迟到了…所以拖晚了，干嘛？”<br>
+“没什么，就问问。”<br>
+触碰了红色的电话图标，我将手机揣回卫衣口袋，向前没走两步，一团橙黄的光拦住了我。<br>
+是一盏路灯，它有着格外粗的灯杆，和四颗灯泡。<br>
+过于明亮了，以至于我会愣在路灯旁，抬头直勾勾的盯着那四顶大灯。压抑、刺眼、呆滞，甚至是肃穆、庄严，纷纷闪烁在我的前额，我一时不知如何去换气。<br>
+这路灯，真是既突兀又合适。<br>
+我又往前走了两步，抬头，那一系列微妙的情绪依旧干扰着认知。我径直走到了它背后，不再那么刺目的光，让我竟有些失落。<br>
+旁边走过一对爷孙，小孩子骑在老人的肩膀上，喜意盎然，我夹在光与光之间，略显疲态。</p>
+]]></content>
       <categories>
-        <category>学习</category>
-        <category>网站安全</category>
+        <category>写作</category>
+        <category>随笔</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
-        <tag>反向代理</tag>
+        <tag>随笔</tag>
+        <tag>散文</tag>
       </tags>
   </entry>
   <entry>
@@ -1719,6 +1749,27 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>避免网站被恶意反向代理</title>
+    <url>/posts/1313d302.html</url>
+    <content><![CDATA[<h2 id="关于如何避免网站被恶意反向代理">关于如何避免网站被恶意反向代理</h2>
+<p>前几天向百度提交了链接，早上在百度里尝试搜索自己网页内容时，发现了几个内容与我完全相同，但域名完全不认识的网站。在站长平台查询这几个域名后，果然是陌生的。经过提问和思考后，得知我的网站被人反向代理了。</p>
+<span id="more"></span>
+<h4 id="反向代理原理">反向代理原理</h4>
+<p>正如我将域名映射到ip某端口下一样，有人将域名映射到了我的域名上。</p>
+<h4 id="解决">解决</h4>
+<p>确定了原因，那就好整了，我想起来之前弃用的“禁止ip访问”方案，主要是为了我自己方便，没有进行如此设置。</p>
+<p>直接在nginx的配置文件里加入就可以了：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">listen       80;</span><br><span class="line">server_name  aysamu.space;</span><br><span class="line">if ($host != &#x27;aysamu.space&#x27;)&#123;</span><br><span class="line">   return 403;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>学习</category>
+        <category>网站安全</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>反向代理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>鹅</title>
     <url>/posts/f1a75063.html</url>
     <content><![CDATA[<h2 id="鹅"><em><strong>鹅</strong></em></h2>
@@ -1736,38 +1787,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>诗</tag>
         <tag>葬礼</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>路灯</title>
-    <url>/posts/3466344d.html</url>
-    <content><![CDATA[<h2 id="路灯">路灯</h2>
-<p>指尖划着深棕的楼梯扶手走下，教学楼大厅的挂灯衔接着正在施工的泥泞道路，让我有一种身处列车站台的感觉。<br>
-站台下是轨道，站台上是一方天地，轨道的延伸处，又是一方天地。<br>
-才过小雪，街边的风缩紧路人的衣领。我从拼接成马路牙子的砖块中挑拣出规整的部分来走，偶有学生蹬着单车掠过我身旁。</p>
-<span id="more"></span>
-<p>结束自习回到寝室的这段路，走过时，总能感到切实的放松，这最近也激起了我对“走路究竟能不能解压”的好奇。<br>
-突然想起有个人说晚上要值班，破坏了他这周回家的计划。吸进一口冬意，我拿出手机拨通了他的号码。<br>
-“喂？”<br>
-“你那边弄完没有？”<br>
-“还没有…你要干嘛？”<br>
-“不是八点半就该结束了吗？那你今天应该真的回不去了啊。”<br>
-“我迟到了…所以拖晚了，干嘛？”<br>
-“没什么，就问问。”<br>
-触碰了红色的电话图标，我将手机揣回卫衣口袋，向前没走两步，一团橙黄的光拦住了我。<br>
-是一盏路灯，它有着格外粗的灯杆，和四颗灯泡。<br>
-过于明亮了，以至于我会愣在路灯旁，抬头直勾勾的盯着那四顶大灯。压抑、刺眼、呆滞，甚至是肃穆、庄严，纷纷闪烁在我的前额，我一时不知如何去换气。<br>
-这路灯，真是既突兀又合适。<br>
-我又往前走了两步，抬头，那一系列微妙的情绪依旧干扰着认知。我径直走到了它背后，不再那么刺目的光，让我竟有些失落。<br>
-旁边走过一对爷孙，小孩子骑在老人的肩膀上，喜意盎然，我夹在光与光之间，略显疲态。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>散文</tag>
       </tags>
   </entry>
 </search>
