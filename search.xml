@@ -82,39 +82,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Dijkstra算法与Bellman-Ford算法</title>
-    <url>/posts/a2887fef.html</url>
-    <content><![CDATA[<h2 id="Dijkstra算法与Bellman-Ford算法">Dijkstra算法与Bellman-Ford算法</h2>
-<p>两者都可以用来寻找加权图中最快的路径，区别在于：</p>
-<ul>
-<li>Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。</li>
-<li>Dijkstra无法处理存在负权边时的问题。</li>
-<li>BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。</li>
-</ul>
-<span id="more"></span>
-<p>个人理解：</p>
-<ul>
-<li>Dijkstra算法是对每个节点遍历，对比大小并判断是否需要更新其邻居（即其指向的节点）的开销（起点到该节点的总权值）。记录各节点的父级节点，通过从终点依次寻找父级节点来得到一条最快路径。因为可能图中存在环，为避免死循环的发生，我们每处理一个节点都将其放入一个特定列表，仅处理列表外的节点。</li>
-<li>BF算法，起初我以为它是基于Dijkstra的，仔细理解之后我才体会到区别。BF所做的是一次有一次遍历所有的边，相较于Dijkstra而言实现更为简单，由于每遍历一次都至少能找出一条两点间的最短路径，而最短路径的深度不会超过（节点数-1）（即所有节点都在一条路径上的情况），所以遍历次数不会超过（节点数-1）。</li>
-</ul>
-<p>下面放上基于python对两种算法的实现：</p>
-<p>Dijkstra：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def find_lowest_cost_node(costs):</span><br><span class="line">    lowest_cost = inf</span><br><span class="line">    lowest_cost_node = None</span><br><span class="line">    for node in costs:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        if cost &lt; lowest_cost and node not in processed:</span><br><span class="line">            lowest_cost = cost</span><br><span class="line">            lowest_cost_node = node</span><br><span class="line">    return lowest_cost_node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def dijkstra():</span><br><span class="line">    node = find_lowest_cost_node(costs)</span><br><span class="line">    while node is not None:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        neighbors = graph[node]</span><br><span class="line">        for n in neighbors.keys():</span><br><span class="line">            new_cost = cost + neighbors[n]</span><br><span class="line">            if new_cost &lt; costs[n]:</span><br><span class="line">                costs[n] = new_cost</span><br><span class="line">                parents[n] = node</span><br><span class="line">        processed.append(node)</span><br><span class="line">        node = find_lowest_cost_node(costs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 存储各节点的邻居，与其权重</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 6,</span><br><span class="line">                       &#x27;b&#x27;: 2&#125;, &#x27;a&#x27;: &#123;&#x27;fin&#x27;: 1&#125;, &#x27;b&#x27;: &#123;&#x27;a&#x27;: 3,</span><br><span class="line">                                                       &#x27;fin&#x27;: 5&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    # 下为存在负权边时测试用数据，会发现fin对应的开销是35，而并非实际的33。</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    # 存储各节点的开销</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line"></span><br><span class="line">    # 存储到各节点最小开销时，其父节点名称</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line"></span><br><span class="line">    # 存储已经处理过的节点</span><br><span class="line">    processed = []</span><br><span class="line"></span><br><span class="line">    # 计算部分：</span><br><span class="line">    dijkstra()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
-<p>Bellman-Ford：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def dic(j, k, l):</span><br><span class="line">    d = dict(j=j, k=k, l=l)</span><br><span class="line">    return d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bellman_ford():</span><br><span class="line">    for i in range(len(graph.keys()) - 1):</span><br><span class="line">        for e in edge:</span><br><span class="line">            # line为包含该边起始点、终末点以及长度的字典</span><br><span class="line">            line = edge[e]</span><br><span class="line">            j = line[&#x27;j&#x27;]</span><br><span class="line">            k = line[&#x27;k&#x27;]</span><br><span class="line">            l = line[&#x27;l&#x27;]</span><br><span class="line">            # cost为该边终末点的开销</span><br><span class="line">            cost = costs[k]</span><br><span class="line">            new_cost = l + costs[j]</span><br><span class="line">            if cost &gt; new_cost:</span><br><span class="line">                costs[k] = new_cost</span><br><span class="line">                parents[k] = j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line">    way = []</span><br><span class="line">    edge = &#123;&#x27;sa&#x27;: dic(&#x27;start&#x27;, &#x27;a&#x27;, 5), &#x27;sb&#x27;: dic(&#x27;start&#x27;, &#x27;b&#x27;, 0), &#x27;ab&#x27;: dic(&#x27;a&#x27;, &#x27;b&#x27;, -7), &#x27;bf&#x27;: dic(&#x27;b&#x27;, &#x27;fin&#x27;, 35)&#125;</span><br><span class="line">    bellman_ford()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>Dijkstra</tag>
-        <tag>Bellman-Ford</tag>
-        <tag>算法</tag>
-        <tag>加权图</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>HTML与CSS基础小结</title>
     <url>/posts/a5400049.html</url>
     <content><![CDATA[<h2 id="HTML与CSS小结">HTML与CSS小结</h2>
@@ -207,6 +174,120 @@
       <tags>
         <tag>HTML</tag>
         <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Numpy学习笔记</title>
+    <url>/posts/6e7d4b9f.html</url>
+    <content><![CDATA[<h2 id="Numpy笔记">Numpy笔记</h2>
+<h4 id="数组形状">数组形状</h4>
+<ol>
+<li><code> array.shape</code> 返回数组的形状（行列）。</li>
+<li><code>array.reshape()</code>以某格式返回数组，如(3, 2)三行二列。</li>
+<li><code>array.flatten</code>将数组还原成一维数组。</li>
+</ol>
+<span id="more"></span>
+<h4 id="切片和索引">切片和索引</h4>
+<ol>
+<li>
+<p>选择行</p>
+<p><code>t[2]</code></p>
+<p><code>t[3:, :]</code></p>
+</li>
+<li>
+<p>选择列</p>
+<p><code>t[:, 4:]</code></p>
+</li>
+<li>
+<p>选择行列</p>
+<p>连续的多行 <code>t[2:, :3]</code></p>
+<p>不连续 <code>t[[1, 3], [2, 4]]</code> 选择的是(1, 2)，(3, 4)两个位置的值</p>
+</li>
+<li>
+<p>索引</p>
+<p><code>[2, 3]</code></p>
+</li>
+</ol>
+<h4 id="赋值">赋值</h4>
+<p><code>t[2:, 3]=3</code></p>
+<h4 id="布尔索引">布尔索引</h4>
+<p><code>t[t&gt;10]=10</code></p>
+<h4 id="三元运算符">三元运算符</h4>
+<p><code>np.where(t&gt;10, 20, 0)</code> 把t中大于10的替换为20，其他的替换为0</p>
+<h4 id="裁剪">裁剪</h4>
+<p><code>t.clip(10, 20)</code>把小于10的替换为10， 大于20的替换为20</p>
+<h4 id="转置">转置</h4>
+<ol>
+<li><code>t.T</code></li>
+<li><code>t.transpose()</code></li>
+<li><code>t.swapaxes(1, 0)</code></li>
+</ol>
+<h4 id="读取本地文件">读取本地文件</h4>
+<p><code>np.loadtxt(file_path, delimiter, dtype)</code></p>
+<h4 id="nan和inf">nan和inf</h4>
+<h5 id="inf">inf</h5>
+<p>表示无穷</p>
+<h5 id="nan">nan</h5>
+<ol>
+<li>不是一个数字，属于浮点类型。</li>
+<li><code>np.nan!=np.nan</code> 为真</li>
+<li><code>np.count_nonzero(np.nan!=np.nan)</code> 统计nan个数</li>
+<li><code>np.isnan(ti)</code> 效果和2相同</li>
+</ol>
+<h4 id="常用统计函数">常用统计函数</h4>
+<ol>
+<li><code>t.sum(axis=0)</code> 求某一反向上的和（axis为none时统计整个矩阵）</li>
+<li><code>np.median(t, axis=0)</code> 求中位数</li>
+<li><code>t.mean(axis=0)</code> 求均值</li>
+<li><code>t.max()</code> 最大值</li>
+<li><code>t.min()</code> 最小值</li>
+<li><code>np.ptp</code> 计算极差（最大减最小）</li>
+<li><code>t.std</code> 标准差</li>
+</ol>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>python</category>
+        <category>数据分析</category>
+        <category>Numpy</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>Numpy</tag>
+        <tag>数据分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Dijkstra算法与Bellman-Ford算法</title>
+    <url>/posts/a2887fef.html</url>
+    <content><![CDATA[<h2 id="Dijkstra算法与Bellman-Ford算法">Dijkstra算法与Bellman-Ford算法</h2>
+<p>两者都可以用来寻找加权图中最快的路径，区别在于：</p>
+<ul>
+<li>Dijkstra算法在无负权边时比BF更快，因为前者仅对每个节点进行遍历，而后者需要对所有的边遍历至多（节点数-1）次。</li>
+<li>Dijkstra无法处理存在负权边时的问题。</li>
+<li>BF可以用来判断图中是否存在负权环（表现为迭代次数超过了（节点数-1））。但无法处理含负权环的图。</li>
+</ul>
+<span id="more"></span>
+<p>个人理解：</p>
+<ul>
+<li>Dijkstra算法是对每个节点遍历，对比大小并判断是否需要更新其邻居（即其指向的节点）的开销（起点到该节点的总权值）。记录各节点的父级节点，通过从终点依次寻找父级节点来得到一条最快路径。因为可能图中存在环，为避免死循环的发生，我们每处理一个节点都将其放入一个特定列表，仅处理列表外的节点。</li>
+<li>BF算法，起初我以为它是基于Dijkstra的，仔细理解之后我才体会到区别。BF所做的是一次有一次遍历所有的边，相较于Dijkstra而言实现更为简单，由于每遍历一次都至少能找出一条两点间的最短路径，而最短路径的深度不会超过（节点数-1）（即所有节点都在一条路径上的情况），所以遍历次数不会超过（节点数-1）。</li>
+</ul>
+<p>下面放上基于python对两种算法的实现：</p>
+<p>Dijkstra：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def find_lowest_cost_node(costs):</span><br><span class="line">    lowest_cost = inf</span><br><span class="line">    lowest_cost_node = None</span><br><span class="line">    for node in costs:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        if cost &lt; lowest_cost and node not in processed:</span><br><span class="line">            lowest_cost = cost</span><br><span class="line">            lowest_cost_node = node</span><br><span class="line">    return lowest_cost_node</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def dijkstra():</span><br><span class="line">    node = find_lowest_cost_node(costs)</span><br><span class="line">    while node is not None:</span><br><span class="line">        cost = costs[node]</span><br><span class="line">        neighbors = graph[node]</span><br><span class="line">        for n in neighbors.keys():</span><br><span class="line">            new_cost = cost + neighbors[n]</span><br><span class="line">            if new_cost &lt; costs[n]:</span><br><span class="line">                costs[n] = new_cost</span><br><span class="line">                parents[n] = node</span><br><span class="line">        processed.append(node)</span><br><span class="line">        node = find_lowest_cost_node(costs)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    # 存储各节点的邻居，与其权重</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 6,</span><br><span class="line">                       &#x27;b&#x27;: 2&#125;, &#x27;a&#x27;: &#123;&#x27;fin&#x27;: 1&#125;, &#x27;b&#x27;: &#123;&#x27;a&#x27;: 3,</span><br><span class="line">                                                       &#x27;fin&#x27;: 5&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line">    # 下为存在负权边时测试用数据，会发现fin对应的开销是35，而并非实际的33。</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    &#x27;&#x27;&#x27;</span><br><span class="line"></span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    # 存储各节点的开销</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line"></span><br><span class="line">    # 存储到各节点最小开销时，其父节点名称</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line"></span><br><span class="line">    # 存储已经处理过的节点</span><br><span class="line">    processed = []</span><br><span class="line"></span><br><span class="line">    # 计算部分：</span><br><span class="line">    dijkstra()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
+<p>Bellman-Ford：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def dic(j, k, l):</span><br><span class="line">    d = dict(j=j, k=k, l=l)</span><br><span class="line">    return d</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def bellman_ford():</span><br><span class="line">    for i in range(len(graph.keys()) - 1):</span><br><span class="line">        for e in edge:</span><br><span class="line">            # line为包含该边起始点、终末点以及长度的字典</span><br><span class="line">            line = edge[e]</span><br><span class="line">            j = line[&#x27;j&#x27;]</span><br><span class="line">            k = line[&#x27;k&#x27;]</span><br><span class="line">            l = line[&#x27;l&#x27;]</span><br><span class="line">            # cost为该边终末点的开销</span><br><span class="line">            cost = costs[k]</span><br><span class="line">            new_cost = l + costs[j]</span><br><span class="line">            if cost &gt; new_cost:</span><br><span class="line">                costs[k] = new_cost</span><br><span class="line">                parents[k] = j</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def print_way():</span><br><span class="line">    key = &#x27;fin&#x27;</span><br><span class="line">    way = []</span><br><span class="line">    while parents[key] != &#x27;start&#x27;:</span><br><span class="line">        if key == &#x27;fin&#x27;:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">        else:</span><br><span class="line">            way.append(key)</span><br><span class="line">            key = parents[key]</span><br><span class="line">    way.append(key)</span><br><span class="line">    way.append(&#x27;start&#x27;)</span><br><span class="line">    way.reverse()</span><br><span class="line">    for w in way:</span><br><span class="line">        if w == &#x27;start&#x27;:</span><br><span class="line">            print(w, end=&#x27;&#x27;)</span><br><span class="line">        else:</span><br><span class="line">            print(&#x27;--&gt;&#x27; + w, end=&#x27;&#x27;)</span><br><span class="line">    print()</span><br><span class="line">    print(&quot;This way cost &quot; + str(costs[&#x27;fin&#x27;]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    graph = &#123;&#x27;start&#x27;: &#123;&#x27;a&#x27;: 5, &#x27;b&#x27;: 0&#125;, &#x27;a&#x27;: &#123;&#x27;b&#x27;: -7&#125;, &#x27;b&#x27;: &#123;&#x27;fin&#x27;: 35&#125;, &#x27;fin&#x27;: &#123;&#125;&#125;</span><br><span class="line">    inf = float(&#x27;inf&#x27;)</span><br><span class="line">    costs = &#123;&#x27;start&#x27;: 0, &#x27;a&#x27;: inf, &#x27;b&#x27;: inf, &#x27;fin&#x27;: inf&#125;</span><br><span class="line">    parents = &#123;&#x27;a&#x27;: None, &#x27;b&#x27;: None, &#x27;fin&#x27;: None&#125;</span><br><span class="line">    way = []</span><br><span class="line">    edge = &#123;&#x27;sa&#x27;: dic(&#x27;start&#x27;, &#x27;a&#x27;, 5), &#x27;sb&#x27;: dic(&#x27;start&#x27;, &#x27;b&#x27;, 0), &#x27;ab&#x27;: dic(&#x27;a&#x27;, &#x27;b&#x27;, -7), &#x27;bf&#x27;: dic(&#x27;b&#x27;, &#x27;fin&#x27;, 35)&#125;</span><br><span class="line">    bellman_ford()</span><br><span class="line">    print_way()</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>Dijkstra</tag>
+        <tag>Bellman-Ford</tag>
+        <tag>算法</tag>
+        <tag>加权图</tag>
       </tags>
   </entry>
   <entry>
@@ -401,8 +482,8 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </categories>
       <tags>
         <tag>python</tag>
-        <tag>matplotlib</tag>
         <tag>数据分析</tag>
+        <tag>matplotlib</tag>
       </tags>
   </entry>
   <entry>
@@ -502,84 +583,32 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>Numpy学习笔记</title>
-    <url>/posts/6e7d4b9f.html</url>
-    <content><![CDATA[<h2 id="Numpy笔记">Numpy笔记</h2>
-<h4 id="数组形状">数组形状</h4>
-<ol>
-<li><code> array.shape</code> 返回数组的形状（行列）。</li>
-<li><code>array.reshape()</code>以某格式返回数组，如(3, 2)三行二列。</li>
-<li><code>array.flatten</code>将数组还原成一维数组。</li>
-</ol>
+    <title>python爬取4399双人小游戏时间信息并分析</title>
+    <url>/posts/eea1d0d0.html</url>
+    <content><![CDATA[<h2 id="python爬取4399双人小游戏时间信息并分析">python爬取4399双人小游戏时间信息并分析</h2>
+<hr>
+<p>先列上在这个案例中我学到的正则表达式筛选标签内容的方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">re.sub(r&#x27;&lt;[^&gt;]+&gt;&#x27;, &#x27;&#x27;, string)</span><br></pre></td></tr></table></figure>
+<hr>
+<p>说来惭愧，这是我第一次完全独立写爬虫，并将其与最近学习的数据分析库结合起来使用，我将其记录下来作日后参考与复习，也希望这个案例能帮助到同样需要练练手的同学。</p>
 <span id="more"></span>
-<h4 id="切片和索引">切片和索引</h4>
-<ol>
-<li>
-<p>选择行</p>
-<p><code>t[2]</code></p>
-<p><code>t[3:, :]</code></p>
-</li>
-<li>
-<p>选择列</p>
-<p><code>t[:, 4:]</code></p>
-</li>
-<li>
-<p>选择行列</p>
-<p>连续的多行 <code>t[2:, :3]</code></p>
-<p>不连续 <code>t[[1, 3], [2, 4]]</code> 选择的是(1, 2)，(3, 4)两个位置的值</p>
-</li>
-<li>
-<p>索引</p>
-<p><code>[2, 3]</code></p>
-</li>
-</ol>
-<h4 id="赋值">赋值</h4>
-<p><code>t[2:, 3]=3</code></p>
-<h4 id="布尔索引">布尔索引</h4>
-<p><code>t[t&gt;10]=10</code></p>
-<h4 id="三元运算符">三元运算符</h4>
-<p><code>np.where(t&gt;10, 20, 0)</code> 把t中大于10的替换为20，其他的替换为0</p>
-<h4 id="裁剪">裁剪</h4>
-<p><code>t.clip(10, 20)</code>把小于10的替换为10， 大于20的替换为20</p>
-<h4 id="转置">转置</h4>
-<ol>
-<li><code>t.T</code></li>
-<li><code>t.transpose()</code></li>
-<li><code>t.swapaxes(1, 0)</code></li>
-</ol>
-<h4 id="读取本地文件">读取本地文件</h4>
-<p><code>np.loadtxt(file_path, delimiter, dtype)</code></p>
-<h4 id="nan和inf">nan和inf</h4>
-<h5 id="inf">inf</h5>
-<p>表示无穷</p>
-<h5 id="nan">nan</h5>
-<ol>
-<li>不是一个数字，属于浮点类型。</li>
-<li><code>np.nan!=np.nan</code> 为真</li>
-<li><code>np.count_nonzero(np.nan!=np.nan)</code> 统计nan个数</li>
-<li><code>np.isnan(ti)</code> 效果和2相同</li>
-</ol>
-<h4 id="常用统计函数">常用统计函数</h4>
-<ol>
-<li><code>t.sum(axis=0)</code> 求某一反向上的和（axis为none时统计整个矩阵）</li>
-<li><code>np.median(t, axis=0)</code> 求中位数</li>
-<li><code>t.mean(axis=0)</code> 求均值</li>
-<li><code>t.max()</code> 最大值</li>
-<li><code>t.min()</code> 最小值</li>
-<li><code>np.ptp</code> 计算极差（最大减最小）</li>
-<li><code>t.std</code> 标准差</li>
-</ol>
+<p><em>Ps：不得不说4399的url看得我太难受了，新旧网页同时存在，也没个统一……本想爬取全站……但碍于页面跳转的问题，我放弃了原想法，转而选择了一个相对有规律的专题进行爬取</em></p>
+<p>下面上代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line">import re</span><br><span class="line">import pandas as pd</span><br><span class="line">from matplotlib import rc</span><br><span class="line"></span><br><span class="line"># 设置plt生成图片显示中文</span><br><span class="line">rc(&quot;font&quot;, family=&quot;MicroSoft YaHei&quot;, weight=&quot;bold&quot;, size=&quot;16&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 获取网页html</span><br><span class="line">def getHTMLText(url):</span><br><span class="line">    try:</span><br><span class="line">        kv = &#123;&#x27;user-agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36&#x27;&#125;</span><br><span class="line">        r = requests.get(url, headers=kv, timeout=30)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        return r.text</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 填充存储游戏名和上传时间的字典</span><br><span class="line">def fillGameBox(UrlList):</span><br><span class="line">    try:</span><br><span class="line">        # 创建空列表</span><br><span class="line">        name = []</span><br><span class="line">        date = []</span><br><span class="line"></span><br><span class="line">        # 传入Url列表</span><br><span class="line">        for url in UrlList:</span><br><span class="line"></span><br><span class="line">            # 获得每一个url的html文件</span><br><span class="line">            soup = BeautifulSoup(getHTMLText(url), &quot;html.parser&quot;)</span><br><span class="line"></span><br><span class="line">            # 先粗略获取我们需要的li标签</span><br><span class="line">            for li in soup.findAll(attrs=&#123;&quot;class&quot;: &quot;tm_list&quot;&#125;):</span><br><span class="line"></span><br><span class="line">                # 再对标签内子标签等及其内容进行精处理</span><br><span class="line">                Name = li.select(&#x27;b&#x27;)</span><br><span class="line"></span><br><span class="line">                # 由于findall得到的内容是&quot;&lt;b&gt;xxx&lt;/b&gt;&quot;的形式，我们用正则表达式筛选内容</span><br><span class="line">                for n in Name:</span><br><span class="line">                    # 向空列表中装入我们的筛选结果</span><br><span class="line">                    # 注意，re.sub()语法中最后元素必须为字符串，而n是列表元素，需进行转化</span><br><span class="line">                    name.append(re.sub(r&#x27;&lt;[^&gt;]+&gt;&#x27;, &#x27;&#x27;, n.string))  # 注意，re.sub()语法中最后元素必须为字符串，而n是列表元素，需进行转化</span><br><span class="line">                Date = li.select(&#x27;em&#x27;)</span><br><span class="line"></span><br><span class="line">                # &lt;em&gt;有重复标签，我们通过列表索引取出需要的时间列表</span><br><span class="line">                date_l = [Date[em * 2 + 1] for em in range(len(Date) // 2)]  # &lt;em&gt;标签是两两出现的，所以长度必为偶数</span><br><span class="line"></span><br><span class="line">                # 正则表达式</span><br><span class="line">                for d in date_l:</span><br><span class="line">                    # 空列表装载</span><br><span class="line">                    date.append(re.sub(r&#x27;&lt;[^&gt;]+&gt;&#x27;, &#x27;&#x27;, d.string))</span><br><span class="line"></span><br><span class="line">        # 创建一个字典，将我们的列表内容作values放入，并给出key，以传给DataFrame</span><br><span class="line">        result = &#123;&#x27;name&#x27;: name,</span><br><span class="line">                  &#x27;date&#x27;: date&#125;</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 将字典转为DF文件并将数据按月聚合</span><br><span class="line">def dfsort(result):</span><br><span class="line">    try:</span><br><span class="line">        df = pd.DataFrame(result)</span><br><span class="line"></span><br><span class="line">        # 将df[&#x27;date&#x27;]列转化为datetime类型，format需与date中表达方式一致</span><br><span class="line">        df[&#x27;date&#x27;] = pd.to_datetime(df[&#x27;date&#x27;], format=&#x27;%Y-%m-%d&#x27;)</span><br><span class="line"></span><br><span class="line">        # 因为原日期是按天计算，而我们需要得到统计结果，所以将其&#x27;date&#x27;改成了月份并设为index索引</span><br><span class="line">        df[&#x27;date&#x27;] = [i.strftime(&#x27;%Y-%m&#x27;) for i in df[&#x27;date&#x27;]]</span><br><span class="line">        df.set_index(&#x27;date&#x27;, inplace=True)</span><br><span class="line"></span><br><span class="line">        # 按月份分组并统计</span><br><span class="line">        group = df.groupby(&#x27;date&#x27;).count()</span><br><span class="line">        return group</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 由于4399的网页略凌乱……url名称层出不穷，我在这里只选择了双人小游戏分区来实现页面自动翻页功能</span><br><span class="line"># 该函数返回一个含有了各页面url的列表</span><br><span class="line">def getUrlList():</span><br><span class="line">    try:</span><br><span class="line">        UrlList = []</span><br><span class="line"></span><br><span class="line">        # 遍历分区内首页到末页</span><br><span class="line">        for i in range(1, 24):</span><br><span class="line">            if i == 1:</span><br><span class="line">                url = &#x27;http://www.4399.com/special/old_1.htm&#x27;</span><br><span class="line">            else:</span><br><span class="line">                url = &quot;http://www.4399.com/special/old_1_&quot; + &#x27;%d&#x27; % i + &quot;.htm&quot;</span><br><span class="line">            UrlList.append(url)</span><br><span class="line">        return UrlList</span><br><span class="line"></span><br><span class="line">    except Exception as r:</span><br><span class="line">        print(r)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 调用plt来展示数据统计结果，这里我选择了折线图，想看看游戏上传数目的随时间的变化</span><br><span class="line">def show(group):</span><br><span class="line">    _x = group.index</span><br><span class="line">    _y = group.values</span><br><span class="line">    plt.figure(figsize=(20, 12), dpi=80)</span><br><span class="line">    plt.plot(_x, _y, label=&#x27;当月游戏上传量&#x27;)</span><br><span class="line">    plt.xticks(range(len(_x))[::5], list(_x)[::5], rotation=45)</span><br><span class="line">    plt.grid(alpha=0.7)</span><br><span class="line">    plt.xlabel(&#x27;月份&#x27;)</span><br><span class="line">    plt.ylabel(&#x27;游戏数目&#x27;)</span><br><span class="line">    plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line">    plt.savefig(&#x27;./01&#x27;)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    result = fillGameBox(getUrlList())</span><br><span class="line">    group = dfsort(result)</span><br><span class="line">    show(group)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+<p>最后的结果是这样的</p>
+<p><img src="eea1d0d0/01.png" alt="效果图"></p>
 ]]></content>
       <categories>
         <category>学习</category>
         <category>python</category>
-        <category>数据分析</category>
-        <category>Numpy</category>
+        <category>案例</category>
       </categories>
       <tags>
         <tag>python</tag>
         <tag>数据分析</tag>
-        <tag>Numpy</tag>
+        <tag>爬虫</tag>
+        <tag>matplotlib</tag>
+        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -603,35 +632,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>算法</tag>
         <tag>大数据</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python爬取4399双人小游戏时间信息并分析</title>
-    <url>/posts/eea1d0d0.html</url>
-    <content><![CDATA[<h2 id="python爬取4399双人小游戏时间信息并分析">python爬取4399双人小游戏时间信息并分析</h2>
-<hr>
-<p>先列上在这个案例中我学到的正则表达式筛选标签内容的方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import re</span><br><span class="line">re.sub(r&#x27;&lt;[^&gt;]+&gt;&#x27;, &#x27;&#x27;, string)</span><br></pre></td></tr></table></figure>
-<hr>
-<p>说来惭愧，这是我第一次完全独立写爬虫，并将其与最近学习的数据分析库结合起来使用，我将其记录下来作日后参考与复习，也希望这个案例能帮助到同样需要练练手的同学。</p>
-<span id="more"></span>
-<p><em>Ps：不得不说4399的url看得我太难受了，新旧网页同时存在，也没个统一……本想爬取全站……但碍于页面跳转的问题，我放弃了原想法，转而选择了一个相对有规律的专题进行爬取</em></p>
-<p>下面上代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import requests</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line">import re</span><br><span class="line">import pandas as pd</span><br><span class="line">from matplotlib import rc</span><br><span class="line"></span><br><span class="line"># 设置plt生成图片显示中文</span><br><span class="line">rc(&quot;font&quot;, family=&quot;MicroSoft YaHei&quot;, weight=&quot;bold&quot;, size=&quot;16&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 获取网页html</span><br><span class="line">def getHTMLText(url):</span><br><span class="line">    try:</span><br><span class="line">        kv = &#123;&#x27;user-agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36&#x27;&#125;</span><br><span class="line">        r = requests.get(url, headers=kv, timeout=30)</span><br><span class="line">        r.raise_for_status()</span><br><span class="line">        r.encoding = r.apparent_encoding</span><br><span class="line">        return r.text</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 填充存储游戏名和上传时间的字典</span><br><span class="line">def fillGameBox(UrlList):</span><br><span class="line">    try:</span><br><span class="line">        # 创建空列表</span><br><span class="line">        name = []</span><br><span class="line">        date = []</span><br><span class="line"></span><br><span class="line">        # 传入Url列表</span><br><span class="line">        for url in UrlList:</span><br><span class="line"></span><br><span class="line">            # 获得每一个url的html文件</span><br><span class="line">            soup = BeautifulSoup(getHTMLText(url), &quot;html.parser&quot;)</span><br><span class="line"></span><br><span class="line">            # 先粗略获取我们需要的li标签</span><br><span class="line">            for li in soup.findAll(attrs=&#123;&quot;class&quot;: &quot;tm_list&quot;&#125;):</span><br><span class="line"></span><br><span class="line">                # 再对标签内子标签等及其内容进行精处理</span><br><span class="line">                Name = li.select(&#x27;b&#x27;)</span><br><span class="line"></span><br><span class="line">                # 由于findall得到的内容是&quot;&lt;b&gt;xxx&lt;/b&gt;&quot;的形式，我们用正则表达式筛选内容</span><br><span class="line">                for n in Name:</span><br><span class="line">                    # 向空列表中装入我们的筛选结果</span><br><span class="line">                    # 注意，re.sub()语法中最后元素必须为字符串，而n是列表元素，需进行转化</span><br><span class="line">                    name.append(re.sub(r&#x27;&lt;[^&gt;]+&gt;&#x27;, &#x27;&#x27;, n.string))  # 注意，re.sub()语法中最后元素必须为字符串，而n是列表元素，需进行转化</span><br><span class="line">                Date = li.select(&#x27;em&#x27;)</span><br><span class="line"></span><br><span class="line">                # &lt;em&gt;有重复标签，我们通过列表索引取出需要的时间列表</span><br><span class="line">                date_l = [Date[em * 2 + 1] for em in range(len(Date) // 2)]  # &lt;em&gt;标签是两两出现的，所以长度必为偶数</span><br><span class="line"></span><br><span class="line">                # 正则表达式</span><br><span class="line">                for d in date_l:</span><br><span class="line">                    # 空列表装载</span><br><span class="line">                    date.append(re.sub(r&#x27;&lt;[^&gt;]+&gt;&#x27;, &#x27;&#x27;, d.string))</span><br><span class="line"></span><br><span class="line">        # 创建一个字典，将我们的列表内容作values放入，并给出key，以传给DataFrame</span><br><span class="line">        result = &#123;&#x27;name&#x27;: name,</span><br><span class="line">                  &#x27;date&#x27;: date&#125;</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 将字典转为DF文件并将数据按月聚合</span><br><span class="line">def dfsort(result):</span><br><span class="line">    try:</span><br><span class="line">        df = pd.DataFrame(result)</span><br><span class="line"></span><br><span class="line">        # 将df[&#x27;date&#x27;]列转化为datetime类型，format需与date中表达方式一致</span><br><span class="line">        df[&#x27;date&#x27;] = pd.to_datetime(df[&#x27;date&#x27;], format=&#x27;%Y-%m-%d&#x27;)</span><br><span class="line"></span><br><span class="line">        # 因为原日期是按天计算，而我们需要得到统计结果，所以将其&#x27;date&#x27;改成了月份并设为index索引</span><br><span class="line">        df[&#x27;date&#x27;] = [i.strftime(&#x27;%Y-%m&#x27;) for i in df[&#x27;date&#x27;]]</span><br><span class="line">        df.set_index(&#x27;date&#x27;, inplace=True)</span><br><span class="line"></span><br><span class="line">        # 按月份分组并统计</span><br><span class="line">        group = df.groupby(&#x27;date&#x27;).count()</span><br><span class="line">        return group</span><br><span class="line"></span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 由于4399的网页略凌乱……url名称层出不穷，我在这里只选择了双人小游戏分区来实现页面自动翻页功能</span><br><span class="line"># 该函数返回一个含有了各页面url的列表</span><br><span class="line">def getUrlList():</span><br><span class="line">    try:</span><br><span class="line">        UrlList = []</span><br><span class="line"></span><br><span class="line">        # 遍历分区内首页到末页</span><br><span class="line">        for i in range(1, 24):</span><br><span class="line">            if i == 1:</span><br><span class="line">                url = &#x27;http://www.4399.com/special/old_1.htm&#x27;</span><br><span class="line">            else:</span><br><span class="line">                url = &quot;http://www.4399.com/special/old_1_&quot; + &#x27;%d&#x27; % i + &quot;.htm&quot;</span><br><span class="line">            UrlList.append(url)</span><br><span class="line">        return UrlList</span><br><span class="line"></span><br><span class="line">    except Exception as r:</span><br><span class="line">        print(r)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 调用plt来展示数据统计结果，这里我选择了折线图，想看看游戏上传数目的随时间的变化</span><br><span class="line">def show(group):</span><br><span class="line">    _x = group.index</span><br><span class="line">    _y = group.values</span><br><span class="line">    plt.figure(figsize=(20, 12), dpi=80)</span><br><span class="line">    plt.plot(_x, _y, label=&#x27;当月游戏上传量&#x27;)</span><br><span class="line">    plt.xticks(range(len(_x))[::5], list(_x)[::5], rotation=45)</span><br><span class="line">    plt.grid(alpha=0.7)</span><br><span class="line">    plt.xlabel(&#x27;月份&#x27;)</span><br><span class="line">    plt.ylabel(&#x27;游戏数目&#x27;)</span><br><span class="line">    plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line">    plt.savefig(&#x27;./01&#x27;)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    result = fillGameBox(getUrlList())</span><br><span class="line">    group = dfsort(result)</span><br><span class="line">    show(group)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
-<p>最后的结果是这样的</p>
-<p><img src="eea1d0d0/01.png" alt="效果图"></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>案例</category>
-      </categories>
-      <tags>
-        <tag>爬虫</tag>
-        <tag>python</tag>
-        <tag>matplotlib</tag>
-        <tag>数据分析</tag>
-        <tag>pandas</tag>
       </tags>
   </entry>
   <entry>
@@ -679,26 +679,20 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>使用IDEA打jar包后出现“无法找到主类”的错误</title>
-    <url>/posts/883aa23a.html</url>
-    <content><![CDATA[<h2 id="使用IDEA打jar包后出现“无法找到主类”的错误">使用IDEA打jar包后出现“无法找到主类”的错误</h2>
-<p>我在分别尝试使用Eclipse和IDEA编写mapreduce程序时，相同的环境与代码，IDEA打出的jar包会报“无法找到主类”的错误。网上找了下，别人说要加上一段指定主类的代码，可是我的原代码中已经写过了，对比了两边的pom文件，我怀疑是放置代码的位置有问题。</p>
+    <title>递归二分法</title>
+    <url>/posts/649c2087.html</url>
+    <content><![CDATA[<h2 id="递归二分法">递归二分法</h2>
+<p>我学到的二分法可以分为常规二分法于递归二分法，后者为帮助自己理解递归做练习。在这里我给出自己写的递归二分法，考虑的数列的升降序，函数中给了参数，默认为升序。</p>
 <span id="more"></span>
-<p>IDEA自动生成的pom中build是这样写的：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">		&lt;plaugin&gt;</span><br><span class="line">		&lt;/plaugin&gt;</span><br><span class="line">		...</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line"> &lt;/build&gt;</span><br></pre></td></tr></table></figure>
-<p>而Eclipse中没有<code>&lt;pluginManagement&gt;&lt;/pluginMagagement&gt;</code>这对标签，我原本是将代码放在<code>&lt;plugins&gt;&lt;/plugins&gt;</code>内部，但考虑到IDEA没有识别这一段代码，我做了修改如下。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">		&lt;plugins&gt;</span><br><span class="line">			&lt;plaugin&gt;</span><br><span class="line">			&lt;/plaugin&gt;</span><br><span class="line">			...</span><br><span class="line">			&lt;/plugins&gt;</span><br><span class="line">	&lt;/pluginManagement&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">		&lt;plugin&gt;</span><br><span class="line">		（新增代码）</span><br><span class="line">		&lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
-<p>最后放上bulid内完整代码以供参考</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;pluginManagement&gt;&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">        &lt;!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.8.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.22.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.5.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.8.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-site-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.7.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-project-info-reports-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.4.3&lt;/version&gt;</span><br><span class="line">      &lt;executions&gt;</span><br><span class="line">        &lt;execution&gt;</span><br><span class="line">          &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">          &lt;goals&gt;</span><br><span class="line">            &lt;goal&gt;shade&lt;/goal&gt;</span><br><span class="line">          &lt;/goals&gt;</span><br><span class="line">          &lt;configuration&gt;</span><br><span class="line">            &lt;transformers&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;</span><br><span class="line">                &lt;manifestEntries&gt;</span><br><span class="line">                  &lt;Main-Class&gt;</span><br><span class="line">                    com.hadoop.mapreduce.WordCountMain</span><br><span class="line">                  &lt;/Main-Class&gt;</span><br><span class="line">                &lt;/manifestEntries&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.handlers&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.schemas&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">            &lt;/transformers&gt;</span><br><span class="line">          &lt;/configuration&gt;</span><br><span class="line">        &lt;/execution&gt;</span><br><span class="line">      &lt;/executions&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def binary_search(list, high, item, ascend=True, low=0):</span><br><span class="line">    if not list:</span><br><span class="line">        return None</span><br><span class="line">    mid = (low + high) // 2</span><br><span class="line">    if list[mid] == item:</span><br><span class="line">        return mid</span><br><span class="line">    elif list[mid] &lt; item:</span><br><span class="line">        if not ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        if ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line">    else:</span><br><span class="line">        if not ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        if ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    list1 = list(reversed(list(range(10))))</span><br><span class="line">    print(list1)</span><br><span class="line">    result = binary_search(list1, len(list1)-1, 4, False)</span><br><span class="line">    print(result)</span><br><span class="line">    list2 = list(range(10))</span><br><span class="line">    print(list2)</span><br><span class="line">    result = binary_search(list2, len(list2)-1, 7)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>学习</category>
-        <category>maven</category>
+        <category>算法</category>
       </categories>
       <tags>
-        <tag>IDEA</tag>
-        <tag>maven</tag>
-        <tag>java</tag>
+        <tag>算法</tag>
+        <tag>二分法</tag>
+        <tag>递归</tag>
       </tags>
   </entry>
   <entry>
@@ -724,20 +718,26 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>递归二分法</title>
-    <url>/posts/649c2087.html</url>
-    <content><![CDATA[<h2 id="递归二分法">递归二分法</h2>
-<p>我学到的二分法可以分为常规二分法于递归二分法，后者为帮助自己理解递归做练习。在这里我给出自己写的递归二分法，考虑的数列的升降序，函数中给了参数，默认为升序。</p>
+    <title>使用IDEA打jar包后出现“无法找到主类”的错误</title>
+    <url>/posts/883aa23a.html</url>
+    <content><![CDATA[<h2 id="使用IDEA打jar包后出现“无法找到主类”的错误">使用IDEA打jar包后出现“无法找到主类”的错误</h2>
+<p>我在分别尝试使用Eclipse和IDEA编写mapreduce程序时，相同的环境与代码，IDEA打出的jar包会报“无法找到主类”的错误。网上找了下，别人说要加上一段指定主类的代码，可是我的原代码中已经写过了，对比了两边的pom文件，我怀疑是放置代码的位置有问题。</p>
 <span id="more"></span>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">def binary_search(list, high, item, ascend=True, low=0):</span><br><span class="line">    if not list:</span><br><span class="line">        return None</span><br><span class="line">    mid = (low + high) // 2</span><br><span class="line">    if list[mid] == item:</span><br><span class="line">        return mid</span><br><span class="line">    elif list[mid] &lt; item:</span><br><span class="line">        if not ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        if ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line">    else:</span><br><span class="line">        if not ascend:</span><br><span class="line">            low = mid + 1</span><br><span class="line">        if ascend:</span><br><span class="line">            high = mid - 1</span><br><span class="line">        return binary_search(list, high, item, ascend, low)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &#x27;__main__&#x27;:</span><br><span class="line">    list1 = list(reversed(list(range(10))))</span><br><span class="line">    print(list1)</span><br><span class="line">    result = binary_search(list1, len(list1)-1, 4, False)</span><br><span class="line">    print(result)</span><br><span class="line">    list2 = list(range(10))</span><br><span class="line">    print(list2)</span><br><span class="line">    result = binary_search(list2, len(list2)-1, 7)</span><br><span class="line">    print(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<p>IDEA自动生成的pom中build是这样写的：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">		&lt;plaugin&gt;</span><br><span class="line">		&lt;/plaugin&gt;</span><br><span class="line">		...</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line"> &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<p>而Eclipse中没有<code>&lt;pluginManagement&gt;&lt;/pluginMagagement&gt;</code>这对标签，我原本是将代码放在<code>&lt;plugins&gt;&lt;/plugins&gt;</code>内部，但考虑到IDEA没有识别这一段代码，我做了修改如下。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">	&lt;pluginManagement&gt;</span><br><span class="line">		&lt;plugins&gt;</span><br><span class="line">			&lt;plaugin&gt;</span><br><span class="line">			&lt;/plaugin&gt;</span><br><span class="line">			...</span><br><span class="line">			&lt;/plugins&gt;</span><br><span class="line">	&lt;/pluginManagement&gt;</span><br><span class="line">	&lt;plugins&gt;</span><br><span class="line">		&lt;plugin&gt;</span><br><span class="line">		（新增代码）</span><br><span class="line">		&lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">&lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<p>最后放上bulid内完整代码以供参考</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;pluginManagement&gt;&lt;!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) --&gt;</span><br><span class="line">      &lt;plugins&gt;</span><br><span class="line">        &lt;!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-clean-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.8.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.22.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-install-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.5.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-deploy-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;2.8.2&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle --&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-site-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.7.1&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">        &lt;plugin&gt;</span><br><span class="line">          &lt;artifactId&gt;maven-project-info-reports-plugin&lt;/artifactId&gt;</span><br><span class="line">          &lt;version&gt;3.0.0&lt;/version&gt;</span><br><span class="line">        &lt;/plugin&gt;</span><br><span class="line">      &lt;/plugins&gt;</span><br><span class="line">    &lt;/pluginManagement&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">    &lt;plugin&gt;</span><br><span class="line">      &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;2.4.3&lt;/version&gt;</span><br><span class="line">      &lt;executions&gt;</span><br><span class="line">        &lt;execution&gt;</span><br><span class="line">          &lt;phase&gt;package&lt;/phase&gt;</span><br><span class="line">          &lt;goals&gt;</span><br><span class="line">            &lt;goal&gt;shade&lt;/goal&gt;</span><br><span class="line">          &lt;/goals&gt;</span><br><span class="line">          &lt;configuration&gt;</span><br><span class="line">            &lt;transformers&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.ManifestResourceTransformer&quot;&gt;</span><br><span class="line">                &lt;manifestEntries&gt;</span><br><span class="line">                  &lt;Main-Class&gt;</span><br><span class="line">                    com.hadoop.mapreduce.WordCountMain</span><br><span class="line">                  &lt;/Main-Class&gt;</span><br><span class="line">                &lt;/manifestEntries&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.handlers&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">              &lt;transformer implementation=&quot;org.apache.maven.plugins.shade.resource.AppendingTransformer&quot;&gt;</span><br><span class="line">                &lt;resource&gt;META-INF/spring.schemas&lt;/resource&gt;</span><br><span class="line">              &lt;/transformer&gt;</span><br><span class="line">            &lt;/transformers&gt;</span><br><span class="line">          &lt;/configuration&gt;</span><br><span class="line">        &lt;/execution&gt;</span><br><span class="line">      &lt;/executions&gt;</span><br><span class="line">    &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>学习</category>
-        <category>算法</category>
+        <category>maven</category>
       </categories>
       <tags>
-        <tag>算法</tag>
-        <tag>二分法</tag>
-        <tag>递归</tag>
+        <tag>IDEA</tag>
+        <tag>maven</tag>
+        <tag>java</tag>
       </tags>
   </entry>
   <entry>
@@ -831,6 +831,46 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>关于使用numba对python进行代码加速</title>
+    <url>/posts/16a14a08.html</url>
+    <content><![CDATA[<h1>关于使用numba对python进行代码加速</h1>
+<h2 id="前言">前言</h2>
+<p>在处理大量数据时，pandas与numpy对单一元素的处理明显速度过慢。近期在做一篇论文的复现时，面对十万的数据集，需要做五折交叉验证，我的机器在jupyter中运行了一晚上都没有完成一半的处理，让人十分苦恼。</p>
+<span id="more"></span>
+<p>于是我将目光转移到各类python代码的加速方法上，常见的有Pypy，cython，numba。经过一定的了解与比较之后，我认为numba的上手难度最低，使用方法最为简单，于是将numba库引入我的代码。</p>
+<p>现在对约50w条数据的处理用时只需8min多。<br>
+<img src="16a14a08/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png" alt="交叉验证"></p>
+<h2 id="正文">正文</h2>
+<p>虽然numba的各类文档中都提到了其使用方法很简单，调用装饰器即可，但实际使用过程中，将一篇已经完成的，使用了不少第三方库的python代码转换成经numba加速的形式，仍然会有许多困难。</p>
+<h3 id="函数参数的选择">函数参数的选择</h3>
+<ul>
+<li>numba是完全支持numpy的内容的，np.array可作为参数直接传入。</li>
+<li>尽量使用数字类型、numpy中的类实例作为参数，因为numba大概率不认识原生python中的数据类型（出于运算速度的考虑）。</li>
+<li>同上一点，list是不受支持的！（起初的原因是出于反射机制对性能的降低，但官方似乎已经在处理这个问题，相信在未来的numba版本中会得到改善）。</li>
+<li>pandas的df类型无法作为参数传入，但由于df中的series是等同于np.array的，可以提取series转化成np.array来传参。</li>
+</ul>
+<h3 id="使用范围的界定">使用范围的界定</h3>
+<p>出于参数选择上的种种限制，用numba来重写的函数主要应该处理数值工作，如果遇到符合类型，如基于Dataframe的数据处理，需要手动将运算函数拆分出来。同时，如果要将numba运用到类成员函数上，需要参考官方文档对类进行声明，否则无法识别。</p>
+<h3 id="装饰器参数">装饰器参数</h3>
+<p>@jit常用的参数有nopython，nogil，parallel，均为布尔类型。</p>
+<ul>
+<li>nopython为True时，等同于@njit，numba会检查函数是否为非python的函数，即是否可以用c来完全重写。</li>
+<li>nogil，去除GIL锁。诚然，python的低效率原因中，GIL的存在占了很大分量，numba可以让函数脱离GIL，实现真正的多线程。</li>
+<li>parallel，自动并行化，此选项对矩阵运算提速有明显效果，虽然离numpy的ufunc方法仍有差距，但已经有相当的改善，同时，numba中采取vectorize装饰器写出的运算函数也可以让矩阵运算提速，但仍不及ufunc。</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>python</category>
+        <category>numba</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>numba</tag>
+        <tag>代码提速</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于在nginx上配置hexo（一）</title>
     <url>/posts/bb868060.html</url>
     <content><![CDATA[<h2 id="在Nginx上配置Hexo（一）">在Nginx上配置Hexo（一）</h2>
@@ -881,46 +921,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>关于使用numba对python进行代码加速</title>
-    <url>/posts/16a14a08.html</url>
-    <content><![CDATA[<h1>关于使用numba对python进行代码加速</h1>
-<h2 id="前言">前言</h2>
-<p>在处理大量数据时，pandas与numpy对单一元素的处理明显速度过慢。近期在做一篇论文的复现时，面对十万的数据集，需要做五折交叉验证，我的机器在jupyter中运行了一晚上都没有完成一半的处理，让人十分苦恼。</p>
-<span id="more"></span>
-<p>于是我将目光转移到各类python代码的加速方法上，常见的有Pypy，cython，numba。经过一定的了解与比较之后，我认为numba的上手难度最低，使用方法最为简单，于是将numba库引入我的代码。</p>
-<p>现在对约50w条数据的处理用时只需8min多。<br>
-<img src="16a14a08/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.png" alt="交叉验证"></p>
-<h2 id="正文">正文</h2>
-<p>虽然numba的各类文档中都提到了其使用方法很简单，调用装饰器即可，但实际使用过程中，将一篇已经完成的，使用了不少第三方库的python代码转换成经numba加速的形式，仍然会有许多困难。</p>
-<h3 id="函数参数的选择">函数参数的选择</h3>
-<ul>
-<li>numba是完全支持numpy的内容的，np.array可作为参数直接传入。</li>
-<li>尽量使用数字类型、numpy中的类实例作为参数，因为numba大概率不认识原生python中的数据类型（出于运算速度的考虑）。</li>
-<li>同上一点，list是不受支持的！（起初的原因是出于反射机制对性能的降低，但官方似乎已经在处理这个问题，相信在未来的numba版本中会得到改善）。</li>
-<li>pandas的df类型无法作为参数传入，但由于df中的series是等同于np.array的，可以提取series转化成np.array来传参。</li>
-</ul>
-<h3 id="使用范围的界定">使用范围的界定</h3>
-<p>出于参数选择上的种种限制，用numba来重写的函数主要应该处理数值工作，如果遇到符合类型，如基于Dataframe的数据处理，需要手动将运算函数拆分出来。同时，如果要将numba运用到类成员函数上，需要参考官方文档对类进行声明，否则无法识别。</p>
-<h3 id="装饰器参数">装饰器参数</h3>
-<p>@jit常用的参数有nopython，nogil，parallel，均为布尔类型。</p>
-<ul>
-<li>nopython为True时，等同于@njit，numba会检查函数是否为非python的函数，即是否可以用c来完全重写。</li>
-<li>nogil，去除GIL锁。诚然，python的低效率原因中，GIL的存在占了很大分量，numba可以让函数脱离GIL，实现真正的多线程。</li>
-<li>parallel，自动并行化，此选项对矩阵运算提速有明显效果，虽然离numpy的ufunc方法仍有差距，但已经有相当的改善，同时，numba中采取vectorize装饰器写出的运算函数也可以让矩阵运算提速，但仍不及ufunc。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>python</category>
-        <category>numba</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>numba</tag>
-        <tag>代码提速</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于糟糕的宿舍</title>
     <url>/posts/e486a907.html</url>
     <content><![CDATA[<h2 id="font-color-00008b-三期-font"><em><strong><font color="#00008b">三期</font></strong></em></h2>
@@ -943,26 +943,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>吐槽</tag>
         <tag>三期宿舍</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>我的第一篇hexo博客</title>
-    <url>/posts/de39a815.html</url>
-    <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
-<p>本来想手写个人网站博客的，结果写完静态页面之后突然想到后台和维护工作太繁复了，就改而使用hexo搭建（<s>人家的东西就是好</s>），同时也能学习markdown相关，一举两得了(●′ω`●)</p>
-<span id="more"></span>
-<h2 id="博客规划">博客规划</h2>
-<p>关于这个网站，我想用来写一些blog、吐槽，以及自己写的乱七八糟的东西，因为这些东西全发表在QQ空间里就会很~（你懂得），再加上最近买了个域名，本着不浪费的原则，就利用一下（=′∇`=）</p>
-<h2 id="建站参考">建站参考</h2>
-<p>有关nginx配置相关的我就不提了，用hexo搭建博客时，我主要借鉴了<a href="https://blog.csdn.net/bskfnvjtlyzmv867/article/details/79063816">这篇文章</a>，其中可能有一些细节出入，碰到问题的朋友可以邮件联络我（aysamu@foxmail.com）</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>测试</category>
-      </categories>
-      <tags>
-        <tag>试验体</tag>
-        <tag>联系我</tag>
       </tags>
   </entry>
   <entry>
@@ -994,6 +974,61 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
         <tag>算法</tag>
         <tag>递归</tag>
         <tag>快速排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>我的第一篇hexo博客</title>
+    <url>/posts/de39a815.html</url>
+    <content><![CDATA[<h2 id="我放弃了h5-css-js来撰写我的博客">我放弃了h5+css+js来撰写我的博客</h2>
+<p>本来想手写个人网站博客的，结果写完静态页面之后突然想到后台和维护工作太繁复了，就改而使用hexo搭建（<s>人家的东西就是好</s>），同时也能学习markdown相关，一举两得了(●′ω`●)</p>
+<span id="more"></span>
+<h2 id="博客规划">博客规划</h2>
+<p>关于这个网站，我想用来写一些blog、吐槽，以及自己写的乱七八糟的东西，因为这些东西全发表在QQ空间里就会很~（你懂得），再加上最近买了个域名，本着不浪费的原则，就利用一下（=′∇`=）</p>
+<h2 id="建站参考">建站参考</h2>
+<p>有关nginx配置相关的我就不提了，用hexo搭建博客时，我主要借鉴了<a href="https://blog.csdn.net/bskfnvjtlyzmv867/article/details/79063816">这篇文章</a>，其中可能有一些细节出入，碰到问题的朋友可以邮件联络我（aysamu@foxmail.com）</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>测试</category>
+      </categories>
+      <tags>
+        <tag>试验体</tag>
+        <tag>联系我</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>电击惩罚与锁链</title>
+    <url>/posts/fc81e17b.html</url>
+    <content><![CDATA[<h2 id="电击惩罚与锁链">电击惩罚与锁链</h2>
+<p><em>本文所谈论与狗相关，勿乱联想。</em></p>
+<h4 id="序">序</h4>
+<p>叔父将老宅改建作民宿经营，乡下较为空旷，便购置两成年边牧作看家用，唤名八万与九筒。</p>
+<p>我要说的与九筒相关，两次见面，一周间隔。</p>
+<span id="more"></span>
+<h4 id="初">初</h4>
+<p>有亲戚离世，返乡奔丧，落脚老宅。</p>
+<p>刚下车就察觉一物体飞来，两只爪子在我没来得及反应时扑在了大腿上，脑内重量同冲击取缔了空白，待回过神来，人已踉跄两步。低头，入眼一条头套黑丝袜、面戴白口罩的生物。尽管被人盯上，它丝毫没有悔改的意思，悠哉悠哉地扭头走了几步，再转身，助跑，扑来…</p>
+<p>意外的是，夜间九筒并未被主人关起，它用一道黑影回复了我们。</p>
+<p>原本以为是一条不归家的狗，临近睡前它竟溜了回来，在门前扒拉扒拉、嗷呜嗷呜，和门内的八万一同唱双簧，将我们折腾到半夜才得以入睡。</p>
+<h4 id="次">次</h4>
+<p>国庆，返乡看望奶奶。</p>
+<p>抵达时已是晚十点，在车上听叔父说因八万扑倒了一位老太太，给了客人一笔赔偿。八万因此付出代价，被拴在门前空地上。</p>
+<p>故下车时迎来了理所当然的平静，随处走走，在遮阳伞下的桌上发现一遥控器状物。询问，得知是电击狗的东西，我想当然以为是电击器，摁下按键，从远处传来一声痛呼。</p>
+<p>那是止吠器——搜索之后我才明白。</p>
+<p>夜晚，与毛发洁净，与孩子们追逐嬉戏的八万不同，九筒独自趴在一处草中坑地里。我略微走近，出声唤它，未响应。索性蹲在边上，打开手电，再唤，未响应。</p>
+<p>许久，我起身走进其领地，它才肯向我走来，它必然不知道有一次电击是我按下的，于我而言，它知或不知都不会影响我的想法和行为。</p>
+<p>按住狗头，就能看见充满污秽的狗嘴。毛发已经发硬，随手一抓就能碰到打结的毛。它似乎想对我下口，仅管不是攻击，但我也不会让它得逞，它试图靠近，我就掐住脖子推之开来。</p>
+<p>向下按去，九筒自觉趴在地上翻过身来，逗弄一会儿后，我便离去，我只觉可惜。</p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>狗</tag>
+        <tag>九筒</tag>
+        <tag>自由</tag>
       </tags>
   </entry>
   <entry>
@@ -1577,41 +1612,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
-    <title>电击惩罚与锁链</title>
-    <url>/posts/fc81e17b.html</url>
-    <content><![CDATA[<h2 id="电击惩罚与锁链">电击惩罚与锁链</h2>
-<p><em>本文所谈论与狗相关，勿乱联想。</em></p>
-<h4 id="序">序</h4>
-<p>叔父将老宅改建作民宿经营，乡下较为空旷，便购置两成年边牧作看家用，唤名八万与九筒。</p>
-<p>我要说的与九筒相关，两次见面，一周间隔。</p>
-<span id="more"></span>
-<h4 id="初">初</h4>
-<p>有亲戚离世，返乡奔丧，落脚老宅。</p>
-<p>刚下车就察觉一物体飞来，两只爪子在我没来得及反应时扑在了大腿上，脑内重量同冲击取缔了空白，待回过神来，人已踉跄两步。低头，入眼一条头套黑丝袜、面戴白口罩的生物。尽管被人盯上，它丝毫没有悔改的意思，悠哉悠哉地扭头走了几步，再转身，助跑，扑来…</p>
-<p>意外的是，夜间九筒并未被主人关起，它用一道黑影回复了我们。</p>
-<p>原本以为是一条不归家的狗，临近睡前它竟溜了回来，在门前扒拉扒拉、嗷呜嗷呜，和门内的八万一同唱双簧，将我们折腾到半夜才得以入睡。</p>
-<h4 id="次">次</h4>
-<p>国庆，返乡看望奶奶。</p>
-<p>抵达时已是晚十点，在车上听叔父说因八万扑倒了一位老太太，给了客人一笔赔偿。八万因此付出代价，被拴在门前空地上。</p>
-<p>故下车时迎来了理所当然的平静，随处走走，在遮阳伞下的桌上发现一遥控器状物。询问，得知是电击狗的东西，我想当然以为是电击器，摁下按键，从远处传来一声痛呼。</p>
-<p>那是止吠器——搜索之后我才明白。</p>
-<p>夜晚，与毛发洁净，与孩子们追逐嬉戏的八万不同，九筒独自趴在一处草中坑地里。我略微走近，出声唤它，未响应。索性蹲在边上，打开手电，再唤，未响应。</p>
-<p>许久，我起身走进其领地，它才肯向我走来，它必然不知道有一次电击是我按下的，于我而言，它知或不知都不会影响我的想法和行为。</p>
-<p>按住狗头，就能看见充满污秽的狗嘴。毛发已经发硬，随手一抓就能碰到打结的毛。它似乎想对我下口，仅管不是攻击，但我也不会让它得逞，它试图靠近，我就掐住脖子推之开来。</p>
-<p>向下按去，九筒自觉趴在地上翻过身来，逗弄一会儿后，我便离去，我只觉可惜。</p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>随笔</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-        <tag>狗</tag>
-        <tag>九筒</tag>
-        <tag>自由</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>看过希腊神话后的胡思乱想</title>
     <url>/posts/ced1af00.html</url>
     <content><![CDATA[<h2 id="看过希腊神话后的胡思乱想"><em><strong>看过希腊神话后的胡思乱想</strong></em></h2>
@@ -1709,6 +1709,51 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>解决py2neo库插入neo4j时发生的重复节点写入问题</title>
+    <url>/posts/31f0c08e.html</url>
+    <content><![CDATA[<h1>解决py2neo库插入neo4j时发生的重复节点写入问题</h1>
+<p>在学习如何写入neo4j时，我找到了一个py2neo库，能简化对neo4j数据库的增删改查操作，减少了cypher语言的学习工作。</p>
+<h2 id="工作流推送">工作流推送</h2>
+<p>官方文档中推荐使用如下方式来进行工作流推送，后续代码中我也会省略该部分的描述。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph = Graph(url, auth=(url, pwd))</span><br><span class="line"># transaction写入过多数据时可能会响应缓慢，建议每一批次加载完成后便进行提交，再使用新的工作流写入。</span><br><span class="line">transaction = graph.begin()</span><br><span class="line">graph.commit(transaction)</span><br></pre></td></tr></table></figure>
+<h2 id="py2neo节点插入时重复节点处理">py2neo节点插入时重复节点处理</h2>
+<p>我将自己的数据写入到neo4j时，会出现重复写入节点的问题，经排查发现，我的节点是先于关系写入的，在关系写入时会发生此情况，因此需要改进该部分的代码写法。</p>
+<h3 id="create-函数直接创建关系">create()函数直接创建关系</h3>
+<p>在使用<code>transaction.create(rela)</code>为<code>Graph</code>对象创建关系时，若<code>n1</code>与<code>n2</code>是已经存在的节点（这里出于节点与关系的异步加载，无法直接调用第一次创建的节点对象），并使用流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n1 = Node(label, name=&quot;name1&quot;)</span><br><span class="line">n2 = Node(label, name=&quot;name2&quot;)</span><br><span class="line">rela = Relationship(n1, &quot;relation&quot;, n2)</span><br><span class="line">transaction.create(rela)</span><br><span class="line">graph.commit(transaction)</span><br></pre></td></tr></table></figure>
+<p>这时会出现重复节点的问题。</p>
+<h3 id="merge-函数从新旧节点里创建关系">merge()函数从新旧节点里创建关系</h3>
+<p>经查找发现，若使用<code>transaction.merge(rela(n1, n2), label, name)</code>可能可以避免重复节点的创建，该方法的使用如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">n1 = Node(label, name=&quot;name1&quot;)</span><br><span class="line">n2 = Node(label, name=&quot;name2&quot;)</span><br><span class="line">rela = Relationship.type(&quot;relation&quot;)</span><br><span class="line">transaction.merge(rela(n1, n2), label, name)</span><br><span class="line">graph.commit(transaction)</span><br></pre></td></tr></table></figure>
+<p>但由于我的节点多属于不同类型，而该函数中的<code>primary_label</code>与<code>primary_key</code>均为必填项，我暂未弄清楚应如何填写<code>label</code>项才能达成理想效果，并且该方法可能会面对新旧节点筛选的问题（尽管本项目中暂时没有这种问题），故放弃该方法。</p>
+<h3 id="NodeMatcher类进行节点查找">NodeMatcher类进行节点查找</h3>
+<p>查阅文档发现可以使用内置的<code>NodeMatcher</code>类来通过<code>label</code>与<code>name</code>来查找节点，本项目中节点属性项暂时较少，可以保证精确查找到目标节点。使用流程如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nodes = NodeMatcher(graph)</span><br><span class="line"># 若匹配成功会返回该节点对象，失败则为None。</span><br><span class="line">match_result = nodes.match(label, name=name).first()</span><br></pre></td></tr></table></figure>
+<p>该方法既可以用于避免预载入节点时重复写入，也可以用于避免关系写入时的重复节点创建。<br>
+在节点写入时，我进行如下的应用：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">for row in entities.itertuples():</span><br><span class="line">	# 若在现有节点中未匹配到当前节点，才会将其写入图对象中。</span><br><span class="line">	if nodes.match(row[1], name=row[2]).first() is None:</span><br><span class="line">		N = Node(row[1], name=row[2])</span><br><span class="line">		transaction.create(N)</span><br></pre></td></tr></table></figure>
+<p>由于我的每一批次中，所有节点都先于关系进行写入，所以不用关系写入时考虑出现节点匹配为空的情况。在我的关系写入中，我将其进行如下应用：</p>
+<pre><code>for row in relations.itertuples():
+	i_type = entities[entities[&quot;name&quot;] == row[1]][&quot;type&quot;].iloc[0]
+	t_type = entities[entities[&quot;name&quot;] == row[2]][&quot;type&quot;].iloc[0]
+	# 使用Nodematcher匹配已存在的节点，再在两者中间创建关系，最后写入图对象中。
+	n_i = nodes.match(i_type, name=row[1]).first()
+	n_t = nodes.match(t_type, name=row[2]).first()
+	rela = Relationship(n_i, row[3], n_t)
+	transaction.create(rela)
+</code></pre>
+]]></content>
+      <categories>
+        <category>neo4j</category>
+        <category>py2neo</category>
+      </categories>
+      <tags>
+        <tag>py2neo</tag>
+        <tag>neo4j</tag>
+        <tag>知识图谱</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>通过pyhdfs访问hdfs所遇到的相关问题</title>
     <url>/posts/1872f332.html</url>
     <content><![CDATA[<h2 id="通过pyhdfs访问hdfs所遇到的相关问题">通过pyhdfs访问hdfs所遇到的相关问题</h2>
@@ -1749,6 +1794,26 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       </tags>
   </entry>
   <entry>
+    <title>鹅</title>
+    <url>/posts/f1a75063.html</url>
+    <content><![CDATA[<h2 id="鹅"><em><strong>鹅</strong></em></h2>
+<p><em>耳边接连传来外婆的哀唱，</em></p>
+<span id="more"></span>
+<p><em>身旁陆续走过上前焚烧纸钱的宾客，</em></p>
+<p><em>可我双目紧盯着老宅旁的破棚无从分心，</em></p>
+<p><em>那三只鹅以二三一的顺序伸头嘎嘎，</em></p>
+<p><em>让人很是好奇。</em></p>
+]]></content>
+      <categories>
+        <category>写作</category>
+        <category>诗</category>
+      </categories>
+      <tags>
+        <tag>诗</tag>
+        <tag>葬礼</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>避免网站被恶意反向代理</title>
     <url>/posts/1313d302.html</url>
     <content><![CDATA[<h2 id="关于如何避免网站被恶意反向代理">关于如何避免网站被恶意反向代理</h2>
@@ -1767,26 +1832,6 @@ my_font = font_manager.FontProperties(fname=&quot;字体文件路径&quot;)
       <tags>
         <tag>hexo</tag>
         <tag>反向代理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>鹅</title>
-    <url>/posts/f1a75063.html</url>
-    <content><![CDATA[<h2 id="鹅"><em><strong>鹅</strong></em></h2>
-<p><em>耳边接连传来外婆的哀唱，</em></p>
-<span id="more"></span>
-<p><em>身旁陆续走过上前焚烧纸钱的宾客，</em></p>
-<p><em>可我双目紧盯着老宅旁的破棚无从分心，</em></p>
-<p><em>那三只鹅以二三一的顺序伸头嘎嘎，</em></p>
-<p><em>让人很是好奇。</em></p>
-]]></content>
-      <categories>
-        <category>写作</category>
-        <category>诗</category>
-      </categories>
-      <tags>
-        <tag>诗</tag>
-        <tag>葬礼</tag>
       </tags>
   </entry>
 </search>

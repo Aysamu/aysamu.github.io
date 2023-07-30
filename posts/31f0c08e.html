@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>解决py2neo库插入neo4j时发生的重复节点写入问题 | 脱脑而出</title><meta name="author" content="Aysamu"><meta name="copyright" content="Aysamu"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="解决py2neo库插入neo4j时发生的重复节点写入问题 在学习如何写入neo4j时，我找到了一个py2neo库，能简化对neo4j数据库的增删改查操作，减少了cypher语言的学习工作。 工作流推送 官方文档中推荐使用如下方式来进行工作流推送，后续代码中我也会省略该部分的描述。 1234graph &#x3D; Graph(url, auth&#x3D;(url, pwd))# transaction写入过多数据时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决py2neo库插入neo4j时发生的重复节点写入问题">
+<meta property="og:url" content="https://aysamu.github.io/posts/31f0c08e.html">
+<meta property="og:site_name" content="脱脑而出">
+<meta property="og:description" content="解决py2neo库插入neo4j时发生的重复节点写入问题 在学习如何写入neo4j时，我找到了一个py2neo库，能简化对neo4j数据库的增删改查操作，减少了cypher语言的学习工作。 工作流推送 官方文档中推荐使用如下方式来进行工作流推送，后续代码中我也会省略该部分的描述。 1234graph &#x3D; Graph(url, auth&#x3D;(url, pwd))# transaction写入过多数据时">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png">
+<meta property="article:published_time" content="2023-07-30T12:45:58.000Z">
+<meta property="article:modified_time" content="2023-07-30T12:45:58.000Z">
+<meta property="article:author" content="Aysamu">
+<meta property="article:tag" content="py2neo">
+<meta property="article:tag" content="neo4j">
+<meta property="article:tag" content="知识图谱">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png"><link rel="shortcut icon" href="/img/16x16.ico"><link rel="canonical" href="https://aysamu.github.io/posts/31f0c08e.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><meta name="google-site-verification" content="google09ae3779e7ebec4d.html"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-FW3Q4M0T6V"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-FW3Q4M0T6V');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Aysamu","link":"链接: ","source":"来源: 脱脑而出","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '解决py2neo库插入neo4j时发生的重复节点写入问题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-30 20:45:58'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+
+preloader.initLoading()
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (false) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png')"><nav id="nav"><span id="blog-info"><a href="/" title="脱脑而出"><img class="site-icon" src="/img/32x32.ico"/><span class="site-name">脱脑而出</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">解决py2neo库插入neo4j时发生的重复节点写入问题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-30T12:45:58.000Z" title="发表于 2023-07-30 20:45:58">2023-07-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-30T12:45:58.000Z" title="更新于 2023-07-30 20:45:58">2023-07-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/neo4j/">neo4j</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/neo4j/py2neo/">py2neo</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">852</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>解决py2neo库插入neo4j时发生的重复节点写入问题</h1>
+<p>在学习如何写入neo4j时，我找到了一个py2neo库，能简化对neo4j数据库的增删改查操作，减少了cypher语言的学习工作。</p>
+<h2 id="工作流推送">工作流推送</h2>
+<p>官方文档中推荐使用如下方式来进行工作流推送，后续代码中我也会省略该部分的描述。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph = Graph(url, auth=(url, pwd))</span><br><span class="line"># transaction写入过多数据时可能会响应缓慢，建议每一批次加载完成后便进行提交，再使用新的工作流写入。</span><br><span class="line">transaction = graph.begin()</span><br><span class="line">graph.commit(transaction)</span><br></pre></td></tr></table></figure>
+<h2 id="py2neo节点插入时重复节点处理">py2neo节点插入时重复节点处理</h2>
+<p>我将自己的数据写入到neo4j时，会出现重复写入节点的问题，经排查发现，我的节点是先于关系写入的，在关系写入时会发生此情况，因此需要改进该部分的代码写法。</p>
+<h3 id="create-函数直接创建关系">create()函数直接创建关系</h3>
+<p>在使用<code>transaction.create(rela)</code>为<code>Graph</code>对象创建关系时，若<code>n1</code>与<code>n2</code>是已经存在的节点（这里出于节点与关系的异步加载，无法直接调用第一次创建的节点对象），并使用流程：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n1 = Node(label, name=&quot;name1&quot;)</span><br><span class="line">n2 = Node(label, name=&quot;name2&quot;)</span><br><span class="line">rela = Relationship(n1, &quot;relation&quot;, n2)</span><br><span class="line">transaction.create(rela)</span><br><span class="line">graph.commit(transaction)</span><br></pre></td></tr></table></figure>
+<p>这时会出现重复节点的问题。</p>
+<h3 id="merge-函数从新旧节点里创建关系">merge()函数从新旧节点里创建关系</h3>
+<p>经查找发现，若使用<code>transaction.merge(rela(n1, n2), label, name)</code>可能可以避免重复节点的创建，该方法的使用如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n1 = Node(label, name=&quot;name1&quot;)</span><br><span class="line">n2 = Node(label, name=&quot;name2&quot;)</span><br><span class="line">rela = Relationship.type(&quot;relation&quot;)</span><br><span class="line">transaction.merge(rela(n1, n2), label, name)</span><br><span class="line">graph.commit(transaction)</span><br></pre></td></tr></table></figure>
+<p>但由于我的节点多属于不同类型，而该函数中的<code>primary_label</code>与<code>primary_key</code>均为必填项，我暂未弄清楚应如何填写<code>label</code>项才能达成理想效果，并且该方法可能会面对新旧节点筛选的问题（尽管本项目中暂时没有这种问题），故放弃该方法。</p>
+<h3 id="NodeMatcher类进行节点查找">NodeMatcher类进行节点查找</h3>
+<p>查阅文档发现可以使用内置的<code>NodeMatcher</code>类来通过<code>label</code>与<code>name</code>来查找节点，本项目中节点属性项暂时较少，可以保证精确查找到目标节点。使用流程如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nodes = NodeMatcher(graph)</span><br><span class="line"># 若匹配成功会返回该节点对象，失败则为None。</span><br><span class="line">match_result = nodes.match(label, name=name).first()</span><br></pre></td></tr></table></figure>
+<p>该方法既可以用于避免预载入节点时重复写入，也可以用于避免关系写入时的重复节点创建。<br>
+在节点写入时，我进行如下的应用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for row in entities.itertuples():</span><br><span class="line">	# 若在现有节点中未匹配到当前节点，才会将其写入图对象中。</span><br><span class="line">	if nodes.match(row[1], name=row[2]).first() is None:</span><br><span class="line">		N = Node(row[1], name=row[2])</span><br><span class="line">		transaction.create(N)</span><br></pre></td></tr></table></figure>
+<p>由于我的每一批次中，所有节点都先于关系进行写入，所以不用关系写入时考虑出现节点匹配为空的情况。在我的关系写入中，我将其进行如下应用：</p>
+<pre><code>for row in relations.itertuples():
+	i_type = entities[entities[&quot;name&quot;] == row[1]][&quot;type&quot;].iloc[0]
+	t_type = entities[entities[&quot;name&quot;] == row[2]][&quot;type&quot;].iloc[0]
+	# 使用Nodematcher匹配已存在的节点，再在两者中间创建关系，最后写入图对象中。
+	n_i = nodes.match(i_type, name=row[1]).first()
+	n_t = nodes.match(t_type, name=row[2]).first()
+	rela = Relationship(n_i, row[3], n_t)
+	transaction.create(rela)
+</code></pre>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://aysamu.github.io">Aysamu</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://aysamu.github.io/posts/31f0c08e.html">https://aysamu.github.io/posts/31f0c08e.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://aysamu.github.io" target="_blank">脱脑而出</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/py2neo/">py2neo</a><a class="post-meta__tags" href="/tags/neo4j/">neo4j</a><a class="post-meta__tags" href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">知识图谱</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/posts/ecca48a8.html" title="2023-6-18"><img class="cover" src="https://i.loli.net/2019/11/10/gcnavZbmepS8d4u.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">2023-6-18</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="waline-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Aysamu</div><div class="author-info__description">在这里记录Aysamu的想法与经验</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">53</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">28</div></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Aysamu" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:aysamu@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">解决py2neo库插入neo4j时发生的重复节点写入问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%8E%A8%E9%80%81"><span class="toc-number">1.1.</span> <span class="toc-text">工作流推送</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#py2neo%E8%8A%82%E7%82%B9%E6%8F%92%E5%85%A5%E6%97%B6%E9%87%8D%E5%A4%8D%E8%8A%82%E7%82%B9%E5%A4%84%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">py2neo节点插入时重复节点处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#create-%E5%87%BD%E6%95%B0%E7%9B%B4%E6%8E%A5%E5%88%9B%E5%BB%BA%E5%85%B3%E7%B3%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">create()函数直接创建关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge-%E5%87%BD%E6%95%B0%E4%BB%8E%E6%96%B0%E6%97%A7%E8%8A%82%E7%82%B9%E9%87%8C%E5%88%9B%E5%BB%BA%E5%85%B3%E7%B3%BB"><span class="toc-number">1.2.2.</span> <span class="toc-text">merge()函数从新旧节点里创建关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NodeMatcher%E7%B1%BB%E8%BF%9B%E8%A1%8C%E8%8A%82%E7%82%B9%E6%9F%A5%E6%89%BE"><span class="toc-number">1.2.3.</span> <span class="toc-text">NodeMatcher类进行节点查找</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/31f0c08e.html" title="解决py2neo库插入neo4j时发生的重复节点写入问题"><img src="https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决py2neo库插入neo4j时发生的重复节点写入问题"/></a><div class="content"><a class="title" href="/posts/31f0c08e.html" title="解决py2neo库插入neo4j时发生的重复节点写入问题">解决py2neo库插入neo4j时发生的重复节点写入问题</a><time datetime="2023-07-30T12:45:58.000Z" title="发表于 2023-07-30 20:45:58">2023-07-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/ecca48a8.html" title="2023-6-18"><img src="https://i.loli.net/2019/11/10/gcnavZbmepS8d4u.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2023-6-18"/></a><div class="content"><a class="title" href="/posts/ecca48a8.html" title="2023-6-18">2023-6-18</a><time datetime="2023-06-17T16:36:11.000Z" title="发表于 2023-06-18 00:36:11">2023-06-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/c9a3baef.html" title="Python爬虫小结"><img src="https://img.gejiba.com/images/d27e2404f359da8330e5098784074578.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python爬虫小结"/></a><div class="content"><a class="title" href="/posts/c9a3baef.html" title="Python爬虫小结">Python爬虫小结</a><time datetime="2023-05-27T13:04:00.000Z" title="发表于 2023-05-27 21:04:00">2023-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/6a38f8e1.html" title="使用Hexo的Butterfly主题进行博客配置并部署至Githubpage"><img src="https://i.loli.net/2019/11/10/egVhFWopA5mP2Hk.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用Hexo的Butterfly主题进行博客配置并部署至Githubpage"/></a><div class="content"><a class="title" href="/posts/6a38f8e1.html" title="使用Hexo的Butterfly主题进行博客配置并部署至Githubpage">使用Hexo的Butterfly主题进行博客配置并部署至Githubpage</a><time datetime="2023-05-27T04:24:50.000Z" title="发表于 2023-05-27 12:24:50">2023-05-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/e49bf433.html" title="VS上配置Anaconda来构建环境"><img src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="VS上配置Anaconda来构建环境"/></a><div class="content"><a class="title" href="/posts/e49bf433.html" title="VS上配置Anaconda来构建环境">VS上配置Anaconda来构建环境</a><time datetime="2023-05-27T03:48:00.000Z" title="发表于 2023-05-27 11:48:00">2023-05-27</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.loli.net/2019/11/10/T7Mu8Aod3egmC4Q.png')"><div id="footer-wrap"><div class="copyright">&copy;2023 By Aysamu</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><div class="js-pjax"><script>function loadWaline () {
+  function initWaline () {
+    const waline = Waline.init(Object.assign({
+      el: '#waline-wrap',
+      serverURL: 'https://github-blog-kpwa885xr-aysamu.vercel.app/',
+      pageview: false,
+      dark: 'html[data-theme="dark"]',
+      path: window.location.pathname,
+      comment: false,
+    }, {"locale.placeholder":"快来评论啊快来评论啊！"}))
+  }
+
+  const walineCSSLoad = document.getElementById('waline-css')
+
+  if (typeof Waline === 'object') {
+    walineCSSLoad ? initWaline() : getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(initWaline)
+  }
+  else {
+    getCSS('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.css','waline-css').then(() => {
+      getScript('https://cdn.jsdelivr.net/npm/@waline/client/dist/waline.min.js').then(initWaline)
+    })
+  }
+}
+
+if ('Waline' === 'Waline' || !true) {
+  if (true) btf.loadComment(document.getElementById('waline-wrap'),loadWaline)
+  else setTimeout(loadWaline, 0)
+} else {
+  function loadOtherComment () {
+    loadWaline()
+  }
+}</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="乾,坤,震,巽,坎,离,艮,兑" data-fontsize="15px" data-random="true" async="async"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
